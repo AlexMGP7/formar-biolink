@@ -1,0 +1,571 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Inversiones Formar - Proyectos de ingeniería y construcción." />
+  <meta name="public-url" content="https://AlexMGP7.github.io/formar-biolink/" />
+  <title>Inversiones Formar | Biolink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Arimo:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand-blue: #18528f;
+      --brand-cyan: #0ba3d4;
+      --ink: #13253b;
+      --muted: #5a6b7f;
+      --card: rgba(255, 255, 255, 0.94);
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --shadow: 0 14px 38px rgba(8, 22, 41, 0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arimo, sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(11, 163, 212, 0.35), transparent 40%),
+        radial-gradient(circle at 90% 0%, rgba(24, 82, 143, 0.45), transparent 36%),
+        linear-gradient(160deg, #0e2f53 0%, #123f6f 45%, #0b5b90 100%);
+      padding: 26px 14px 40px;
+    }
+
+    .container {
+      width: min(520px, 100%);
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 14px;
+      animation: fadeDown .5s ease;
+    }
+
+    .logo {
+      width: 98px;
+      height: 98px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: linear-gradient(140deg, #fff, #eaf4ff);
+      border: 3px solid rgba(255, 255, 255, 0.85);
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      font-family: Poppins, sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--brand-blue);
+    }
+
+    .brand {
+      font-family: Poppins, sans-serif;
+      font-size: clamp(1.55rem, 4vw, 2rem);
+      font-weight: 800;
+      color: #fff;
+      text-shadow: 0 8px 24px rgba(5, 12, 26, 0.35);
+      letter-spacing: 0.2px;
+    }
+
+    .handle {
+      color: rgba(255, 255, 255, 0.88);
+      font-weight: 600;
+      margin-top: 3px;
+    }
+
+    .tagline {
+      color: rgba(255, 255, 255, 0.93);
+      margin: 10px auto 0;
+      max-width: 430px;
+      line-height: 1.45;
+      font-size: 0.95rem;
+    }
+
+    .strip {
+      margin: 14px 0 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .chip {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #fff;
+      border-radius: 999px;
+      padding: 10px 8px;
+      text-align: center;
+      font-size: .83rem;
+      font-weight: 700;
+      backdrop-filter: blur(3px);
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      margin-bottom: 12px;
+      animation: fadeUp .55s ease;
+    }
+
+    .section-title {
+      font-family: Poppins, sans-serif;
+      font-size: .94rem;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand-cyan), var(--brand-blue));
+    }
+
+    .about {
+      color: #21384f;
+      line-height: 1.65;
+      font-size: 0.97rem;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .action {
+      text-decoration: none;
+      color: #103457;
+      background: #fff;
+      border: 1px solid #dce8f5;
+      border-radius: var(--radius-md);
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: .2s ease;
+    }
+
+    .action:hover {
+      transform: translateY(-2px);
+      border-color: #b8d5ef;
+      box-shadow: 0 8px 18px rgba(11, 33, 59, 0.12);
+    }
+
+    .icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .icon.ig { background: linear-gradient(140deg, #e1306c, #c13584, #5851db); }
+    .icon.wa { background: linear-gradient(140deg, #25d366, #128c7e); }
+    .icon.map { background: linear-gradient(140deg, #1f8cff, #18528f); }
+    .icon.call { background: linear-gradient(140deg, #4b89dc, #2c5ea7); }
+
+    .action strong {
+      display: block;
+      font-family: Poppins, sans-serif;
+      font-size: .89rem;
+    }
+
+    .action span {
+      display: block;
+      font-size: .78rem;
+      color: #57708c;
+      margin-top: 2px;
+    }
+
+    .cta {
+      border: 0;
+      width: 100%;
+      background: linear-gradient(135deg, var(--brand-blue), var(--brand-cyan));
+      color: white;
+      font-family: Poppins, sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      border-radius: var(--radius-md);
+      padding: 13px 14px;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(24, 82, 143, 0.28);
+    }
+
+    .cta-link {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .secondary {
+      margin-top: 10px;
+      border: 1px solid #c8ddf0;
+      background: #f8fcff;
+      color: #154b81;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 9px;
+    }
+
+    .service {
+      border: 1px solid #dbe9f7;
+      background: #f8fcff;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      font-size: .82rem;
+      font-weight: 700;
+      color: #2a4662;
+    }
+
+    .service.all {
+      grid-column: 1 / -1;
+    }
+
+    .location {
+      font-size: .9rem;
+      line-height: 1.55;
+      color: #234261;
+      background: #f8fcff;
+      border: 1px solid #d7e8f8;
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 8px;
+    }
+
+    .footer {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: .79rem;
+      padding: 12px 4px 0;
+    }
+
+    .qr-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 10, 22, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 20;
+    }
+
+    .qr-modal.open {
+      display: flex;
+    }
+
+    .qr-box {
+      width: min(360px, 100%);
+      background: #fff;
+      border-radius: 18px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+      position: relative;
+      animation: zoom .2s ease;
+    }
+
+    .qr-box h3 {
+      font-family: Poppins, sans-serif;
+      color: #123f6f;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    #qrImage {
+      width: min(230px, 76vw);
+      aspect-ratio: 1 / 1;
+      border-radius: 10px;
+      border: 1px solid #d8e7f6;
+      background: #f6fbff;
+      margin: 10px auto 8px;
+      display: block;
+    }
+
+    #qrTarget {
+      display: block;
+      color: #476b8f;
+      font-size: .77rem;
+      word-break: break-all;
+      margin-bottom: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 30px;
+      height: 30px;
+      border: 0;
+      border-radius: 999px;
+      background: #edf5ff;
+      color: #25598d;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .qr-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .qr-actions a,
+    .qr-actions button {
+      flex: 1;
+      border-radius: 10px;
+      border: 1px solid #cfe1f3;
+      background: #f9fcff;
+      color: #154b81;
+      font-weight: 700;
+      font-size: .8rem;
+      padding: 10px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoom {
+      from { transform: scale(.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @media (max-width: 430px) {
+      .actions { grid-template-columns: 1fr; }
+      .services { grid-template-columns: 1fr; }
+      .strip { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <div class="logo" aria-hidden="true">IF</div>
+      <h1 class="brand">Inversiones Formar</h1>
+      <p class="handle">@inversionesformar</p>
+      <p class="tagline">Diseño, ejecución y supervisión de proyectos de ingeniería con enfoque técnico, cumplimiento y calidad.</p>
+    </header>
+
+    <section class="strip" aria-label="Diferenciales">
+      <div class="chip">Atención Personalizada</div>
+      <div class="chip">Equipo Calificado</div>
+      <div class="chip">Cobertura Integral</div>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">Quiénes Somos</h2>
+      <p class="about">
+        Somos una empresa dedicada a la realización y ejecución de proyectos de ingeniería de alta calidad,
+        brindando atención directa y responsable para garantizar resultados confiables y útiles para la sociedad.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">Canales Directos</h2>
+      <div class="actions">
+        <a class="action" href="https://www.instagram.com/inversionesformar?igsh=MWFteHJqMTBqejM2eA==" target="_blank" rel="noopener noreferrer">
+          <div class="icon ig">IG</div>
+          <div>
+            <strong>Instagram</strong>
+            <span>Portafolio y novedades</span>
+          </div>
+        </a>
+
+        <a class="action" href="https://wa.me/582954167461" target="_blank" rel="noopener noreferrer">
+          <div class="icon wa">WA</div>
+          <div>
+            <strong>WhatsApp</strong>
+            <span>+58 295 416 7461</span>
+          </div>
+        </a>
+
+        <a class="action" href="https://maps.google.com/?q=Av+Bol%C3%ADvar+CC+AB+Nivel+Mezzanina+Local+23+Playa+el+Angel+Pampatar" target="_blank" rel="noopener noreferrer">
+          <div class="icon map">MAP</div>
+          <div>
+            <strong>Ubicación</strong>
+            <span>CC A.B, Pampatar</span>
+          </div>
+        </a>
+
+        <a class="action" href="tel:+582954167461">
+          <div class="icon call">TEL</div>
+          <div>
+            <strong>Llamar Ahora</strong>
+            <span>Contacto inmediato</span>
+          </div>
+        </a>
+      </div>
+
+      <a class="action" id="shareButton" href="#" style="margin-top:10px;justify-content:center;">
+        <div>
+          <strong style="text-align:center;">Compartir Este Perfil</strong>
+          <span style="text-align:center;">Envía el enlace en un toque</span>
+        </div>
+      </a>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">Nuestros Servicios</h2>
+      <div class="services" aria-label="Servicios de Inversiones Formar">
+        <div class="service">Vialidades</div>
+        <div class="service">Edificaciones</div>
+        <div class="service">Hidráulicas</div>
+        <div class="service">Movimientos de Tierra</div>
+        <div class="service">Ingeniería Eléctrica</div>
+        <div class="service">Instalaciones Sanitarias</div>
+        <div class="service all">Otros Servicios Especializados</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">Visítanos</h2>
+      <p class="location">
+        Av. Bolívar, CC A.B Nivel Mezzanina Local #23<br />
+        Playa El Ángel, Pampatar
+      </p>
+      <a class="cta cta-link secondary" href="https://maps.google.com/?q=Av+Bol%C3%ADvar+CC+AB+Nivel+Mezzanina+Local+23+Playa+el+Angel+Pampatar" target="_blank" rel="noopener noreferrer">Abrir en Google Maps</a>
+    </section>
+
+    <section class="card">
+      <h2 class="section-title">Acciones Rápidas</h2>
+      <a class="cta cta-link" href="https://wa.me/582954167461?text=Hola%20Inversiones%20Formar,%20me%20interesa%20una%20cotizaci%C3%B3n." target="_blank" rel="noopener noreferrer">Solicitar Cotización por WhatsApp</a>
+      <button class="cta secondary" type="button" id="openQrBtn">Ver QR de este Biolink</button>
+    </section>
+
+    <p class="footer">© 2026 Inversiones Formar · Todos los derechos reservados</p>
+  </main>
+
+  <div class="qr-modal" id="qrModal" aria-hidden="true">
+    <div class="qr-box" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
+      <button class="close" id="closeQrBtn" aria-label="Cerrar QR">×</button>
+      <h3 id="qrTitle">Escanea y comparte</h3>
+      <img id="qrImage" alt="Código QR de Inversiones Formar" loading="lazy" />
+      <small id="qrTarget"></small>
+      <div class="qr-actions">
+        <a id="openTargetBtn" target="_blank" rel="noopener noreferrer">Abrir Link</a>
+        <button id="copyBtn" type="button">Copiar Link</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const qrModal = document.getElementById('qrModal');
+      const openQrBtn = document.getElementById('openQrBtn');
+      const closeQrBtn = document.getElementById('closeQrBtn');
+      const qrImage = document.getElementById('qrImage');
+      const qrTarget = document.getElementById('qrTarget');
+      const openTargetBtn = document.getElementById('openTargetBtn');
+      const copyBtn = document.getElementById('copyBtn');
+      const shareButton = document.getElementById('shareButton');
+
+      const metaPublic = document.querySelector('meta[name="public-url"]');
+      const configuredUrl = metaPublic && metaPublic.content ? metaPublic.content.trim() : '';
+
+      function getCurrentPublicUrl() {
+        if (configuredUrl && configuredUrl !== 'https://TU-USUARIO.github.io/inversiones-formar-biolink/') {
+          return configuredUrl;
+        }
+        if (window.location.protocol.startsWith('http')) {
+          return window.location.href;
+        }
+        return 'https://www.instagram.com/inversionesformar';
+      }
+
+      const profileUrl = getCurrentPublicUrl();
+      const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=700x700&data=' + encodeURIComponent(profileUrl);
+
+      function openQr() {
+        qrImage.src = qrUrl;
+        qrTarget.textContent = profileUrl;
+        openTargetBtn.href = profileUrl;
+        qrModal.classList.add('open');
+        qrModal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeQr() {
+        qrModal.classList.remove('open');
+        qrModal.setAttribute('aria-hidden', 'true');
+      }
+
+      openQrBtn.addEventListener('click', openQr);
+      closeQrBtn.addEventListener('click', closeQr);
+      qrModal.addEventListener('click', function (event) {
+        if (event.target === qrModal) closeQr();
+      });
+
+      copyBtn.addEventListener('click', async function () {
+        try {
+          await navigator.clipboard.writeText(profileUrl);
+          copyBtn.textContent = 'Copiado';
+          setTimeout(function () {
+            copyBtn.textContent = 'Copiar Link';
+          }, 1400);
+        } catch (error) {
+          alert('No se pudo copiar el enlace en este navegador.');
+        }
+      });
+
+      shareButton.addEventListener('click', async function (event) {
+        event.preventDefault();
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: 'Inversiones Formar',
+              text: 'Conoce nuestro perfil y servicios.',
+              url: profileUrl
+            });
+          } catch (error) {
+            // Cierre de diálogo de compartir: sin acción adicional.
+          }
+        } else {
+          window.open('https://wa.me/?text=' + encodeURIComponent('Mira este perfil: ' + profileUrl), '_blank', 'noopener');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
+
+
