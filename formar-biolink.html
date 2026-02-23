@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Inversiones Formar - Proyectos de ingeniería y construcción." />
-  <meta name="public-url" content="https://AlexMGP7.github.io/formar-biolink/" />
+  <meta name="public-url" content="https://alexmgp7.github.io/formar-biolink/" />
   <title>Inversiones Formar | Biolink</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,13 +12,14 @@
   <style>
     :root {
       --brand-blue: #18528f;
+      --brand-blue-deep: #0e3358;
       --brand-cyan: #0ba3d4;
-      --ink: #13253b;
-      --muted: #5a6b7f;
-      --card: rgba(255, 255, 255, 0.94);
-      --radius-lg: 20px;
+      --ink: #12304e;
+      --muted: #5b728a;
+      --card: rgba(255, 255, 255, 0.95);
+      --radius-lg: 22px;
       --radius-md: 14px;
-      --shadow: 0 14px 38px rgba(8, 22, 41, 0.18);
+      --shadow: 0 18px 42px rgba(8, 22, 41, 0.2);
     }
 
     * {
@@ -32,61 +33,109 @@
       color: var(--ink);
       min-height: 100vh;
       background:
-        radial-gradient(circle at 15% 10%, rgba(11, 163, 212, 0.35), transparent 40%),
-        radial-gradient(circle at 90% 0%, rgba(24, 82, 143, 0.45), transparent 36%),
-        linear-gradient(160deg, #0e2f53 0%, #123f6f 45%, #0b5b90 100%);
-      padding: 26px 14px 40px;
+        radial-gradient(circle at 12% 9%, rgba(11, 163, 212, 0.35), transparent 34%),
+        radial-gradient(circle at 85% -12%, rgba(24, 82, 143, 0.5), transparent 42%),
+        linear-gradient(165deg, #0a2747 0%, #114171 43%, #0b669b 100%);
+      padding: 24px 14px 92px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 100%),
+        linear-gradient(30deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 100%);
+      background-size: 42px 42px, 42px 42px;
+      opacity: 0.28;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(11, 163, 212, 0.28), transparent 68%);
+      filter: blur(5px);
+      left: -90px;
+      bottom: -70px;
+      z-index: 0;
+      pointer-events: none;
     }
 
     .container {
-      width: min(520px, 100%);
+      width: min(540px, 100%);
       margin: 0 auto;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .header {
       text-align: center;
       margin-bottom: 14px;
-      animation: fadeDown .5s ease;
+      animation: fadeDown .55s ease;
     }
 
-    .logo {
-      width: 98px;
-      height: 98px;
+    .logo-ring {
+      width: 106px;
+      height: 106px;
       margin: 0 auto 12px;
       border-radius: 50%;
-      background: linear-gradient(140deg, #fff, #eaf4ff);
-      border: 3px solid rgba(255, 255, 255, 0.85);
+      border: 3px solid rgba(255, 255, 255, 0.86);
       box-shadow: var(--shadow);
+      background: linear-gradient(150deg, #fff, #ebf6ff);
       display: grid;
       place-items: center;
-      font-family: Poppins, sans-serif;
-      font-size: 36px;
-      font-weight: 800;
-      color: var(--brand-blue);
+      overflow: hidden;
+    }
+
+    .brand-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .logo-fallback {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      display: none;
+      place-items: center;
+      background: linear-gradient(140deg, #144577, #0ea6d7);
+      color: #fff;
+      box-shadow: inset 0 2px 10px rgba(255, 255, 255, 0.15);
+    }
+
+    .logo-fallback svg {
+      width: 44px;
+      height: 44px;
     }
 
     .brand {
       font-family: Poppins, sans-serif;
-      font-size: clamp(1.55rem, 4vw, 2rem);
+      font-size: clamp(1.58rem, 4vw, 2.03rem);
       font-weight: 800;
       color: #fff;
-      text-shadow: 0 8px 24px rgba(5, 12, 26, 0.35);
-      letter-spacing: 0.2px;
+      text-shadow: 0 8px 22px rgba(6, 14, 25, 0.34);
+      letter-spacing: 0.25px;
     }
 
     .handle {
-      color: rgba(255, 255, 255, 0.88);
+      color: rgba(255, 255, 255, 0.92);
       font-weight: 600;
-      margin-top: 3px;
+      margin-top: 2px;
     }
 
     .tagline {
-      color: rgba(255, 255, 255, 0.93);
+      color: rgba(255, 255, 255, 0.94);
       margin: 10px auto 0;
-      max-width: 430px;
-      line-height: 1.45;
+      max-width: 440px;
+      line-height: 1.47;
       font-size: 0.95rem;
     }
 
@@ -98,13 +147,13 @@
     }
 
     .chip {
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.36);
       color: #fff;
       border-radius: 999px;
       padding: 10px 8px;
       text-align: center;
-      font-size: .83rem;
+      font-size: .82rem;
       font-weight: 700;
       backdrop-filter: blur(3px);
     }
@@ -115,13 +164,13 @@
       box-shadow: var(--shadow);
       padding: 18px;
       margin-bottom: 12px;
-      animation: fadeUp .55s ease;
+      animation: fadeUp .56s ease;
     }
 
     .section-title {
       font-family: Poppins, sans-serif;
-      font-size: .94rem;
-      letter-spacing: 1.3px;
+      font-size: .95rem;
+      letter-spacing: 1.1px;
       text-transform: uppercase;
       color: var(--brand-blue);
       font-weight: 700;
@@ -166,20 +215,24 @@
 
     .action:hover {
       transform: translateY(-2px);
-      border-color: #b8d5ef;
-      box-shadow: 0 8px 18px rgba(11, 33, 59, 0.12);
+      border-color: #b7d8f0;
+      box-shadow: 0 9px 20px rgba(10, 33, 59, 0.13);
     }
 
     .icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 9px;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
       display: grid;
       place-items: center;
-      font-size: 14px;
-      font-weight: 800;
       color: white;
       flex-shrink: 0;
+    }
+
+    .icon svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
     }
 
     .icon.ig { background: linear-gradient(140deg, #e1306c, #c13584, #5851db); }
@@ -196,7 +249,7 @@
     .action span {
       display: block;
       font-size: .78rem;
-      color: #57708c;
+      color: #55718d;
       margin-top: 2px;
     }
 
@@ -212,17 +265,14 @@
       padding: 13px 14px;
       cursor: pointer;
       transition: .2s ease;
+      display: block;
+      text-align: center;
+      text-decoration: none;
     }
 
     .cta:hover {
       transform: translateY(-1px);
       box-shadow: 0 10px 20px rgba(24, 82, 143, 0.28);
-    }
-
-    .cta-link {
-      display: block;
-      text-align: center;
-      text-decoration: none;
     }
 
     .secondary {
@@ -266,9 +316,51 @@
 
     .footer {
       text-align: center;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.8);
       font-size: .79rem;
       padding: 12px 4px 0;
+    }
+
+    .quick-buttons {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      z-index: 25;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quick-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 0;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 14px 24px rgba(8, 20, 36, 0.28);
+      transition: transform .18s ease;
+      text-decoration: none;
+    }
+
+    .quick-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+    }
+
+    .quick-btn svg {
+      width: 25px;
+      height: 25px;
+      fill: currentColor;
+    }
+
+    .quick-btn.wa {
+      background: linear-gradient(140deg, #25d366, #0d9b6a);
+    }
+
+    .quick-btn.qr {
+      background: linear-gradient(140deg, #1f6eb5, #0ba3d4);
     }
 
     .qr-modal {
@@ -279,7 +371,7 @@
       align-items: center;
       justify-content: center;
       padding: 18px;
-      z-index: 20;
+      z-index: 30;
     }
 
     .qr-modal.open {
@@ -374,13 +466,24 @@
       .actions { grid-template-columns: 1fr; }
       .services { grid-template-columns: 1fr; }
       .strip { grid-template-columns: 1fr; }
+      .quick-btn {
+        width: 52px;
+        height: 52px;
+      }
     }
   </style>
 </head>
 <body>
   <main class="container">
     <header class="header">
-      <div class="logo" aria-hidden="true">IF</div>
+      <div class="logo-ring">
+        <img id="brandLogo" class="brand-logo" src="./logo-formar.png" alt="Logo Inversiones Formar" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='grid';" />
+        <div class="logo-fallback" id="logoFallback" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 20h18v2H3zM5 10h4v8H5zm10-4h4v12h-4zM10 4h4v14h-4z" />
+          </svg>
+        </div>
+      </div>
       <h1 class="brand">Inversiones Formar</h1>
       <p class="handle">@inversionesformar</p>
       <p class="tagline">Diseño, ejecución y supervisión de proyectos de ingeniería con enfoque técnico, cumplimiento y calidad.</p>
@@ -404,7 +507,9 @@
       <h2 class="section-title">Canales Directos</h2>
       <div class="actions">
         <a class="action" href="https://www.instagram.com/inversionesformar?igsh=MWFteHJqMTBqejM2eA==" target="_blank" rel="noopener noreferrer">
-          <div class="icon ig">IG</div>
+          <div class="icon ig" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2m-.2 2A3.55 3.55 0 0 0 4 7.55v8.9A3.55 3.55 0 0 0 7.55 20h8.9A3.55 3.55 0 0 0 20 16.45v-8.9A3.55 3.55 0 0 0 16.45 4h-8.9m9.95 1.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6"/></svg>
+          </div>
           <div>
             <strong>Instagram</strong>
             <span>Portafolio y novedades</span>
@@ -412,7 +517,9 @@
         </a>
 
         <a class="action" href="https://wa.me/582954167461" target="_blank" rel="noopener noreferrer">
-          <div class="icon wa">WA</div>
+          <div class="icon wa" aria-hidden="true">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.48.65 4.8 1.79 6.82L2 30l7.38-1.76A13.93 13.93 0 0 0 16 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm0 25.5c-2.18 0-4.22-.6-5.97-1.63l-.43-.25-4.38 1.04 1.07-4.28-.28-.45A11.47 11.47 0 0 1 4.5 16C4.5 9.6 9.6 4.5 16 4.5S27.5 9.6 27.5 16 22.4 27.5 16 27.5zm6.3-8.58c-.35-.17-2.06-1.01-2.38-1.13-.32-.12-.56-.17-.79.17-.23.35-.9 1.13-1.1 1.36-.2.23-.41.26-.76.09-.35-.17-1.48-.55-2.81-1.74-1.04-.93-1.74-2.08-1.94-2.43-.2-.35-.02-.54.15-.71.16-.16.35-.41.52-.61.17-.21.23-.35.35-.58.12-.23.06-.44-.03-.61-.09-.17-.79-1.9-1.08-2.6-.28-.68-.57-.59-.79-.6l-.67-.01c-.23 0-.61.09-.93.44-.32.35-1.22 1.19-1.22 2.9 0 1.7 1.25 3.35 1.42 3.58.17.23 2.46 3.76 5.96 5.27.83.36 1.49.57 2 .73.84.27 1.6.23 2.2.14.67-.1 2.06-.84 2.35-1.66.29-.82.29-1.52.2-1.66-.09-.15-.32-.23-.67-.4z"/></svg>
+          </div>
           <div>
             <strong>WhatsApp</strong>
             <span>+58 295 416 7461</span>
@@ -420,7 +527,9 @@
         </a>
 
         <a class="action" href="https://maps.google.com/?q=Av+Bol%C3%ADvar+CC+AB+Nivel+Mezzanina+Local+23+Playa+el+Angel+Pampatar" target="_blank" rel="noopener noreferrer">
-          <div class="icon map">MAP</div>
+          <div class="icon map" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7m0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5"/></svg>
+          </div>
           <div>
             <strong>Ubicación</strong>
             <span>CC A.B, Pampatar</span>
@@ -428,7 +537,9 @@
         </a>
 
         <a class="action" href="tel:+582954167461">
-          <div class="icon call">TEL</div>
+          <div class="icon call" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.7 11.7 0 0 0 3.67.59 1 1 0 0 1 1 1V21a1 1 0 0 1-1 1A17 17 0 0 1 2 5a1 1 0 0 1 1-1h4.27a1 1 0 0 1 1 1 11.7 11.7 0 0 0 .58 3.67 1 1 0 0 1-.23 1z"/></svg>
+          </div>
           <div>
             <strong>Llamar Ahora</strong>
             <span>Contacto inmediato</span>
@@ -463,17 +574,26 @@
         Av. Bolívar, CC A.B Nivel Mezzanina Local #23<br />
         Playa El Ángel, Pampatar
       </p>
-      <a class="cta cta-link secondary" href="https://maps.google.com/?q=Av+Bol%C3%ADvar+CC+AB+Nivel+Mezzanina+Local+23+Playa+el+Angel+Pampatar" target="_blank" rel="noopener noreferrer">Abrir en Google Maps</a>
+      <a class="cta secondary" href="https://maps.google.com/?q=Av+Bol%C3%ADvar+CC+AB+Nivel+Mezzanina+Local+23+Playa+el+Angel+Pampatar" target="_blank" rel="noopener noreferrer">Abrir en Google Maps</a>
     </section>
 
     <section class="card">
       <h2 class="section-title">Acciones Rápidas</h2>
-      <a class="cta cta-link" href="https://wa.me/582954167461?text=Hola%20Inversiones%20Formar,%20me%20interesa%20una%20cotizaci%C3%B3n." target="_blank" rel="noopener noreferrer">Solicitar Cotización por WhatsApp</a>
+      <a class="cta" href="https://wa.me/582954167461?text=Hola%20Inversiones%20Formar,%20me%20interesa%20una%20cotizaci%C3%B3n." target="_blank" rel="noopener noreferrer">Solicitar Cotización por WhatsApp</a>
       <button class="cta secondary" type="button" id="openQrBtn">Ver QR de este Biolink</button>
     </section>
 
     <p class="footer">© 2026 Inversiones Formar · Todos los derechos reservados</p>
   </main>
+
+  <div class="quick-buttons" aria-label="Acciones rápidas">
+    <a class="quick-btn wa" href="https://wa.me/582954167461" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp rápido">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.48.65 4.8 1.79 6.82L2 30l7.38-1.76A13.93 13.93 0 0 0 16 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm0 25.5c-2.18 0-4.22-.6-5.97-1.63l-.43-.25-4.38 1.04 1.07-4.28-.28-.45A11.47 11.47 0 0 1 4.5 16C4.5 9.6 9.6 4.5 16 4.5S27.5 9.6 27.5 16 22.4 27.5 16 27.5z"/></svg>
+    </a>
+    <button class="quick-btn qr" id="openQrFab" type="button" aria-label="Mostrar QR rápido">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 3h8v8H3zm2 2v4h4V5zm8-2h8v8h-8zm2 2v4h4V5zM3 13h8v8H3zm2 2v4h4v-4zm10-2h2v2h-2zm2 2h2v2h-2zm-2 2h2v2h-2zm2 2h4v2h-6v-4h2z"/></svg>
+    </button>
+  </div>
 
   <div class="qr-modal" id="qrModal" aria-hidden="true">
     <div class="qr-box" role="dialog" aria-modal="true" aria-labelledby="qrTitle">
@@ -492,6 +612,7 @@
     (function () {
       const qrModal = document.getElementById('qrModal');
       const openQrBtn = document.getElementById('openQrBtn');
+      const openQrFab = document.getElementById('openQrFab');
       const closeQrBtn = document.getElementById('closeQrBtn');
       const qrImage = document.getElementById('qrImage');
       const qrTarget = document.getElementById('qrTarget');
@@ -529,6 +650,7 @@
       }
 
       openQrBtn.addEventListener('click', openQr);
+      openQrFab.addEventListener('click', openQr);
       closeQrBtn.addEventListener('click', closeQr);
       qrModal.addEventListener('click', function (event) {
         if (event.target === qrModal) closeQr();
@@ -566,6 +688,3 @@
   </script>
 </body>
 </html>
-
-
-
