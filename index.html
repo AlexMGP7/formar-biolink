@@ -271,6 +271,83 @@
       .links-grid, .portfolio-grid { grid-template-columns: 1fr; }
       .brand-name { font-size: 22px; }
     }
+
+    /* === ESTILOS AÑADIDOS PARA EL MODAL DE IMÁGENES DINÁMICAS === */
+    .img-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 10, 22, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 2000;
+    }
+    .img-modal.open {
+      display: flex;
+    }
+    .img-box {
+      width: min(420px, 95vw);
+      background: #fff;
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+      position: relative;
+      animation: imgZoom .25s ease-out;
+    }
+    .img-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      word-break: break-word;
+    }
+    .img-container {
+      width: 100%;
+      max-height: 55vh;
+      overflow: hidden;
+      border-radius: 10px;
+      border: 1px solid #d8e7f6;
+      background: #f6fbff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 4px;
+    }
+    #dynamicImage {
+      max-width: 100%;
+      max-height: 55vh;
+      object-fit: contain;
+      display: block;
+    }
+    .img-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      border: 0;
+      border-radius: 50%;
+      background: #edf5ff;
+      color: var(--blue);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .img-close:hover {
+      background: #dceaff;
+    }
+    @keyframes imgZoom {
+      from { opacity: 0; transform: scale(0.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    /* ========================================================== */
   </style>
 </head>
 <body>
@@ -371,7 +448,145 @@
 
     <div class="footer">© 2025 Inversiones Formar · Todos los derechos reservados</div>
   </div>
+
+  <!-- === MODAL AÑADIDO PARA MOSTRAR IMÁGENES DINÁMICAS === -->
+  <div class="img-modal" id="imgModal" aria-hidden="true">
+    <div class="img-box" role="dialog" aria-modal="true" aria-labelledby="imgTitle">
+      <button class="img-close" id="closeImgBtn" aria-label="Cerrar Imagen">×</button>
+      <h3 class="img-title" id="imgTitle">Título de Imagen</h3>
+      <div class="img-container">
+        <img id="dynamicImage" src="" alt="Imagen cargada" />
+      </div>
+    </div>
+  </div>
+  <!-- ==================================================== -->
+
   <script>
+    /* === LÓGICA AÑADIDA PARA CARGAR E INTERACTUAR CON IMÁGENES DINÁMICAMENTE === */
+    (function () {
+      // Función para cargar JSZip bajo demanda si se selecciona un archivo ZIP
+      function loadJSZip() {
+        return new Promise((resolve, reject) => {
+          if (window.JSZip) {
+            resolve(window.JSZip);
+            return;
+          }
+          const script = document.createElement('script');
+          script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+          script.onload = () => resolve(window.JSZip);
+          script.onerror = () => reject(new Error('No se pudo cargar JSZip'));
+          document.head.appendChild(script);
+        });
+      }
+
+      // Función para formatear el título del archivo o imagen
+      // Convierte todo a minúsculas y solo la primera letra en mayúscula
+      function formatTitle(filename) {
+        const baseFilename = filename.split('/').pop();
+        const lastDot = baseFilename.lastIndexOf('.');
+        const baseName = lastDot !== -1 ? baseFilename.substring(0, lastDot) : baseFilename;
+        if (!baseName) return '';
+        return baseName.charAt(0).toUpperCase() + baseName.slice(1).toLowerCase();
+      }
+
+      const imgModal = document.getElementById('imgModal');
+      const imgTitle = document.getElementById('imgTitle');
+      const dynamicImage = document.getElementById('dynamicImage');
+      const closeImgBtn = document.getElementById('closeImgBtn');
+
+      function showModal(title, imgSrc) {
+        imgTitle.textContent = title;
+        dynamicImage.src = imgSrc;
+        imgModal.classList.add('open');
+        imgModal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeModal() {
+        imgModal.classList.remove('open');
+        imgModal.setAttribute('aria-hidden', 'true');
+        if (dynamicImage.src.startsWith('blob:')) {
+          URL.revokeObjectURL(dynamicImage.src);
+        }
+        dynamicImage.src = '';
+      }
+
+      closeImgBtn.addEventListener('click', closeModal);
+      imgModal.addEventListener('click', function (event) {
+        if (event.target === imgModal) closeModal();
+      });
+
+      // Crear un input de tipo file oculto para seleccionar archivos
+      const fileInput = document.createElement('input');
+      fileInput.type = 'file';
+      fileInput.accept = '.png,.jpg,.jpeg,.webp,.gif,.zip';
+      fileInput.style.display = 'none';
+      document.body.appendChild(fileInput);
+
+      // Procesar archivo seleccionado
+      async function handleFile(file) {
+        const extension = file.name.split('.').pop().toLowerCase();
+        
+        if (['png', 'jpg', 'jpeg', 'webp', 'gif'].includes(extension)) {
+          const title = formatTitle(file.name);
+          const imgUrl = URL.createObjectURL(file);
+          showModal(title, imgUrl);
+        } else if (extension === 'zip') {
+          try {
+            const title = formatTitle(file.name);
+            const JSZipLib = await loadJSZip();
+            const zip = await JSZipLib.loadAsync(file);
+            
+            let imgFile = null;
+            for (const relativePath in zip.files) {
+              const fileExt = relativePath.split('.').pop().toLowerCase();
+              if (['png', 'jpg', 'jpeg', 'webp', 'gif'].includes(fileExt) && !zip.files[relativePath].dir) {
+                imgFile = zip.files[relativePath];
+                break;
+              }
+            }
+            
+            if (!imgFile) {
+              alert('No se encontró ninguna imagen compatible (.png, .jpg, .jpeg, .webp, .gif) dentro del archivo ZIP.');
+              return;
+            }
+            
+            const blob = await imgFile.async('blob');
+            const imgUrl = URL.createObjectURL(blob);
+            showModal(title, imgUrl);
+          } catch (err) {
+            console.error(err);
+            alert('Error al leer el archivo ZIP.');
+          }
+        } else {
+          alert('Tipo de archivo no soportado. Seleccione una imagen o un archivo ZIP.');
+        }
+      }
+
+      fileInput.addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+          handleFile(e.target.files[0]);
+        }
+      });
+
+      // Registrar los iconos y botones interactivos existentes
+      const targets = [
+        document.querySelector('.logo-ring'),
+        ...document.querySelectorAll('.link-card'),
+        document.querySelector('.address-link'),
+        ...document.querySelectorAll('.pf-item')
+      ].filter(Boolean);
+
+      targets.forEach(target => {
+        target.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          fileInput.click();
+        });
+      });
+    })();
+    /* ========================================================================= */
+
+    // Conservar lógica original para gasificación (toggles)
     document.getElementById('gasif-item').addEventListener('click', function() {
       this.classList.toggle('open');
     });
