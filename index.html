@@ -457,6 +457,7 @@
       <div class="img-container">
         <img id="dynamicImage" src="" alt="Imagen cargada" />
       </div>
+      <div id="imgModalHint" style="font-size: 11.5px; color: #5b728a; margin-top: 8px; font-style: italic; line-height: 1.4;"></div>
     </div>
   </div>
   <!-- ==================================================== -->
@@ -477,6 +478,96 @@
           script.onerror = () => reject(new Error('No se pudo cargar JSZip'));
           document.head.appendChild(script);
         });
+      }
+
+      // Genera una imagen de plano técnico (blueprint) dinámicamente usando Canvas
+      function generateBlueprint(title) {
+        const canvas = document.createElement('canvas');
+        canvas.width = 800;
+        canvas.height = 600;
+        const ctx = canvas.getContext('2d');
+        
+        // Fondo: azul de plano técnico
+        ctx.fillStyle = '#0a2747';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Rejilla de fondo
+        ctx.strokeStyle = 'rgba(11, 163, 212, 0.12)';
+        ctx.lineWidth = 1;
+        const gridSpacing = 40;
+        for (let x = 0; x < canvas.width; x += gridSpacing) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, canvas.height);
+          ctx.stroke();
+        }
+        for (let y = 0; y < canvas.height; y += gridSpacing) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(canvas.width, y);
+          ctx.stroke();
+        }
+        
+        // Borde técnico
+        ctx.strokeStyle = '#0ba3d4';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
+        ctx.strokeRect(25, 25, canvas.width - 50, canvas.height - 50);
+        
+        // Dibujar líneas y círculos técnicos abstractos
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
+        ctx.lineWidth = 1.5;
+        
+        const Xcenter = canvas.width / 2;
+        const Ycenter = canvas.height / 2 - 30;
+        
+        // Círculos concéntricos
+        ctx.beginPath();
+        ctx.arc(Xcenter, Ycenter, 140, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.arc(Xcenter, Ycenter, 85, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        // Ejes
+        ctx.strokeStyle = 'rgba(11, 163, 212, 0.4)';
+        ctx.beginPath();
+        ctx.moveTo(40, Ycenter);
+        ctx.lineTo(canvas.width - 40, Ycenter);
+        ctx.moveTo(Xcenter, 40);
+        ctx.lineTo(Xcenter, canvas.height - 110);
+        ctx.stroke();
+        
+        // Hexágono técnico
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+        ctx.beginPath();
+        const sides = 6;
+        const size = 110;
+        for (let i = 0; i <= sides; i++) {
+          const angle = (i * 2 * Math.PI) / sides;
+          const x = Xcenter + size * Math.cos(angle);
+          const y = Ycenter + size * Math.sin(angle);
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+        
+        // Textos del plano
+        ctx.fillStyle = '#0ba3d4';
+        ctx.font = 'bold 22px monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText("INVERSIONES FORMAR C.A.", Xcenter, 70);
+        
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 20px monospace';
+        ctx.fillText("REFERENCIA: " + title.toUpperCase(), Xcenter, canvas.height - 110);
+        
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+        ctx.font = '14px monospace';
+        ctx.fillText("PLANO TÉCNICO DE REFERENCIA | ESCALA 1:100", Xcenter, canvas.height - 70);
+        
+        return canvas.toDataURL('image/png');
       }
 
       // Convierte el texto en un slug amigable para nombres de archivos
@@ -501,11 +592,18 @@
       const imgTitle = document.getElementById('imgTitle');
       const dynamicImage = document.getElementById('dynamicImage');
       const closeImgBtn = document.getElementById('closeImgBtn');
+      const imgModalHint = document.getElementById('imgModalHint');
 
-      function showModal(title, imgSrc) {
+      function showModal(title, imgSrc, hintText = "") {
         imgTitle.textContent = title;
         dynamicImage.src = imgSrc;
         dynamicImage.alt = title;
+        if (hintText) {
+          imgModalHint.textContent = hintText;
+          imgModalHint.style.display = 'block';
+        } else {
+          imgModalHint.style.display = 'none';
+        }
         imgModal.classList.add('open');
         imgModal.setAttribute('aria-hidden', 'false');
       }
@@ -565,9 +663,9 @@
 
       // Intentar descargar dinámicamente el archivo asociado con el slug
       // Comprueba extensiones (.png, .jpg, .jpeg, .webp, .gif, .zip) en la raíz, en /images y en /assets
-      async function fetchAsset(slug) {
+      async function fetchAsset(slug, originalName) {
         const extensions = ['png', 'jpg', 'jpeg', 'webp', 'gif', 'zip'];
-        showModal("Cargando...", "");
+        showModal("Cargando...", "", "");
         dynamicImage.alt = "Descargando referencia...";
         
         for (const ext of extensions) {
@@ -593,9 +691,15 @@
           }
         }
         
-        // Si no se encuentra ningún archivo compatible
-        closeModal();
-        alert(`No se encontró ningún archivo de imagen o comprimido (.png, .jpg, .jpeg, .webp, .gif, .zip) para "${slug}" en el servidor.`);
+        // Si no se encuentra ningún archivo compatible en el servidor,
+        // generamos un plano técnico (blueprint) dinámico para el servicio.
+        const formattedTitle = originalName || formatTitle(slug + ".png");
+        const blueprintUrl = generateBlueprint(formattedTitle);
+        showModal(
+          formattedTitle, 
+          blueprintUrl, 
+          `* Mostrando plano técnico de referencia. Para reemplazarlo, sube un archivo llamado '${slug}.png' o '${slug}.zip' al servidor.`
+        );
       }
 
       // Registrar únicamente las tarjetas de servicio del portafolio (pf-item)
@@ -611,7 +715,7 @@
           target.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            fetchAsset(slug);
+            fetchAsset(slug, label.textContent);
           });
         }
       });
