@@ -462,9 +462,9 @@
   <!-- ==================================================== -->
 
   <script>
-    /* === LÓGICA AÑADIDA PARA CARGAR E INTERACTUAR CON IMÁGENES DINÁMICAMENTE === */
+    /* === LÓGICA AÑADIDA PARA CARGAR E INTERACTUAR CON IMÁGENES DINÁMICAMENTE DESDE EL SERVIDOR === */
     (function () {
-      // Función para cargar JSZip bajo demanda si se selecciona un archivo ZIP
+      // Función para cargar JSZip bajo demanda si se descarga un archivo ZIP
       function loadJSZip() {
         return new Promise((resolve, reject) => {
           if (window.JSZip) {
@@ -479,8 +479,16 @@
         });
       }
 
+      // Convierte el texto en un slug amigable para nombres de archivos
+      function getSlug(text) {
+        return text.toLowerCase()
+          .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // quitar acentos
+          .replace(/[^a-z0-9]+/g, "-")                     // reemplazar espacios por guiones
+          .replace(/(^-|-$)/g, "");                        // limpiar guiones al principio/final
+      }
+
       // Función para formatear el título del archivo o imagen
-      // Convierte todo a minúsculas y solo la primera letra en mayúscula
+      // Convierte todo a minúsculas y solo la primera letra en mayúscula (ej. FOTO-GRANDE.png -> Foto-grande)
       function formatTitle(filename) {
         const baseFilename = filename.split('/').pop();
         const lastDot = baseFilename.lastIndexOf('.');
@@ -497,6 +505,7 @@
       function showModal(title, imgSrc) {
         imgTitle.textContent = title;
         dynamicImage.src = imgSrc;
+        dynamicImage.alt = title;
         imgModal.classList.add('open');
         imgModal.setAttribute('aria-hidden', 'false');
       }
@@ -515,58 +524,79 @@
         if (event.target === imgModal) closeModal();
       });
 
-      // Crear un input de tipo file oculto para seleccionar archivos
-      const fileInput = document.createElement('input');
-      fileInput.type = 'file';
-      fileInput.accept = '.png,.jpg,.jpeg,.webp,.gif,.zip';
-      fileInput.style.display = 'none';
-      document.body.appendChild(fileInput);
+      // Procesar blob de imagen directo
+      function handleImageBlob(blob, filename) {
+        const title = formatTitle(filename);
+        const imgUrl = URL.createObjectURL(blob);
+        showModal(title, imgUrl);
+      }
 
-      // Procesar archivo seleccionado
-      async function handleFile(file) {
-        const extension = file.name.split('.').pop().toLowerCase();
-        
-        if (['png', 'jpg', 'jpeg', 'webp', 'gif'].includes(extension)) {
-          const title = formatTitle(file.name);
-          const imgUrl = URL.createObjectURL(file);
-          showModal(title, imgUrl);
-        } else if (extension === 'zip') {
-          try {
-            const title = formatTitle(file.name);
-            const JSZipLib = await loadJSZip();
-            const zip = await JSZipLib.loadAsync(file);
-            
-            let imgFile = null;
-            for (const relativePath in zip.files) {
-              const fileExt = relativePath.split('.').pop().toLowerCase();
-              if (['png', 'jpg', 'jpeg', 'webp', 'gif'].includes(fileExt) && !zip.files[relativePath].dir) {
-                imgFile = zip.files[relativePath];
-                break;
-              }
+      // Procesar blob de archivo comprimido ZIP
+      async function handleZipBlob(blob, filename) {
+        try {
+          const title = formatTitle(filename);
+          const JSZipLib = await loadJSZip();
+          const zip = await JSZipLib.loadAsync(blob);
+          
+          let imgFile = null;
+          for (const relativePath in zip.files) {
+            const fileExt = relativePath.split('.').pop().toLowerCase();
+            if (['png', 'jpg', 'jpeg', 'webp', 'gif'].includes(fileExt) && !zip.files[relativePath].dir) {
+              imgFile = zip.files[relativePath];
+              break;
             }
-            
-            if (!imgFile) {
-              alert('No se encontró ninguna imagen compatible (.png, .jpg, .jpeg, .webp, .gif) dentro del archivo ZIP.');
-              return;
-            }
-            
-            const blob = await imgFile.async('blob');
-            const imgUrl = URL.createObjectURL(blob);
-            showModal(title, imgUrl);
-          } catch (err) {
-            console.error(err);
-            alert('Error al leer el archivo ZIP.');
           }
-        } else {
-          alert('Tipo de archivo no soportado. Seleccione una imagen o un archivo ZIP.');
+          
+          if (!imgFile) {
+            showModal(title, "");
+            alert('No se encontró ninguna imagen compatible (.png, .jpg, .jpeg, .webp, .gif) dentro del archivo ZIP.');
+            return;
+          }
+          
+          const imgBlob = await imgFile.async('blob');
+          const imgUrl = URL.createObjectURL(imgBlob);
+          showModal(title, imgUrl);
+        } catch (err) {
+          console.error(err);
+          showModal("Error", "");
+          alert('Error al leer o descomprimir el archivo ZIP.');
         }
       }
 
-      fileInput.addEventListener('change', function(e) {
-        if (e.target.files && e.target.files[0]) {
-          handleFile(e.target.files[0]);
+      // Intentar descargar dinámicamente el archivo asociado con el slug
+      // Comprueba extensiones (.png, .jpg, .jpeg, .webp, .gif, .zip) en la raíz, en /images y en /assets
+      async function fetchAsset(slug) {
+        const extensions = ['png', 'jpg', 'jpeg', 'webp', 'gif', 'zip'];
+        showModal("Cargando...", "");
+        dynamicImage.alt = "Descargando referencia...";
+        
+        for (const ext of extensions) {
+          const paths = [`./${slug}.${ext}`, `./images/${slug}.${ext}`, `./assets/${slug}.${ext}`];
+          for (const path of paths) {
+            try {
+              const response = await fetch(path, { method: 'HEAD' });
+              if (response.ok) {
+                const fileResponse = await fetch(path);
+                const blob = await fileResponse.blob();
+                const filename = path.split('/').pop();
+                
+                if (ext === 'zip') {
+                  await handleZipBlob(blob, filename);
+                } else {
+                  handleImageBlob(blob, filename);
+                }
+                return; // Encontrado y procesado con éxito
+              }
+            } catch (e) {
+              console.warn(`Error probando ruta ${path}:`, e);
+            }
+          }
         }
-      });
+        
+        // Si no se encuentra ningún archivo compatible
+        closeModal();
+        alert(`No se encontró ningún archivo de imagen o comprimido (.png, .jpg, .jpeg, .webp, .gif, .zip) para "${slug}" en el servidor.`);
+      }
 
       // Registrar los iconos y botones interactivos existentes
       const targets = [
@@ -577,10 +607,24 @@
       ].filter(Boolean);
 
       targets.forEach(target => {
+        let slug = '';
+        if (target.classList.contains('logo-ring')) {
+          slug = 'logo';
+        } else if (target.classList.contains('link-card')) {
+          const label = target.querySelector('.lc-label');
+          slug = label ? getSlug(label.textContent) : 'link';
+        } else if (target.classList.contains('address-link')) {
+          const label = target.querySelector('.addr-label');
+          slug = label ? getSlug(label.textContent) : 'address';
+        } else if (target.classList.contains('pf-item')) {
+          const label = target.querySelector('.pf-label');
+          slug = label ? getSlug(label.textContent) : 'portfolio';
+        }
+
         target.addEventListener('click', function(e) {
           e.preventDefault();
           e.stopPropagation();
-          fileInput.click();
+          fetchAsset(slug);
         });
       });
     })();
