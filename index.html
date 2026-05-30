@@ -598,34 +598,22 @@
         alert(`No se encontró ningún archivo de imagen o comprimido (.png, .jpg, .jpeg, .webp, .gif, .zip) para "${slug}" en el servidor.`);
       }
 
-      // Registrar los iconos y botones interactivos existentes
-      const targets = [
-        document.querySelector('.logo-ring'),
-        ...document.querySelectorAll('.link-card'),
-        document.querySelector('.address-link'),
-        ...document.querySelectorAll('.pf-item')
-      ].filter(Boolean);
+      // Registrar únicamente las tarjetas de servicio del portafolio (pf-item)
+      // Los enlaces sociales (Instagram, WhatsApp, Correo, Llamar) y de ubicación (Google Maps)
+      // conservarán su comportamiento original de abrir en una nueva pestaña o acción predeterminada.
+      const targets = [...document.querySelectorAll('.pf-item')].filter(Boolean);
 
       targets.forEach(target => {
-        let slug = '';
-        if (target.classList.contains('logo-ring')) {
-          slug = 'logo';
-        } else if (target.classList.contains('link-card')) {
-          const label = target.querySelector('.lc-label');
-          slug = label ? getSlug(label.textContent) : 'link';
-        } else if (target.classList.contains('address-link')) {
-          const label = target.querySelector('.addr-label');
-          slug = label ? getSlug(label.textContent) : 'address';
-        } else if (target.classList.contains('pf-item')) {
-          const label = target.querySelector('.pf-label');
-          slug = label ? getSlug(label.textContent) : 'portfolio';
-        }
+        const label = target.querySelector('.pf-label');
+        const slug = label ? getSlug(label.textContent) : '';
 
-        target.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          fetchAsset(slug);
-        });
+        if (slug) {
+          target.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            fetchAsset(slug);
+          });
+        }
       });
     })();
     /* ========================================================================= */
