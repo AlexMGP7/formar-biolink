@@ -361,6 +361,35 @@
       from { opacity: 0; transform: scale(0.92); }
       to   { opacity: 1; transform: scale(1); }
     }
+    .subcategory-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 13.5px;
+      color: var(--blue);
+      border-left: 3px solid var(--blue);
+      padding-left: 8px;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      text-align: left;
+      width: 100%;
+      box-sizing: border-box;
+      letter-spacing: 0.3px;
+    }
+    .gallery-item-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+    }
+    .gallery-item-caption {
+      font-family: 'Arimo', sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--blue);
+      align-self: flex-start;
+      padding-left: 4px;
+    }
     /* ============================================================= */
   </style>
 </head>
@@ -445,21 +474,13 @@
       <div class="section-title">Nuestros Servicios</div>
       <div class="portfolio-grid">
         <div class="pf-item"><span class="pf-label">Vialidades</span></div>
-        <div class="pf-item"><span class="pf-label">Urbanismo</span></div>
-        <div class="pf-item"><span class="pf-label">Rehabilitación de Vías Operacionales</span></div>
         <div class="pf-item"><span class="pf-label">Edificaciones</span></div>
-        <div class="pf-item"><span class="pf-label">Movimiento de Tierra</span></div>
-        <div class="pf-item"><span class="pf-label">Infraestructura de Planta de Concreto</span></div>
-        <div class="pf-item"><span class="pf-label">Redes de Alta y Baja Tensión</span></div>
-        <div class="pf-item"><span class="pf-label">Reemplazo de Tramo de Gasoducto</span></div>
-        <div class="pf-item"><span class="pf-label">Mantenimiento de Estaciones de Gas</span></div>
-        <div class="pf-item"><span class="pf-label">Red de Gas Doméstico</span></div>
-        <div class="pf-item"><span class="pf-label">Mantenimiento de Plataforma de Combustible</span></div>
-        <div class="pf-item"><span class="pf-label">Espigón 04</span></div>
-        <div class="pf-item"><span class="pf-label">Saneamiento Ambiental</span></div>
-        <div class="pf-item"><span class="pf-label">Embaulamiento</span></div>
-        <div class="pf-item"><span class="pf-label">Plantas de Tratamiento</span></div>
-        <div class="pf-item"><span class="pf-label">Diques de Contención</span></div>
+        <div class="pf-item"><span class="pf-label">Hidráulicas</span></div>
+        <div class="pf-item"><span class="pf-label">Movimientos de Tierra</span></div>
+        <div class="pf-item"><span class="pf-label">Ingeniería Eléctrica</span></div>
+        <div class="pf-item"><span class="pf-label">Instalaciones Sanitarias</span></div>
+        <div class="pf-item"><span class="pf-label">Gasificación</span></div>
+        <div class="pf-item"><span class="pf-label">Otros Servicios</span></div>
       </div>
     </div>
 
@@ -511,16 +532,6 @@
           .replace(/(^-|-$)/g, "");                        // limpiar guiones al principio/final
       }
 
-      // Función para formatear el título del archivo o imagen
-      // Convierte todo a minúsculas y solo la primera letra en mayúscula (ej. FOTO-GRANDE.png -> Foto-grande)
-      function formatTitle(filename) {
-        const baseFilename = filename.split('/').pop();
-        const lastDot = baseFilename.lastIndexOf('.');
-        const baseName = lastDot !== -1 ? baseFilename.substring(0, lastDot) : baseFilename;
-        if (!baseName) return '';
-        return baseName.charAt(0).toUpperCase() + baseName.slice(1).toLowerCase();
-      }
-
       const imgModal = document.getElementById('imgModal');
       const imgTitle = document.getElementById('imgTitle');
       const imgGalleryContainer = document.getElementById('imgGalleryContainer');
@@ -542,40 +553,6 @@
           placeholder.style.fontSize = '14px';
           placeholder.textContent = hintText || "Cargando galería...";
           imgGalleryContainer.appendChild(placeholder);
-        } else {
-          images.forEach(img => {
-            const wrapper = document.createElement('div');
-            wrapper.style.display = 'flex';
-            wrapper.style.flexDirection = 'column';
-            wrapper.style.alignItems = 'center';
-            wrapper.style.gap = '6px';
-            wrapper.style.width = '100%';
-            
-            const caption = document.createElement('span');
-            caption.textContent = img.name;
-            caption.style.fontFamily = 'Arimo, sans-serif';
-            caption.style.fontSize = '12.5px';
-            caption.style.fontWeight = '600';
-            caption.style.color = '#18528f';
-            caption.style.alignSelf = 'flex-start';
-            caption.style.paddingLeft = '4px';
-            
-            const container = document.createElement('div');
-            container.className = 'img-container';
-            
-            const imgElement = document.createElement('img');
-            imgElement.src = img.url;
-            imgElement.alt = img.name;
-            imgElement.style.maxWidth = '100%';
-            imgElement.style.maxHeight = '50vh';
-            imgElement.style.objectFit = 'contain';
-            imgElement.style.display = 'block';
-            
-            container.appendChild(imgElement);
-            wrapper.appendChild(caption);
-            wrapper.appendChild(container);
-            imgGalleryContainer.appendChild(wrapper);
-          });
         }
 
         if (hintText && images.length > 0) {
@@ -608,95 +585,201 @@
         if (event.target === imgModal) closeModal();
       });
 
-      // Procesar blob de archivo comprimido ZIP y extraer todas las imágenes
-      async function handleZipBlob(blob, filename) {
-        try {
-          const title = formatTitle(filename);
-          const JSZipLib = await loadJSZip();
-          const zip = await JSZipLib.loadAsync(blob);
-          
-          const imagesList = [];
-          
-          // Leer archivos del ZIP
-          for (const relativePath in zip.files) {
-            const fileExt = relativePath.split('.').pop().toLowerCase();
-            if (['png', 'jpg', 'jpeg', 'webp', 'gif'].includes(fileExt) && !zip.files[relativePath].dir) {
-              const imgFile = zip.files[relativePath];
-              const imgBlob = await imgFile.async('blob');
-              const imgUrl = URL.createObjectURL(imgBlob);
-              
-              // Formatear el nombre de la foto individual
-              const photoName = formatTitle(relativePath);
-              
-              imagesList.push({
-                name: photoName,
-                url: imgUrl
-              });
-              loadedBlobUrls.push(imgUrl);
-            }
-          }
-          
-          if (imagesList.length === 0) {
-            showModal(title, [], "No se encontraron imágenes compatibles (.png, .jpg, .jpeg, .webp, .gif) en este paquete.");
-            return;
-          }
-          
-          // Ordenar las imágenes alfabéticamente/numéricamente
-          imagesList.sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' }));
-          
-          showModal(title, imagesList);
-        } catch (err) {
-          console.error(err);
-          showModal("Error", [], "Error al leer o descomprimir las referencias del archivo ZIP.");
+      // Estructura del portafolio que mapea categorías principales a sus subcategorías y archivos ZIP
+      const portfolioStructure = {
+        "vialidades": {
+          title: "Vialidades",
+          zips: [
+            { file: "Vialidades.zip", label: "Pavimentación de Vías" },
+            { file: "REHABILITACION DE VIAS OPERACIONALES (2).zip", label: "Rehabilitación de Vías Operacionales" },
+            { file: "URBANISMO (1).zip", label: "Urbanismo - Urbanización El Ángel" }
+          ]
+        },
+        "edificaciones": {
+          title: "Edificaciones",
+          zips: [
+            { file: "EDIFICACION.zip", label: "Edificación - Residencias Villa Real" },
+            { file: "INFRAESTRUCTURA DE PLANTA DE CONCRETO.zip", label: "Infraestructura de Planta de Concreto" }
+          ]
+        },
+        "hidraulicas": {
+          title: "Hidráulicas",
+          zips: [
+            { file: "DIQUES DE CONTENCION (3).zip", label: "Diques de Contención - Río Las Marinas" },
+            { file: "EMBAULAMIENTO (3).zip", label: "Embaulamiento - Los Robles" },
+            { file: "PLANTAS DE TRATAMIENTO (2).zip", label: "Plantas de Tratamiento - Pampatar" }
+          ]
+        },
+        "movimientos-de-tierra": {
+          title: "Movimientos de Tierra",
+          zips: [
+            { file: "MOVIMIENTO DE TIERRA (1).zip", label: "Movimiento de Tierra - La Asunción" }
+          ]
+        },
+        "ingenieria-electrica": {
+          title: "Ingeniería Eléctrica",
+          zips: [
+            { file: "REDES DE ALTA Y BAJA TENSION (1).zip", label: "Redes de Alta y Baja Tensión - Sector Villa Rosa" }
+          ]
+        },
+        "instalaciones-sanitarias": {
+          title: "Instalaciones Sanitarias",
+          zips: [
+            { file: "saneamiento AMBIENTAL (2).zip", label: "Saneamiento Ambiental - Laguna de las Maritas" }
+          ]
+        },
+        "gasificacion": {
+          title: "Gasificación",
+          zips: [
+            { file: "RED DE GAS DOMESTICO (4).zip", label: "Red de Gas Doméstico - Sector Villa Rosa" },
+            { file: "MANTENIMIENTO DE ESTACIONES DE GAS (2).zip", label: "Mantenimiento de Estaciones de Gas - Planta Margarita" },
+            { file: "REEMPLAZO DE TRAMO DE GASODUCTO (1).zip", label: "Reemplazo de Tramo de Gasoducto - Sector El Morro" }
+          ]
+        },
+        "otros-servicios": {
+          title: "Otros Servicios",
+          zips: [
+            { file: "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE.zip", label: "Mantenimiento de Plataforma de Combustible - Aeropuerto" },
+            { file: "ESPIGON 04.zip", label: "Espigón de Contención - Espigón Pampatar" }
+          ]
         }
-      }
-
-      // Mapear slugs a los nombres reales de los ZIPs en el servidor
-      const servicesMap = {
-        "vialidades": "Vialidades.zip",
-        "urbanismo": "URBANISMO (1).zip",
-        "rehabilitacion-de-vias-operacionales": "REHABILITACION DE VIAS OPERACIONALES (2).zip",
-        "edificaciones": "EDIFICACION.zip",
-        "movimiento-de-tierra": "MOVIMIENTO DE TIERRA (1).zip",
-        "infraestructura-de-planta-de-concreto": "INFRAESTRUCTURA DE PLANTA DE CONCRETO.zip",
-        "redes-de-alta-y-baja-tension": "REDES DE ALTA Y BAJA TENSION (1).zip",
-        "reemplazo-de-tramo-de-gasoducto": "REEMPLAZO DE TRAMO DE GASODUCTO (1).zip",
-        "mantenimiento-de-estaciones-de-gas": "MANTENIMIENTO DE ESTACIONES DE GAS (2).zip",
-        "red-de-gas-domestico": "RED DE GAS DOMESTICO (4).zip",
-        "mantenimiento-de-plataforma-de-combustible": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE.zip",
-        "espigon-04": "ESPIGON 04.zip",
-        "saneamiento-ambiental": "saneamiento AMBIENTAL (2).zip",
-        "embaulamiento": "EMBAULAMIENTO (3).zip",
-        "plantas-de-trabamiento": "PLANTAS DE TRATAMIENTO (2).zip", // Soporta error ortográfico común en el click
-        "plantas-de-tratamiento": "PLANTAS DE TRATAMIENTO (2).zip",
-        "diques-de-contencion": "DIQUES DE CONTENCION (3).zip"
       };
 
       // Descargar dinámicamente y abrir la galería
       async function fetchAsset(slug, originalName) {
-        const zipFile = servicesMap[slug];
-        if (!zipFile) {
+        const config = portfolioStructure[slug];
+        if (!config) {
           alert(`No hay archivos asignados para el servicio "${originalName}".`);
           return;
         }
 
-        const formattedTitle = originalName;
-        showModal(formattedTitle, [], "Descargando referencias y abriendo galería de fotos...");
+        const formattedTitle = config.title;
+        showModal(formattedTitle, [], "Descargando referencias y abriendo galería de proyectos...");
 
-        const path = `./servicios/` + encodeURIComponent(zipFile);
         try {
-          const response = await fetch(path);
-          if (response.ok) {
-            const blob = await response.ok ? await response.blob() : null;
-            if (blob) {
-              await handleZipBlob(blob, zipFile);
+          const JSZipLib = await loadJSZip();
+          
+          // Descargar y descomprimir todos los archivos ZIP en paralelo
+          const promises = config.zips.map(async (zipConfig) => {
+            const path = `./servicios/` + encodeURIComponent(zipConfig.file);
+            try {
+              const response = await fetch(path);
+              if (!response.ok) {
+                throw new Error(`Error ${response.status} al cargar ${zipConfig.file}`);
+              }
+              const blob = await response.blob();
+              const zip = await JSZipLib.loadAsync(blob);
+              
+              const imagesInZip = [];
+              for (const relativePath in zip.files) {
+                const fileExt = relativePath.split('.').pop().toLowerCase();
+                if (['png', 'jpg', 'jpeg', 'webp', 'gif'].includes(fileExt) && !zip.files[relativePath].dir) {
+                  const imgFile = zip.files[relativePath];
+                  const imgBlob = await imgFile.async('blob');
+                  const imgUrl = URL.createObjectURL(imgBlob);
+                  loadedBlobUrls.push(imgUrl);
+                  imagesInZip.push({
+                    relativePath: relativePath,
+                    url: imgUrl
+                  });
+                }
+              }
+              
+              // Ordenar imágenes por nombre de archivo
+              imagesInZip.sort((a, b) => a.relativePath.localeCompare(b.relativePath, undefined, { numeric: true, sensitivity: 'base' }));
+              
+              return {
+                label: zipConfig.label,
+                success: true,
+                images: imagesInZip
+              };
+            } catch (err) {
+              console.error(`Error procesando ZIP ${zipConfig.file}:`, err);
+              return {
+                label: zipConfig.label,
+                success: false,
+                error: err.message
+              };
             }
-          } else {
-            showModal(formattedTitle, [], `Error al cargar la galería desde el servidor (Código de respuesta: ${response.status}). Asegúrate de que el archivo '${zipFile}' está en la carpeta de servicios del sitio.`);
+          });
+          
+          const results = await Promise.all(promises);
+          
+          // Limpiar el contenedor de galería
+          imgGalleryContainer.innerHTML = '';
+          
+          let totalImages = 0;
+          results.forEach((res) => {
+            if (res.success && res.images.length > 0) {
+              totalImages += res.images.length;
+              
+              // Crear el título de la subcategoría
+              const subhead = document.createElement('h4');
+              subhead.className = 'subcategory-title';
+              subhead.textContent = res.label;
+              imgGalleryContainer.appendChild(subhead);
+              
+              // Crear un grid/wrapper para las fotos de la subcategoría
+              const subcatGrid = document.createElement('div');
+              subcatGrid.style.display = 'flex';
+              subcatGrid.style.flexDirection = 'column';
+              subcatGrid.style.gap = '14px';
+              subcatGrid.style.width = '100%';
+              
+              res.images.forEach((img, idx) => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'gallery-item-wrapper';
+                
+                // Formatear caption agregando la ubicación y el índice para mayor claridad
+                const caption = document.createElement('span');
+                caption.className = 'gallery-item-caption';
+                caption.textContent = `${res.label} (${idx + 1})`;
+                
+                const container = document.createElement('div');
+                container.className = 'img-container';
+                
+                const imgElement = document.createElement('img');
+                imgElement.src = img.url;
+                imgElement.alt = `${res.label} (${idx + 1})`;
+                imgElement.style.maxWidth = '100%';
+                imgElement.style.maxHeight = '50vh';
+                imgElement.style.objectFit = 'contain';
+                imgElement.style.display = 'block';
+                
+                container.appendChild(imgElement);
+                wrapper.appendChild(caption);
+                wrapper.appendChild(container);
+                subcatGrid.appendChild(wrapper);
+              });
+              
+              imgGalleryContainer.appendChild(subcatGrid);
+            } else if (!res.success) {
+              const errorDiv = document.createElement('div');
+              errorDiv.style.padding = '10px';
+              errorDiv.style.color = '#c82333';
+              errorDiv.style.fontFamily = 'Arimo, sans-serif';
+              errorDiv.style.fontSize = '13px';
+              errorDiv.style.textAlign = 'left';
+              errorDiv.textContent = `No se pudo cargar la sección "${res.label}" (${res.error}).`;
+              imgGalleryContainer.appendChild(errorDiv);
+            }
+          });
+          
+          if (totalImages === 0) {
+            imgGalleryContainer.innerHTML = '';
+            const placeholder = document.createElement('div');
+            placeholder.style.padding = '30px 10px';
+            placeholder.style.color = '#5b728a';
+            placeholder.style.fontFamily = 'Arimo, sans-serif';
+            placeholder.style.fontSize = '14px';
+            placeholder.textContent = "No se encontraron imágenes compatibles en los paquetes de esta categoría.";
+            imgGalleryContainer.appendChild(placeholder);
           }
+          
+          imgModalHint.style.display = 'none';
         } catch (e) {
           console.error(e);
-          showModal(formattedTitle, [], "Error de conexión de red al intentar descargar los archivos del portafolio.");
+          showModal(formattedTitle, [], "Error general al intentar cargar los archivos de la galería.");
         }
       }
 
