@@ -590,31 +590,48 @@
         "vialidades": {
           title: "Vialidades",
           zips: [
-            { file: "Vialidades.zip", label: "Avenida Juan Bautista Arismendi" },
-            { file: "REHABILITACION DE VIAS OPERACIONALES (2).zip", label: "Áreas Operacionales del Distrito Gas Anaco" },
-            { file: "URBANISMO (1).zip", label: "Urbanización Villas de San Antonio" }
+            { 
+              file: "Vialidades.zip", 
+              label: "Pavimentación y Vialidad",
+              photoTitles: [
+                "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
+                "Avenida Juan Bautista Arismendi",
+                "Avenida Circunvalación Norte"
+              ]
+            },
+            { file: "REHABILITACION DE VIAS OPERACIONALES (2).zip", label: "Rehabilitación de Vías Operacionales - Áreas Operacionales del Distrito Gas Anaco" },
+            { file: "URBANISMO (1).zip", label: "Urbanismo - Urbanización Villas de San Antonio" }
           ]
         },
         "edificaciones": {
           title: "Edificaciones",
           zips: [
-            { file: "EDIFICACION.zip", label: "U.E.B.N. Dr. Luis Ortega" },
-            { file: "PLANTA_LA_GUARDIA.zip", label: "Planta de Tratamiento La Guardia" },
-            { file: "INFRAESTRUCTURA DE PLANTA DE CONCRETO.zip", label: "Infraestructura de Planta de Concreto" }
+            { file: "EDIFICACION.zip", label: "Edificación Escolares", photoTitles: ["U.E.B.N. Dr. Luis Ortega"] },
+            { file: "PLANTA_LA_GUARDIA.zip", label: "Casetas de Control", photoTitles: ["Caseta de Planta de Tratamiento La Guardia"] },
+            { file: "PLANTAS DE TRATAMIENTO (2).zip", label: "Edificaciones Sanitarias", photoTitles: ["Planta de Tratamiento El Yaque"] },
+            { file: "INFRAESTRUCTURA DE PLANTA DE CONCRETO.zip", label: "Infraestructura Industrial", photoTitles: ["Infraestructura de Planta de Concreto"] }
           ]
         },
         "hidraulicas": {
           title: "Hidráulicas",
           zips: [
-            { file: "DIQUES DE CONTENCION (3).zip", label: "Presa de Retención de Sedimentos Río Naiguata" },
-            { file: "EMBAULAMIENTO (3).zip", label: "Quebrada El Güiere, Urbanización Villas de San Antonio" },
-            { file: "PLANTAS DE TRATAMIENTO (2).zip", label: "Planta de Tratamiento El Yaque / Planta de Tratamiento La Guardia" }
+            { file: "DIQUES DE CONTENCION (3).zip", label: "Diques de Contención - Presa de Retención de Sedimentos Río Naiguatá" },
+            { file: "EMBAULAMIENTO (3).zip", label: "Embaulamiento - Quebrada El Güiere, Urbanización Villas de San Antonio" },
+            { file: "PLANTAS DE TRATAMIENTO (2).zip", label: "Plantas de Tratamiento - Planta de Tratamiento El Yaque / Planta de Tratamiento La Guardia" }
           ]
         },
         "movimientos-de-tierra": {
           title: "Movimientos de Tierra",
           zips: [
-            { file: "MOVIMIENTO DE TIERRA (1).zip", label: "Vialidad Boca de Río" }
+            { 
+              file: "MOVIMIENTO DE TIERRA (1).zip", 
+              label: "Movimientos de Tierra",
+              photoTitles: [
+                "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
+                "Planta de Tratamiento La Guardia",
+                "Vialidad Boca de Río"
+              ]
+            }
           ]
         },
         "ingenieria-electrica": {
@@ -626,7 +643,7 @@
         "instalaciones-sanitarias": {
           title: "Instalaciones Sanitarias",
           zips: [
-            { file: "saneamiento AMBIENTAL (2).zip", label: "Relleno Sanitario El Piache" }
+            { file: "saneamiento AMBIENTAL (2).zip", label: "Saneamiento Ambiental - Relleno Sanitario El Piache" }
           ]
         },
         "gasificacion": {
@@ -640,8 +657,16 @@
         "otros-servicios": {
           title: "Otros Servicios",
           zips: [
-            { file: "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE.zip", label: "Mantenimiento de Plataforma de Combustible" },
-            { file: "ESPIGON 04.zip", label: "Espigón - Bahía El Tirano" }
+            { 
+              file: "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE.zip", 
+              label: "Mantenimiento e Inspección de Infraestructura",
+              photoMap: {
+                "GASODUCTO": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
+                "SUBMARINA": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
+                "PLATAFORMA": "Mantenimiento de Plataforma de Combustible"
+              }
+            },
+            { file: "ESPIGON 04.zip", label: "Espigón - Bahía El Tirano / Espigón Pampatar" }
           ]
         }
       };
@@ -691,6 +716,8 @@
               
               return {
                 label: zipConfig.label,
+                photoTitles: zipConfig.photoTitles || null,
+                photoMap: zipConfig.photoMap || null,
                 success: true,
                 images: imagesInZip
               };
@@ -731,17 +758,30 @@
                 const wrapper = document.createElement('div');
                 wrapper.className = 'gallery-item-wrapper';
                 
-                // Formatear caption agregando la ubicación y el índice para mayor claridad
+                // Determinar el título específico para cada foto
+                let itemTitle = `${res.label} (${idx + 1})`;
+                if (res.photoTitles && res.photoTitles[idx]) {
+                  itemTitle = res.photoTitles[idx];
+                } else if (res.photoMap) {
+                  const upperRel = img.relativePath.toUpperCase();
+                  for (const key in res.photoMap) {
+                    if (upperRel.includes(key.toUpperCase())) {
+                      itemTitle = res.photoMap[key];
+                      break;
+                    }
+                  }
+                }
+                
                 const caption = document.createElement('span');
                 caption.className = 'gallery-item-caption';
-                caption.textContent = `${res.label} (${idx + 1})`;
+                caption.textContent = itemTitle;
                 
                 const container = document.createElement('div');
                 container.className = 'img-container';
                 
                 const imgElement = document.createElement('img');
                 imgElement.src = img.url;
-                imgElement.alt = `${res.label} (${idx + 1})`;
+                imgElement.alt = itemTitle;
                 imgElement.style.maxWidth = '100%';
                 imgElement.style.maxHeight = '50vh';
                 imgElement.style.objectFit = 'contain';
