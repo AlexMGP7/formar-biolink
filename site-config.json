@@ -1,0 +1,175 @@
+{
+  "company": {
+    "name": "Inversiones Formar",
+    "handle": "@inversionesformar",
+    "description": "Somos una empresa dedicada a la realización y ejecución de proyectos de ingeniería de alta calidad, prestando la atención necesaria a nuestros clientes, a través de nuestro personal altamente calificado, en busca del mejor servicio y beneficio para la sociedad en general.",
+    "footer": "© 2025 Inversiones Formar · Todos los derechos reservados"
+  },
+  "contact": {
+    "instagram": {
+      "url": "https://www.instagram.com/inversionesformar?igsh=MWFteHJqMTBqejM2eA==",
+      "subtitle": "@inversionesformar"
+    },
+    "website": {
+      "url": "https://www.inversionesformar.com.ve/?utm_source=ig&utm_medium=social&utm_content=link_in_bio",
+      "subtitle": "inversionesformar.com.ve"
+    },
+    "email": "Invformar@gmail.com",
+    "whatsapp": {
+      "number": "584147910825",
+      "display": "+58 414-7910825"
+    },
+    "location": {
+      "short": "Pampatar, Nueva Esparta",
+      "full": "Av. Bolívar · CC A.B Nivel Mezzanina Local #23\nPlaya el Ángel · Pampatar",
+      "mapsUrl": "https://maps.google.com/?q=Av+Bol%C3%ADvar+CC+AB+Nivel+Mezzanina+Local+23+Playa+el+Angel+Pampatar"
+    }
+  },
+  "portfolio": [
+    {
+      "id": "vialidades",
+      "name": "Vialidades",
+      "zips": [
+        {
+          "file": "Vialidades.zip",
+          "label": "Pavimentación y Vialidad",
+          "photoTitles": [
+            "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
+            "Avenida Circunvalación Norte",
+            "Avenida Juan Bautista Arismendi"
+          ]
+        },
+        {
+          "file": "REHABILITACION DE VIAS OPERACIONALES (2).zip",
+          "label": "Rehabilitación de Vías Operacionales - Áreas Operacionales del Distrito Gas Anaco",
+          "photoTitles": []
+        },
+        {
+          "file": "URBANISMO (1).zip",
+          "label": "Urbanismo - Urbanización Villas de San Antonio",
+          "photoTitles": []
+        }
+      ]
+    },
+    {
+      "id": "edificaciones",
+      "name": "Edificaciones",
+      "zips": [
+        {
+          "file": "EDIFICACION.zip",
+          "label": "Edificación Escolares",
+          "photoTitles": ["U.E.B.N Dr Luis Ortega"]
+        },
+        {
+          "file": "PLANTA_LA_GUARDIA.zip",
+          "label": "Casetas de Control",
+          "photoTitles": ["Caseta de Control Planta de Tratamiento La Guardia"]
+        },
+        {
+          "file": "INFRAESTRUCTURA DE PLANTA DE CONCRETO.zip",
+          "label": "Infraestructura Industrial",
+          "photoTitles": ["Infraestructura de Planta de Concreto"]
+        }
+      ]
+    },
+    {
+      "id": "hidraulicas",
+      "name": "Hidráulicas",
+      "zips": [
+        {
+          "file": "DIQUES DE CONTENCION (3).zip",
+          "label": "Diques de Contención - Presa de Retención de Sedimientos Río Naiguatá",
+          "photoTitles": []
+        },
+        {
+          "file": "EMBAULAMIENTO (3).zip",
+          "label": "Embaulamiento Quebrada El Güiere, Urbanización Villas de San Antonio",
+          "photoTitles": []
+        },
+        {
+          "file": "PLANTAS DE TRATAMIENTO (2).zip",
+          "label": "Planta de Tratamiento La Guardia / Planta de Tratamiento El Yaque",
+          "photoTitles": []
+        }
+      ]
+    },
+    {
+      "id": "movimientos-de-tierra",
+      "name": "Movimientos de Tierra",
+      "zips": [
+        {
+          "file": "MOVIMIENTO DE TIERRA (1).zip",
+          "label": "Movimiento de Tierra",
+          "photoTitles": [
+            "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
+            "Vialidad Boca de Río"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ingenieria-electrica",
+      "name": "Ingeniería Eléctrica",
+      "zips": [
+        {
+          "file": "REDES DE ALTA Y BAJA TENSION (1).zip",
+          "label": "Redes de Alta y Baja Tensión - San Antonio",
+          "photoTitles": []
+        }
+      ]
+    },
+    {
+      "id": "instalaciones-sanitarias",
+      "name": "Instalaciones Sanitarias",
+      "zips": [
+        {
+          "file": "saneamiento AMBIENTAL (2).zip",
+          "label": "Saneamiento Ambiental - Relleno Sanitario El Piache",
+          "photoTitles": []
+        }
+      ]
+    },
+    {
+      "id": "red-de-gas-domestico",
+      "name": "Red de Gas Doméstico",
+      "zips": [
+        {
+          "file": "RED DE GAS DOMESTICO (4).zip",
+          "label": "Red de Gas Doméstico - Urbanización Villa Rosa",
+          "photoTitles": []
+        },
+        {
+          "file": "MANTENIMIENTO DE ESTACIONES DE GAS (2).zip",
+          "label": "Estación de Medición y Regulación Gas Metáno, La Isleta",
+          "photoTitles": []
+        },
+        {
+          "file": "REEMPLAZO DE TRAMO DE GASODUCTO (1).zip",
+          "label": "Gasoducto 16\" José Francisco Bermúdez Tramo Coche- Margarita",
+          "photoTitles": []
+        }
+      ]
+    },
+    {
+      "id": "otros-servicios",
+      "name": "Otros Servicios",
+      "zips": [
+        {
+          "file": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE.zip",
+          "label": "Mantenimiento e Inspección de Infraestructura",
+          "photoTitles": [],
+          "photoMap": {
+            "GASODUCTO": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
+            "SUBMARINA": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
+            "PLATAFORMA": "Mantenimiento de la Plataforma de Combustible"
+          }
+        },
+        {
+          "file": "ESPIGON 04.zip",
+          "label": "Espigón Bahía El Tirano",
+          "photoTitles": []
+        }
+      ]
+    }
+  ]
+}

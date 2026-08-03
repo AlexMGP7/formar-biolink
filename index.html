@@ -586,7 +586,7 @@
       });
 
       // Estructura del portafolio que mapea categorías principales a sus subcategorías y archivos ZIP
-      const portfolioStructure = {
+      let portfolioStructure = {
         "vialidades": {
           title: "Vialidades",
           zips: [
@@ -668,6 +668,133 @@
           ]
         }
       };
+
+      function applyConfig(cfg) {
+        if (!cfg) return;
+
+        if (cfg.company) {
+          if (cfg.company.name) {
+            const bName = document.querySelector('.brand-name');
+            if (bName) bName.textContent = cfg.company.name;
+            document.title = cfg.company.name;
+          }
+          if (cfg.company.handle) {
+            const bHandle = document.querySelector('.brand-handle');
+            if (bHandle) bHandle.textContent = cfg.company.handle;
+          }
+          if (cfg.company.description) {
+            const secText = document.querySelector('.section-text');
+            if (secText) secText.textContent = cfg.company.description;
+          }
+          if (cfg.company.footer) {
+            const footer = document.querySelector('.footer');
+            if (footer) footer.textContent = cfg.company.footer;
+          }
+        }
+
+        if (cfg.contact) {
+          const links = document.querySelectorAll('.link-card');
+          if (cfg.contact.instagram && links[0]) {
+            if (cfg.contact.instagram.url) links[0].href = cfg.contact.instagram.url;
+            const sub = links[0].querySelector('.link-sub');
+            if (sub && cfg.contact.instagram.subtitle) sub.textContent = cfg.contact.instagram.subtitle;
+          }
+          if (cfg.contact.website && links[1]) {
+            if (cfg.contact.website.url) links[1].href = cfg.contact.website.url;
+            const sub = links[1].querySelector('.link-sub');
+            if (sub && cfg.contact.website.subtitle) sub.textContent = cfg.contact.website.subtitle;
+          }
+          if (cfg.contact.email && links[2]) {
+            links[2].href = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(cfg.contact.email)}`;
+            const sub = links[2].querySelector('.link-sub');
+            if (sub) sub.textContent = cfg.contact.email;
+          }
+          if (cfg.contact.location && links[3]) {
+            if (cfg.contact.location.mapsUrl) links[3].href = cfg.contact.location.mapsUrl;
+            const sub = links[3].querySelector('.link-sub');
+            if (sub && cfg.contact.location.short) sub.textContent = cfg.contact.location.short;
+          }
+
+          if (cfg.contact.whatsapp) {
+            const waBtn = document.querySelector('.wa-btn');
+            if (waBtn && cfg.contact.whatsapp.number) {
+              waBtn.href = `https://wa.me/${cfg.contact.whatsapp.number}`;
+            }
+            const waSub = document.querySelector('.wa-sub');
+            if (waSub && cfg.contact.whatsapp.display) {
+              waSub.textContent = `Escríbenos al ${cfg.contact.whatsapp.display}`;
+            }
+            const doubtBanner = document.querySelector('.doubt-banner');
+            if (doubtBanner && cfg.contact.whatsapp.number) {
+              doubtBanner.href = `https://wa.me/${cfg.contact.whatsapp.number}`;
+            }
+          }
+
+          if (cfg.contact.location) {
+            const addrLink = document.querySelector('.address-link');
+            if (addrLink && cfg.contact.location.mapsUrl) addrLink.href = cfg.contact.location.mapsUrl;
+            const addrSub = document.querySelector('.addr-sub');
+            if (addrSub && cfg.contact.location.full) {
+              addrSub.innerHTML = cfg.contact.location.full.replace(/\n/g, '<br>');
+            }
+          }
+        }
+
+        if (cfg.portfolio && Array.isArray(cfg.portfolio)) {
+          portfolioStructure = {};
+          const grid = document.querySelector('.portfolio-grid');
+          if (grid) {
+            grid.innerHTML = '';
+            cfg.portfolio.forEach(cat => {
+              const slug = cat.id || getSlug(cat.name);
+              portfolioStructure[slug] = {
+                title: cat.name,
+                zips: cat.zips || []
+              };
+
+              const item = document.createElement('div');
+              item.className = 'pf-item';
+              const labelSpan = document.createElement('span');
+              labelSpan.className = 'pf-label';
+              labelSpan.textContent = cat.name;
+              item.appendChild(labelSpan);
+
+              item.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                fetchAsset(slug, cat.name);
+              });
+
+              grid.appendChild(item);
+            });
+          }
+        }
+      }
+
+      async function loadConfig() {
+        let configData = null;
+        try {
+          const saved = localStorage.getItem('site_config');
+          if (saved) {
+            configData = JSON.parse(saved);
+          }
+        } catch(e){}
+
+        if (!configData) {
+          try {
+            const res = await fetch('./site-config.json');
+            if (res.ok) {
+              configData = await res.json();
+            }
+          } catch(e){}
+        }
+
+        if (configData) {
+          applyConfig(configData);
+        }
+      }
+
+      loadConfig();
 
       // Descargar dinámicamente y abrir la galería
       async function fetchAsset(slug, originalName) {
