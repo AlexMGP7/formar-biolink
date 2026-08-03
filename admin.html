@@ -298,9 +298,12 @@
             padding: 10px 16px 10px 24px; border-radius: var(--radius-full);
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 20px 30px -10px rgba(0,0,0,0.3); color: #fff;
-            animation: slideUp 0.3s ease;
+            opacity: 0; pointer-events: none; transform: translateY(30px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .floating-bar.show {
+            opacity: 1; pointer-events: auto; transform: translateY(0);
+        }
 
         .floating-bar-text { font-size: 0.85rem; color: var(--text-light); }
 
@@ -785,6 +788,19 @@
             document.getElementById('sidebar').classList.toggle('open');
         }
 
+        let savedStateSnapshot = null;
+
+        function checkUnsavedChanges() {
+            const bar = document.querySelector('.floating-bar');
+            if (!bar || !savedStateSnapshot) return;
+            const current = JSON.stringify(stateData);
+            if (current !== savedStateSnapshot) {
+                bar.classList.add('show');
+            } else {
+                bar.classList.remove('show');
+            }
+        }
+
         // Data Management
         async function loadInitialData() {
             let loaded = null;
@@ -806,8 +822,10 @@
             }
 
             stateData = loaded;
+            savedStateSnapshot = JSON.stringify(stateData);
             populateForm();
             renderCategories();
+            checkUnsavedChanges();
         }
 
         function getNestedValue(obj, path) {
@@ -832,6 +850,7 @@
                 
                 input.oninput = (e) => {
                     setNestedValue(stateData, path, e.target.value);
+                    checkUnsavedChanges();
                 };
             });
         }
@@ -1018,6 +1037,7 @@
         function updateCatName(cIdx, val) {
             stateData.portfolio[cIdx].name = val;
             stateData.portfolio[cIdx].id = slugify(val);
+            checkUnsavedChanges();
         }
 
         function addNewCategory() {
@@ -1028,6 +1048,7 @@
             });
             renderCategories();
             toggleCatAccordion(stateData.portfolio.length - 1);
+            checkUnsavedChanges();
         }
 
         function deleteCategory(cIdx) {
@@ -1035,6 +1056,7 @@
             openConfirmModal(`¿Eliminar "${catName}"?`, 'Se eliminarán todas las obras asociadas a esta categoría.', () => {
                 stateData.portfolio.splice(cIdx, 1);
                 renderCategories();
+                checkUnsavedChanges();
                 showToast('Categoría eliminada', 'info');
             });
         }
@@ -1050,18 +1072,24 @@
             renderCategories();
             const card = document.querySelectorAll('.cat-card')[cIdx];
             if (card) card.classList.add('open');
+            checkUnsavedChanges();
         }
 
-        function updateZipLabel(cIdx, zIdx, val) { stateData.portfolio[cIdx].zips[zIdx].label = val; }
+        function updateZipLabel(cIdx, zIdx, val) {
+            stateData.portfolio[cIdx].zips[zIdx].label = val;
+            checkUnsavedChanges();
+        }
         function updateZipFile(cIdx, zIdx, val) {
             stateData.portfolio[cIdx].zips[zIdx].file = val;
             renderZips(cIdx);
+            checkUnsavedChanges();
         }
         function deleteZip(cIdx, zIdx) {
             stateData.portfolio[cIdx].zips.splice(zIdx, 1);
             renderCategories();
             const card = document.querySelectorAll('.cat-card')[cIdx];
             if (card) card.classList.add('open');
+            checkUnsavedChanges();
         }
 
         // Photo Title Actions
@@ -1070,11 +1098,16 @@
             const count = stateData.portfolio[cIdx].zips[zIdx].photoTitles.length + 1;
             stateData.portfolio[cIdx].zips[zIdx].photoTitles.push(`Nueva Foto #${count}`);
             renderZips(cIdx);
+            checkUnsavedChanges();
         }
-        function updatePhotoTitle(cIdx, zIdx, pIdx, val) { stateData.portfolio[cIdx].zips[zIdx].photoTitles[pIdx] = val; }
+        function updatePhotoTitle(cIdx, zIdx, pIdx, val) {
+            stateData.portfolio[cIdx].zips[zIdx].photoTitles[pIdx] = val;
+            checkUnsavedChanges();
+        }
         function deletePhotoTitle(cIdx, zIdx, pIdx) {
             stateData.portfolio[cIdx].zips[zIdx].photoTitles.splice(pIdx, 1);
             renderZips(cIdx);
+            checkUnsavedChanges();
         }
 
         // Save & Automated GitHub Deployment Logic
@@ -1211,6 +1244,8 @@
                                     document.getElementById('step2Text').textContent = '✅ Publicación procesada con éxito';
                                     document.getElementById('step3Text').textContent = '✅ Tus cambios ya están visibles para los visitantes';
                                     doneBtn.style.display = 'inline-flex';
+                                    savedStateSnapshot = JSON.stringify(stateData);
+                                    checkUnsavedChanges();
                                     showToast('¡Sitio web actualizado con éxito en vivo!', 'success');
                                     refreshPreviewFrame();
                                     return;
@@ -1228,6 +1263,8 @@
                         document.getElementById('step2Text').textContent = '✅ Publicación procesada con éxito';
                         document.getElementById('step3Text').textContent = '✅ Tus cambios ya están visibles para los visitantes';
                         doneBtn.style.display = 'inline-flex';
+                        savedStateSnapshot = JSON.stringify(stateData);
+                        checkUnsavedChanges();
                         showToast('¡Sitio web actualizado con éxito en vivo!', 'success');
                         refreshPreviewFrame();
                     }
