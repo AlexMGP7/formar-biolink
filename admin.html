@@ -416,6 +416,10 @@
                     <span class="topbar-title" id="tabTitle">Empresa</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 12px;">
+                    <button class="btn btn-secondary btn-sm" onclick="openPreviewModal()">
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        <span>Vista Previa en Vivo</span>
+                    </button>
                     <a href="./index.html" target="_blank" class="btn btn-outline btn-sm">
                         <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
                         <span>Ver Sitio Web</span>
@@ -591,6 +595,26 @@
                 <button class="btn btn-outline" onclick="closeConfirmModal()">Cancelar</button>
                 <button class="btn btn-danger-solid" id="modalConfirmBtn">Eliminar</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Live Preview Modal -->
+    <div id="previewModal" class="modal-overlay">
+        <div class="modal-box" style="max-width: 900px; width: 95vw; height: 85vh; padding: 0; display: flex; flex-direction: column; overflow: hidden; text-align: left;">
+            <div style="padding: 14px 20px; background: #0f172a; color: #fff; display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    Vista Previa en Vivo del Sitio Web
+                </span>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="btn btn-secondary btn-sm" onclick="refreshPreviewFrame()">
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                        <span>Actualizar Previa</span>
+                    </button>
+                    <button class="btn btn-outline btn-sm" style="color: #fff; border-color: rgba(255,255,255,0.2);" onclick="closePreviewModal()">✕</button>
+                </div>
+            </div>
+            <iframe id="previewFrame" src="./index.html" style="width: 100%; flex: 1; border: none; background: #f8fafc;"></iframe>
         </div>
     </div>
 
@@ -1011,6 +1035,23 @@
             if (confirmActionFn) confirmActionFn();
             closeConfirmModal();
         };
+
+        // Live Preview Modal Functions
+        function openPreviewModal() {
+            refreshPreviewFrame();
+            document.getElementById('previewModal').classList.add('open');
+        }
+
+        function closePreviewModal() {
+            document.getElementById('previewModal').classList.remove('open');
+        }
+
+        function refreshPreviewFrame() {
+            const frame = document.getElementById('previewFrame');
+            if (frame) {
+                frame.src = './index.html?t=' + Date.now();
+            }
+        }
 
         // Toast Helper
         function showToast(msg, type = 'info') {
