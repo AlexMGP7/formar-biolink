@@ -792,7 +792,11 @@
 
         function checkUnsavedChanges() {
             const bar = document.querySelector('.floating-bar');
-            if (!bar || !savedStateSnapshot) return;
+            if (!bar) return;
+            if (!savedStateSnapshot) {
+                bar.classList.remove('show');
+                return;
+            }
             const current = JSON.stringify(stateData);
             if (current !== savedStateSnapshot) {
                 bar.classList.add('show');
@@ -803,6 +807,9 @@
 
         // Data Management
         async function loadInitialData() {
+            const bar = document.querySelector('.floating-bar');
+            if (bar) bar.classList.remove('show');
+
             let loaded = null;
             try {
                 const local = localStorage.getItem('site_config');
@@ -822,10 +829,12 @@
             }
 
             stateData = loaded;
-            savedStateSnapshot = JSON.stringify(stateData);
             populateForm();
             renderCategories();
-            checkUnsavedChanges();
+
+            // Set snapshot AFTER full rendering so initial load is guaranteed clean
+            savedStateSnapshot = JSON.stringify(stateData);
+            if (bar) bar.classList.remove('show');
         }
 
         function getNestedValue(obj, path) {
