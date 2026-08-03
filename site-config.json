@@ -27,8 +27,8 @@
   },
   "portfolio": [
     {
-      "id": "vialidades-1",
-      "name": "Vialidades 1",
+      "id": "vialidades",
+      "name": "Vialidades",
       "zips": [
         {
           "file": "Vialidades.zip",
