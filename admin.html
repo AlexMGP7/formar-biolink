@@ -618,6 +618,86 @@
         </div>
     </div>
 
+    <!-- GitHub Token Modal -->
+    <div id="tokenModal" class="modal-overlay">
+        <div class="modal-box" style="max-width: 480px; text-align: left;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                <h3 class="modal-title" style="display: flex; align-items: center; gap: 8px;">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24" style="color: var(--brand-primary);"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.778-7.778zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                    Configurar Despliegue Automático
+                </h3>
+                <button class="btn btn-outline btn-sm" onclick="closeTokenModal()">✕</button>
+            </div>
+            <p class="input-hint" style="margin-bottom: 16px;">Ingresa tu <strong>GitHub Personal Access Token (PAT)</strong> con permiso <code>repo</code> para publicar cambios en GitHub y desplegar automáticamente con GitHub Actions / Netlify.</p>
+            
+            <div class="input-group">
+                <label>GitHub Token (PAT)</label>
+                <div class="input-wrapper">
+                    <svg class="icon input-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <input type="password" id="ghTokenInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+                </div>
+                <div class="input-hint">Se guarda de forma segura únicamente en este navegador (localStorage).</div>
+            </div>
+
+            <div style="display: flex; gap: 10px; justify-content: space-between; margin-top: 20px; align-items: center;">
+                <button class="btn btn-outline btn-sm" onclick="downloadBackupJson()">Descargar JSON Manual</button>
+                <div style="display: flex; gap: 8px;">
+                    <button class="btn btn-outline" onclick="closeTokenModal()">Cancelar</button>
+                    <button class="btn btn-primary" onclick="saveGhToken()">Guardar Token</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Deployment Progress Modal -->
+    <div id="deployModal" class="modal-overlay">
+        <div class="modal-box" style="max-width: 520px; text-align: left;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
+                <h3 class="modal-title" style="display: flex; align-items: center; gap: 10px;">
+                    <svg class="icon icon-lg" viewBox="0 0 24 24" style="color: var(--brand-secondary);"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    Despliegue Automático en Vivo
+                </h3>
+                <button class="btn btn-outline btn-sm" id="deployCloseBtn" onclick="closeDeployModal()">✕</button>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px;">
+                <div id="deployStep1" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: var(--radius-md); background: #f8fafc; border: 1px solid var(--border-color);">
+                    <div id="step1Icon" class="badge" style="background: var(--brand-primary); color: #fff;">1</div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 700; font-size: 0.9rem;">Subiendo site-config.json a GitHub</div>
+                        <div id="step1Text" style="font-size: 0.8rem; color: var(--text-muted);">Enviando cambios a la rama main...</div>
+                    </div>
+                </div>
+
+                <div id="deployStep2" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: var(--radius-md); background: #f8fafc; border: 1px solid var(--border-color);">
+                    <div id="step2Icon" class="badge">2</div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 700; font-size: 0.9rem;">Ejecutando Workflow de Despliegue</div>
+                        <div id="step2Text" style="font-size: 0.8rem; color: var(--text-muted);">Monitoreando GitHub Actions...</div>
+                    </div>
+                </div>
+
+                <div id="deployStep3" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: var(--radius-md); background: #f8fafc; border: 1px solid var(--border-color);">
+                    <div id="step3Icon" class="badge">3</div>
+                    <div style="flex: 1;">
+                        <div style="font-weight: 700; font-size: 0.9rem;">Publicado en Producción</div>
+                        <div id="step3Text" style="font-size: 0.8rem; color: var(--text-muted);">Sitio web actualizado en Netlify.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div style="background: #e2e8f0; border-radius: 999px; height: 10px; overflow: hidden; margin-bottom: 20px;">
+                <div id="deployProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, var(--brand-primary), var(--brand-secondary)); transition: width 0.4s ease;"></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span id="deployStatusBadge" class="badge" style="background: #e0f2fe; color: var(--brand-primary); font-size: 0.8rem;">En progreso...</span>
+                <button class="btn btn-primary btn-sm" id="deployDoneBtn" style="display: none;" onclick="closeDeployModal()">¡Entendido!</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         const AUTH_HASH = "b889ac1887f660d10217f70474c25e5d8799f39478874aaa2c4441ecdf86f44a";
         let stateData = null;
@@ -997,26 +1077,180 @@
             renderZips(cIdx);
         }
 
-        // Save Logic
+        // Save & Automated GitHub Deployment Logic
         function saveAllChanges() {
             try {
                 const jsonStr = JSON.stringify(stateData, null, 2);
                 localStorage.setItem('site_config', jsonStr);
 
-                const blob = new Blob([jsonStr], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'site-config.json';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-
-                showToast('¡Cambios guardados y site-config.json descargado!', 'success');
+                const token = localStorage.getItem('gh_token');
+                if (token) {
+                    executeAutoDeploy(jsonStr, token);
+                } else {
+                    openTokenModal();
+                }
             } catch(e) {
                 console.error(e);
                 showToast('Error al guardar los cambios', 'error');
+            }
+        }
+
+        function openTokenModal() {
+            const saved = localStorage.getItem('gh_token');
+            if (saved) document.getElementById('ghTokenInput').value = saved;
+            document.getElementById('tokenModal').classList.add('open');
+        }
+
+        function closeTokenModal() {
+            document.getElementById('tokenModal').classList.remove('open');
+        }
+
+        function saveGhToken() {
+            const val = document.getElementById('ghTokenInput').value.trim();
+            if (val) {
+                localStorage.setItem('gh_token', val);
+                closeTokenModal();
+                showToast('Token de GitHub guardado', 'success');
+                const jsonStr = JSON.stringify(stateData, null, 2);
+                executeAutoDeploy(jsonStr, val);
+            } else {
+                showToast('Ingresa un token válido', 'error');
+            }
+        }
+
+        function downloadBackupJson() {
+            closeTokenModal();
+            const jsonStr = JSON.stringify(stateData, null, 2);
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'site-config.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast('site-config.json descargado localmente', 'info');
+        }
+
+        function closeDeployModal() {
+            document.getElementById('deployModal').classList.remove('open');
+        }
+
+        async function executeAutoDeploy(jsonStr, token) {
+            document.getElementById('deployModal').classList.add('open');
+            const bar = document.getElementById('deployProgressBar');
+            const statusBadge = document.getElementById('deployStatusBadge');
+            const doneBtn = document.getElementById('deployDoneBtn');
+
+            bar.style.background = 'linear-gradient(90deg, var(--brand-primary), var(--brand-secondary))';
+            bar.style.width = '15%';
+            statusBadge.textContent = 'Enviando cambios a GitHub...';
+            statusBadge.style.background = '#e0f2fe';
+            statusBadge.style.color = 'var(--brand-primary)';
+            doneBtn.style.display = 'none';
+
+            document.getElementById('step1Text').textContent = 'Enviando cambios a la rama main...';
+            document.getElementById('step2Text').textContent = 'Monitoreando ejecuciones en GitHub Actions...';
+            document.getElementById('step3Text').textContent = 'Netlify actualiza la versión pública del sitio web.';
+
+            try {
+                const repo = 'AlexMGP7/formar-biolink';
+                const fileUrl = `https://api.github.com/repos/${repo}/contents/site-config.json`;
+
+                const getRes = await fetch(fileUrl, {
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                });
+
+                let sha = null;
+                if (getRes.ok) {
+                    const fileData = await getRes.json();
+                    sha = fileData.sha;
+                }
+
+                const encodedContent = btoa(unescape(encodeURIComponent(jsonStr)));
+
+                const putRes = await fetch(fileUrl, {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: 'chore: actualizar site-config.json desde el panel de administración',
+                        content: encodedContent,
+                        sha: sha || undefined,
+                        branch: 'main'
+                    })
+                });
+
+                if (!putRes.ok) {
+                    const errJson = await putRes.json();
+                    throw new Error(errJson.message || 'Error al enviar cambios a GitHub');
+                }
+
+                bar.style.width = '45%';
+                document.getElementById('step1Text').textContent = '✅ site-config.json actualizado en main';
+                document.getElementById('step2Text').textContent = 'Ejecutando workflow de despliegue...';
+
+                let attempts = 0;
+                const pollInterval = setInterval(async () => {
+                    attempts++;
+                    try {
+                        const runsRes = await fetch(`https://api.github.com/repos/${repo}/actions/runs?branch=main&per_page=1`, {
+                            headers: { 'Authorization': `token ${token}` }
+                        });
+
+                        if (runsRes.ok) {
+                            const runsData = await runsRes.json();
+                            const latestRun = runsData.workflow_runs && runsData.workflow_runs[0];
+
+                            if (latestRun) {
+                                if (latestRun.status === 'in_progress' || latestRun.status === 'queued') {
+                                    bar.style.width = '75%';
+                                    statusBadge.textContent = 'Desplegando en Netlify (Workflow activo)...';
+                                } else if (latestRun.status === 'completed') {
+                                    clearInterval(pollInterval);
+                                    bar.style.width = '100%';
+                                    statusBadge.textContent = '¡Despliegue Exitoso!';
+                                    statusBadge.style.background = '#dcfce7';
+                                    statusBadge.style.color = '#15803d';
+
+                                    document.getElementById('step2Text').textContent = '✅ Workflow completado con éxito.';
+                                    document.getElementById('step3Text').textContent = '✅ Sitio web actualizado en producción.';
+                                    doneBtn.style.display = 'inline-flex';
+                                    showToast('¡Sitio desplegado automáticamente en producción!', 'success');
+                                    refreshPreviewFrame();
+                                    return;
+                                }
+                            }
+                        }
+                    } catch(err){}
+
+                    if (attempts >= 10) {
+                        clearInterval(pollInterval);
+                        bar.style.width = '100%';
+                        statusBadge.textContent = 'Cambios enviados a GitHub';
+                        document.getElementById('step2Text').textContent = '✅ Commit recibido. Netlify completará el despliegue.';
+                        doneBtn.style.display = 'inline-flex';
+                        showToast('Cambios enviados a GitHub. Netlify desplegará en breve.', 'success');
+                        refreshPreviewFrame();
+                    }
+                }, 3000);
+
+            } catch (err) {
+                console.error(err);
+                bar.style.width = '100%';
+                bar.style.background = 'var(--danger)';
+                statusBadge.textContent = 'Error en despliegue';
+                statusBadge.style.background = '#fee2e2';
+                statusBadge.style.color = 'var(--danger)';
+                showToast(`Error de despliegue: ${err.message}`, 'error');
+                doneBtn.style.display = 'inline-flex';
             }
         }
 

@@ -1,0 +1,26 @@
+name: Despliegue Automático de Inversiones Formar
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy-status:
+    name: Publicación y Despliegue del Sitio Web
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Validar site-config.json
+        run: |
+          echo "Validando site-config.json..."
+          python3 -c "import json; json.load(open('site-config.json'))"
+          echo "✅ Configuración JSON válida."
+
+      - name: Notificar actualización
+        run: |
+          echo "🚀 Cambios publicados correctamente en la rama main."
+          echo "Netlify desplegará la versión más reciente automáticamente."
