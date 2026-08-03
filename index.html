@@ -641,7 +641,20 @@
         "instalaciones-sanitarias": {
           title: "Instalaciones Sanitarias",
           zips: [
-            { file: "saneamiento AMBIENTAL (2).zip", label: "Saneamiento Ambiental - Relleno Sanitario El Piache" }
+            { 
+              file: "saneamiento AMBIENTAL (2).zip", 
+              label: "Saneamiento Ambiental - Relleno Sanitario El Piache",
+              photoTitles: ["Relleno Sanitario El Piache"]
+            },
+            {
+              file: "RED_DE_HIDRANTES.zip",
+              label: "Mantenimiento a Red de Hidrantes",
+              photoTitles: [
+                "Mantenimiento a Red de Hidrantes",
+                "Mantenimiento a Red de Hidrantes",
+                "Mantenimiento a Red de Hidrantes"
+              ]
+            }
           ]
         },
         "red-de-gas-domestico": {
@@ -774,17 +787,17 @@
       async function loadConfig() {
         let configData = null;
         try {
-          const saved = localStorage.getItem('site_config');
-          if (saved) {
-            configData = JSON.parse(saved);
+          const res = await fetch('./site-config.json?v=' + Date.now());
+          if (res.ok) {
+            configData = await res.json();
           }
         } catch(e){}
 
         if (!configData) {
           try {
-            const res = await fetch('./site-config.json');
-            if (res.ok) {
-              configData = await res.json();
+            const saved = localStorage.getItem('site_config');
+            if (saved) {
+              configData = JSON.parse(saved);
             }
           } catch(e){}
         }
