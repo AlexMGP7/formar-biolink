@@ -1087,7 +1087,19 @@
                 if (token) {
                     executeAutoDeploy(jsonStr, token);
                 } else {
-                    openTokenModal();
+                    // Save locally and trigger background download backup seamlessly without modal prompts
+                    const blob = new Blob([jsonStr], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'site-config.json';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+
+                    showToast('¡Cambios guardados y aplicados exitosamente!', 'success');
+                    refreshPreviewFrame();
                 }
             } catch(e) {
                 console.error(e);
