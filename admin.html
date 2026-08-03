@@ -3,188 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración - Inversiones Formar</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Panel de Administración | Inversiones Formar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-primary: #18528f;
-            --color-secondary: #0ba3d4;
-            --color-dark: #15181a;
-            --color-light: #fcfcfc;
-            --color-danger: #e74c3c;
-            --color-success: #2ecc71;
-            --color-border: #e0e0e0;
-            --color-bg: #f4f6f8;
-            --color-sidebar: #1e2327;
-            --color-sidebar-hover: #2a3136;
-            --font-heading: 'Poppins', sans-serif;
-            --font-body: 'Inter', sans-serif;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 20px rgba(0,0,0,0.15);
-            --border-radius: 8px;
-            --transition: all 0.3s ease;
+            --brand-primary: #18528f;
+            --brand-primary-hover: #123e6e;
+            --brand-secondary: #0ba3d4;
+            --brand-secondary-hover: #088bb6;
+            --brand-dark: #0f172a;
+            --sidebar-bg: #1e293b;
+            --sidebar-hover: #334155;
+            --sidebar-active: #0284c7;
+            --bg-body: #f8fafc;
+            --bg-surface: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --text-light: #94a3b8;
+            --border-color: #e2e8f0;
+            --border-focus: #0ba3d4;
+            --danger: #ef4444;
+            --danger-hover: #dc2626;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --font-heading: 'Outfit', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.1), 0 1px 2px -1px rgba(15, 23, 42, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -2px rgba(15, 23, 42, 0.1);
+            --shadow-lg: 0 10px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: var(--font-body);
-            background-color: var(--color-bg);
-            color: var(--color-dark);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 700; color: var(--text-main); }
+
+        /* SVG Helper */
+        .icon {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2;
+            stroke: currentColor;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            display: inline-block;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+        .icon-sm { width: 16px; height: 16px; }
+        .icon-lg { width: 24px; height: 24px; }
 
         /* Login Screen */
         .login-screen {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            position: fixed; inset: 0;
+            background: radial-gradient(circle at 15% 15%, rgba(11, 163, 212, 0.4), transparent 45%),
+                        radial-gradient(circle at 85% 85%, rgba(24, 82, 143, 0.6), transparent 50%),
+                        linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             display: flex; justify-content: center; align-items: center;
-            z-index: 1000; transition: opacity 0.5s ease;
+            z-index: 1000; padding: 20px; transition: opacity 0.4s ease, visibility 0.4s ease;
         }
-        .login-screen.hidden { opacity: 0; pointer-events: none; }
+        .login-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
         .login-card {
-            background: var(--color-light); padding: 40px; border-radius: var(--border-radius);
-            box-shadow: var(--shadow-lg); width: 100%; max-width: 400px; text-align: center;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            padding: 40px; border-radius: var(--radius-lg);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            width: 100%; max-width: 420px; text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: cardAppear 0.5s ease-out;
         }
-        .login-card h2 { margin-bottom: 24px; color: var(--color-primary); }
-        .input-group { margin-bottom: 20px; text-align: left; }
-        .input-group label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; }
-        .input-group input, .input-group textarea {
-            width: 100%; padding: 12px; border: 1px solid var(--color-border);
-            border-radius: var(--border-radius); font-family: var(--font-body); font-size: 1rem;
-            transition: var(--transition); outline: none;
+        @keyframes cardAppear { from { opacity: 0; transform: translateY(20px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        
+        .login-badge {
+            width: 60px; height: 60px; border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            color: #fff; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px; box-shadow: 0 8px 16px rgba(11, 163, 212, 0.3);
         }
-        .input-group input:focus, .input-group textarea:focus { border-color: var(--color-secondary); box-shadow: 0 0 0 3px rgba(11, 163, 212, 0.2); }
-        .btn {
-            display: inline-block; padding: 12px 24px; border: none; border-radius: var(--border-radius);
-            font-family: var(--font-heading); font-weight: 500; font-size: 1rem; cursor: pointer;
-            transition: var(--transition); text-align: center; color: var(--color-light);
-        }
-        .btn-primary { background-color: var(--color-primary); width: 100%; }
-        .btn-primary:hover { background-color: #123e6d; }
-        .btn-secondary { background-color: var(--color-secondary); }
-        .btn-secondary:hover { background-color: #0988b0; }
-        .btn-danger { background-color: var(--color-danger); }
-        .btn-danger:hover { background-color: #c0392b; }
-        .btn-success { background-color: var(--color-success); }
-        .btn-success:hover { background-color: #27ae60; }
-        .btn-small { padding: 6px 12px; font-size: 0.85rem; }
+        .login-card h2 { font-size: 1.75rem; color: var(--brand-primary); margin-bottom: 6px; }
+        .login-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 28px; }
 
-        .shake { animation: shake 0.5s; }
+        /* Form Inputs */
+        .input-group { margin-bottom: 20px; text-align: left; position: relative; }
+        .input-group label {
+            display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.85rem;
+            color: var(--text-main); text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .input-wrapper { position: relative; display: flex; align-items: center; }
+        .input-icon { position: absolute; left: 14px; color: var(--text-light); pointer-events: none; }
+        .input-wrapper input, .input-wrapper textarea, .input-group input, .input-group textarea {
+            width: 100%; padding: 12px 14px; border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-md); font-family: var(--font-body); font-size: 0.95rem;
+            background: var(--bg-surface); color: var(--text-main); transition: var(--transition); outline: none;
+        }
+        .input-wrapper input { padding-left: 42px; }
+        .input-wrapper input:focus, .input-wrapper textarea:focus, .input-group input:focus, .input-group textarea:focus {
+            border-color: var(--border-focus); box-shadow: 0 0 0 4px rgba(11, 163, 212, 0.15);
+        }
+        .input-hint { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 10px 20px; border: none; border-radius: var(--radius-md);
+            font-family: var(--font-heading); font-weight: 600; font-size: 0.95rem; cursor: pointer;
+            transition: var(--transition); text-decoration: none; white-space: nowrap; user-select: none;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--brand-primary), #1e62a9); color: #fff; box-shadow: var(--shadow-sm); }
+        .btn-primary:hover { background: var(--brand-primary-hover); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+        .btn-secondary { background: var(--brand-secondary); color: #fff; }
+        .btn-secondary:hover { background: var(--brand-secondary-hover); transform: translateY(-1px); }
+        .btn-outline { background: transparent; border: 1.5px solid var(--border-color); color: var(--text-main); }
+        .btn-outline:hover { background: #f1f5f9; border-color: #cbd5e1; }
+        .btn-danger { background: #fee2e2; color: var(--danger); border: 1px solid #fca5a5; }
+        .btn-danger:hover { background: var(--danger); color: #fff; }
+        .btn-danger-solid { background: var(--danger); color: #fff; }
+        .btn-danger-solid:hover { background: var(--danger-hover); }
+        .btn-success { background: var(--success); color: #fff; }
+        .btn-success:hover { background: #059669; }
+        .btn-sm { padding: 6px 12px; font-size: 0.85rem; border-radius: var(--radius-sm); }
+        .btn-icon-only { padding: 8px; border-radius: var(--radius-md); }
+
+        .shake { animation: shake 0.4s ease-in-out; }
         @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-10px); }
-            50% { transform: translateX(10px); }
-            75% { transform: translateX(-10px); }
-            100% { transform: translateX(0); }
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
         }
 
         /* Dashboard Layout */
-        .dashboard { display: flex; height: 100vh; overflow: hidden; }
+        .dashboard { display: flex; height: 100vh; overflow: hidden; background: var(--bg-body); }
+        .dashboard.hidden { display: none; }
+
+        /* Sidebar */
         .sidebar {
-            width: 260px; background-color: var(--color-sidebar); color: var(--color-light);
-            display: flex; flex-direction: column; transition: transform 0.3s ease; z-index: 100;
+            width: 280px; background: var(--sidebar-bg); color: #fff;
+            display: flex; flex-direction: column; transition: var(--transition); z-index: 100;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .sidebar-header { padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .sidebar-header h3 { font-size: 1.2rem; margin: 0; color: var(--color-secondary); }
-        .nav-links { flex: 1; overflow-y: auto; padding: 20px 0; list-style: none; }
-        .nav-link {
-            padding: 12px 20px; cursor: pointer; display: flex; align-items: center; gap: 10px;
-            color: rgba(255,255,255,0.7); transition: var(--transition); font-weight: 500;
+        .sidebar-brand {
+            padding: 24px 20px; display: flex; align-items: center; gap: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .nav-link:hover, .nav-link.active {
-            background-color: var(--color-sidebar-hover); color: var(--color-light);
-            border-left: 4px solid var(--color-secondary);
+        .sidebar-brand-icon {
+            width: 38px; height: 38px; border-radius: var(--radius-md);
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+            display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold;
         }
+        .sidebar-brand-text { display: flex; flex-direction: column; }
+        .sidebar-brand-title { font-size: 1.05rem; font-weight: 700; color: #fff; line-height: 1.2; }
+        .sidebar-brand-sub { font-size: 0.75rem; color: var(--text-light); }
+
+        .nav-list { flex: 1; padding: 20px 14px; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+        .nav-item {
+            padding: 12px 16px; border-radius: var(--radius-md); cursor: pointer;
+            display: flex; align-items: center; gap: 14px; color: var(--text-light);
+            font-weight: 600; font-size: 0.95rem; transition: var(--transition);
+        }
+        .nav-item:hover { background: var(--sidebar-hover); color: #fff; }
+        .nav-item.active { background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary)); color: #fff; box-shadow: 0 4px 12px rgba(11, 163, 212, 0.25); }
+
+        .sidebar-footer { padding: 20px 14px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+
+        /* Main Content */
+        .main-wrapper { flex: 1; display: flex; flex-direction: column; overflow: hidden; position: relative; }
         
-        .main-content {
-            flex: 1; display: flex; flex-direction: column; overflow: hidden; position: relative;
-        }
         .topbar {
-            height: 70px; background-color: var(--color-light); display: flex; align-items: center;
-            justify-content: space-between; padding: 0 30px; box-shadow: var(--shadow-sm); z-index: 10;
+            height: 72px; background: var(--bg-surface); border-bottom: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: space-between; padding: 0 32px;
+            box-shadow: var(--shadow-xs); z-index: 10;
         }
-        .topbar-title { font-size: 1.25rem; font-weight: 600; color: var(--color-dark); }
-        .hamburger { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--color-dark); }
+        .topbar-left { display: flex; align-items: center; gap: 16px; }
+        .topbar-title { font-size: 1.35rem; font-weight: 700; color: var(--text-main); }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--text-main); padding: 6px; border-radius: var(--radius-sm); }
+        .hamburger:hover { background: var(--bg-body); }
+
+        .content-area { flex: 1; overflow-y: auto; padding: 32px; padding-bottom: 110px; }
+
+        .tab-content { display: none; animation: fadeIn 0.25s ease; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Cards & Section Containers */
+        .card-box {
+            background: var(--bg-surface); border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);
+            padding: 28px; margin-bottom: 28px; transition: var(--transition);
+        }
+        .card-box:hover { box-shadow: var(--shadow-md); }
+        .card-box-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border-color); }
+        .card-box-title { display: flex; align-items: center; gap: 10px; font-size: 1.15rem; color: var(--brand-primary); }
+
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .grid-full { grid-template-columns: 1fr; }
+
+        /* Accordion for Portfolio Categories */
+        .accordion-group { display: flex; flex-direction: column; gap: 14px; }
         
-        .content-area {
-            flex: 1; overflow-y: auto; padding: 30px; padding-bottom: 100px;
+        .cat-card {
+            background: var(--bg-surface); border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);
         }
-        .section-panel { display: none; animation: fadeIn 0.3s ease; }
-        .section-panel.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Forms & Cards */
-        .card {
-            background: var(--color-light); border-radius: var(--border-radius);
-            box-shadow: var(--shadow-sm); padding: 24px; margin-bottom: 24px;
-        }
-        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .card-title { font-size: 1.1rem; color: var(--color-primary); }
-
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .form-grid.full { grid-template-columns: 1fr; }
-        @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } }
+        .cat-card.drag-over { border-color: var(--brand-secondary); box-shadow: 0 0 0 3px rgba(11, 163, 212, 0.2); }
         
-        /* Portfolio Accordion */
-        .accordion-item {
-            border: 1px solid var(--color-border); border-radius: var(--border-radius); margin-bottom: 16px; background: var(--color-light);
-            overflow: hidden;
+        .cat-header {
+            padding: 18px 24px; background: #f8fafc; display: flex; align-items: center;
+            justify-content: space-between; cursor: pointer; user-select: none;
+            transition: var(--transition); border-bottom: 1px solid transparent;
         }
-        .accordion-header {
-            padding: 16px; background: #f9fafb; display: flex; justify-content: space-between; align-items: center; cursor: pointer;
-            border-bottom: 1px solid transparent; transition: var(--transition);
-        }
-        .accordion-header:hover { background: #f3f4f6; }
-        .accordion-header.open { border-bottom-color: var(--color-border); }
-        .accordion-title-wrap { display: flex; align-items: center; gap: 12px; flex: 1; }
-        .drag-handle { cursor: grab; color: #9ca3af; font-size: 1.2rem; user-select: none; }
-        .drag-handle:active { cursor: grabbing; }
-        .accordion-actions { display: flex; gap: 8px; align-items: center; }
-        .accordion-content { padding: 20px; display: none; }
-        .accordion-content.open { display: block; }
-
-        /* Project Items */
-        .project-list { min-height: 50px; }
-        .project-item {
-            border: 1px solid var(--color-border); border-radius: var(--border-radius); padding: 16px;
-            margin-bottom: 12px; background: #fff; display: flex; flex-direction: column; gap: 12px;
-            position: relative;
-        }
-        .project-header { display: flex; align-items: center; gap: 12px; justify-content: space-between; }
-        .photo-list { margin-left: 32px; display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
-        .photo-item { display: flex; gap: 8px; align-items: center; }
-
-        /* Drag & Drop Visuals */
-        .dragging { opacity: 0.5; background: #f8fafc; border: 2px dashed var(--color-secondary); }
-        .drag-over { border-top: 2px solid var(--color-secondary); margin-top: 2px; }
+        .cat-header:hover { background: #f1f5f9; }
+        .cat-card.open .cat-header { border-bottom-color: var(--border-color); background: #f8fafc; }
         
-        /* Floating Action Button */
-        .fab-save {
-            position: fixed; bottom: 30px; right: 30px; z-index: 90;
-            box-shadow: var(--shadow-lg); border-radius: 30px; font-size: 1.1rem;
-            padding: 15px 30px;
+        .cat-left { display: flex; align-items: center; gap: 14px; flex: 1; }
+        .drag-grip { cursor: grab; color: var(--text-light); transition: var(--transition); display: flex; align-items: center; padding: 4px; }
+        .drag-grip:hover { color: var(--text-main); }
+        .drag-grip:active { cursor: grabbing; }
+
+        .cat-title-input {
+            font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700;
+            border: 1px solid transparent; background: transparent; padding: 4px 8px;
+            border-radius: var(--radius-sm); color: var(--text-main); transition: var(--transition); flex: 1; max-width: 320px;
+        }
+        .cat-title-input:hover, .cat-title-input:focus { border-color: var(--border-color); background: var(--bg-surface); outline: none; }
+
+        .badge {
+            display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px;
+            border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 600;
+            background: #e2e8f0; color: var(--text-muted);
         }
 
-        /* Toasts */
-        .toast-container { position: fixed; top: 20px; right: 20px; z-index: 2000; display: flex; flex-direction: column; gap: 10px; }
-        .toast {
-            padding: 16px 24px; border-radius: var(--border-radius); color: #fff; box-shadow: var(--shadow-md);
-            animation: slideIn 0.3s ease forwards; max-width: 350px; display: flex; align-items: center; gap: 12px;
-        }
-        .toast.success { background: var(--color-success); }
-        .toast.error { background: var(--color-danger); }
-        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+        .cat-actions { display: flex; align-items: center; gap: 8px; }
+        .chevron-icon { transition: transform 0.3s ease; color: var(--text-muted); }
+        .cat-card.open .chevron-icon { transform: rotate(180deg); }
 
-        /* Responsive */
+        .cat-body { padding: 24px; display: none; background: #fff; }
+        .cat-card.open .cat-body { display: block; }
+
+        /* Project / ZIP Card Inside Category */
+        .zip-card {
+            background: #f8fafc; border: 1px solid var(--border-color);
+            border-radius: var(--radius-md); padding: 20px; margin-bottom: 16px;
+            position: relative; transition: var(--transition);
+        }
+        .zip-card:hover { border-color: #cbd5e1; background: #fff; box-shadow: var(--shadow-sm); }
+        
+        .zip-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; gap: 12px; }
+
+        .photo-titles-box { margin-top: 14px; padding-left: 20px; border-left: 2.5px solid var(--brand-secondary); display: flex; flex-direction: column; gap: 8px; }
+        .photo-title-row { display: flex; align-items: center; gap: 10px; }
+        .photo-title-row input { flex: 1; }
+
+        /* Floating Action Bar */
+        .floating-bar {
+            position: fixed; bottom: 28px; right: 32px; z-index: 90;
+            display: flex; align-items: center; gap: 12px;
+            background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(12px);
+            padding: 10px 16px 10px 24px; border-radius: var(--radius-full);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.3); color: #fff;
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        .floating-bar-text { font-size: 0.85rem; color: var(--text-light); }
+
+        /* Toast Container */
+        .toast-area { position: fixed; top: 24px; right: 24px; z-index: 2000; display: flex; flex-direction: column; gap: 12px; pointer-events: none; }
+        .toast-item {
+            pointer-events: auto; padding: 14px 20px; border-radius: var(--radius-md);
+            background: var(--sidebar-bg); color: #fff; box-shadow: var(--shadow-lg);
+            display: flex; align-items: center; gap: 12px; min-width: 300px; max-width: 400px;
+            border-left: 4px solid var(--brand-secondary); animation: toastIn 0.3s ease forwards;
+        }
+        .toast-item.success { border-left-color: var(--success); }
+        .toast-item.error { border-left-color: var(--danger); }
+        @keyframes toastIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        @keyframes toastOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px);
+            display: flex; align-items: center; justify-content: center; z-index: 1500;
+            opacity: 0; visibility: hidden; transition: var(--transition); padding: 20px;
+        }
+        .modal-overlay.open { opacity: 1; visibility: visible; }
+        .modal-box {
+            background: var(--bg-surface); border-radius: var(--radius-lg); padding: 28px;
+            width: 100%; max-width: 440px; box-shadow: var(--shadow-lg); border: 1px solid var(--border-color);
+            transform: scale(0.95); transition: var(--transition); text-align: center;
+        }
+        .modal-overlay.open .modal-box { transform: scale(1); }
+        .modal-icon { width: 56px; height: 56px; border-radius: var(--radius-full); background: #fee2e2; color: var(--danger); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+        .modal-title { font-size: 1.25rem; margin-bottom: 8px; }
+        .modal-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 24px; }
+        .modal-buttons { display: flex; gap: 12px; justify-content: center; }
+
+        /* Mobile Responsive */
         @media (max-width: 900px) {
-            .sidebar { position: absolute; height: 100%; transform: translateX(-100%); }
-            .sidebar.open { transform: translateX(0); box-shadow: var(--shadow-lg); }
+            .sidebar { position: fixed; inset: 0 auto 0 0; transform: translateX(-100%); }
+            .sidebar.open { transform: translateX(0); box-shadow: 0 0 40px rgba(0,0,0,0.5); }
             .hamburger { display: block; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .topbar { padding: 0 16px; }
+            .content-area { padding: 16px; padding-bottom: 120px; }
+            .floating-bar { left: 16px; right: 16px; bottom: 16px; justify-content: space-between; border-radius: var(--radius-md); }
         }
     </style>
 </head>
@@ -193,77 +332,134 @@
     <!-- Login Screen -->
     <div id="loginScreen" class="login-screen">
         <div class="login-card" id="loginCard">
-            <h2>Inversiones Formar</h2>
-            <p style="margin-bottom: 24px; color: #666;">Panel de Administración</p>
-            <div class="input-group">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" placeholder="Ingresa tu contraseña" autocomplete="current-password" onkeypress="if(event.key === 'Enter') handleLogin()">
+            <div class="login-badge">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <button class="btn btn-primary" onclick="handleLogin()">Acceder</button>
+            <h2>Inversiones Formar</h2>
+            <p>Panel de Administración y Gestión de Contenido</p>
+            <div class="input-group">
+                <label for="password">Contraseña de Acceso</label>
+                <div class="input-wrapper">
+                    <svg class="icon input-icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <input type="password" id="password" placeholder="Ingresa tu contraseña" autocomplete="current-password" onkeypress="if(event.key==='Enter') handleLogin()">
+                </div>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="handleLogin()">
+                <span>Ingresar al Panel</span>
+                <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
         </div>
     </div>
 
     <!-- Dashboard -->
     <div id="dashboard" class="dashboard hidden">
+        
+        <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <h3>Admin Panel</h3>
+            <div class="sidebar-brand">
+                <div class="sidebar-brand-icon">IF</div>
+                <div class="sidebar-brand-text">
+                    <span class="sidebar-brand-title">Formar Admin</span>
+                    <span class="sidebar-brand-sub">Gestión Biolink v2.0</span>
+                </div>
             </div>
-            <ul class="nav-links">
-                <li class="nav-link active" onclick="switchTab('empresa')">🏢 Empresa</li>
-                <li class="nav-link" onclick="switchTab('contacto')">📞 Contacto</li>
-                <li class="nav-link" onclick="switchTab('portafolio')">💼 Portafolio</li>
+            <ul class="nav-list">
+                <li class="nav-item active" onclick="switchTab('empresa')">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18M3 7v14M21 7v14M6 21V11M18 21V11M9 21v-4a3 3 0 0 1 6 0v4"/></svg>
+                    <span>Empresa</span>
+                </li>
+                <li class="nav-item" onclick="switchTab('contacto')">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>Contacto y Enlaces</span>
+                </li>
+                <li class="nav-item" onclick="switchTab('portafolio')">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                    <span>Portafolio de Servicios</span>
+                </li>
             </ul>
-            <div style="padding: 20px; margin-top: auto;">
-                <button class="btn btn-danger btn-small" style="width: 100%;" onclick="logout()">Cerrar Sesión</button>
+            <div class="sidebar-footer">
+                <button class="btn btn-danger btn-sm" style="width: 100%;" onclick="logout()">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+                    <span>Cerrar Sesión</span>
+                </button>
             </div>
         </aside>
-        
-        <main class="main-content">
+
+        <!-- Main Area -->
+        <div class="main-wrapper">
             <header class="topbar">
-                <div style="display: flex; align-items: center; gap: 16px;">
-                    <button class="hamburger" onclick="toggleSidebar()">☰</button>
-                    <span class="topbar-title">Configuración del Sitio</span>
+                <div class="topbar-left">
+                    <button class="hamburger" onclick="toggleSidebar()">
+                        <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                    </button>
+                    <span class="topbar-title" id="tabTitle">Empresa</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <a href="./index.html" target="_blank" class="btn btn-outline btn-sm">
+                        <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        <span>Ver Sitio Web</span>
+                    </a>
                 </div>
             </header>
-            
-            <div class="content-area">
+
+            <main class="content-area">
                 
-                <!-- Empresa Tab -->
-                <section id="section-empresa" class="section-panel active">
-                    <div class="card">
-                        <div class="card-header"><h2 class="card-title">Información de la Empresa</h2></div>
-                        <div class="form-grid">
-                            <div class="input-group">
-                                <label>Nombre de la empresa</label>
-                                <input type="text" data-path="company.name">
-                            </div>
-                            <div class="input-group">
-                                <label>Handle (Ej: @usuario)</label>
-                                <input type="text" data-path="company.handle">
+                <!-- TAB EMPRESA -->
+                <section id="tab-empresa" class="tab-content active">
+                    <div class="card-box">
+                        <div class="card-box-header">
+                            <div class="card-box-title">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                                <span>Identidad de la Empresa</span>
                             </div>
                         </div>
-                        <div class="form-grid full">
+                        <div class="grid-2">
                             <div class="input-group">
-                                <label>Descripción "Quiénes Somos"</label>
-                                <textarea data-path="company.description" rows="5"></textarea>
+                                <label>Nombre de la Empresa</label>
+                                <div class="input-wrapper">
+                                    <svg class="icon input-icon" viewBox="0 0 24 24"><path d="M3 21h18M3 7v14M21 7v14"/></svg>
+                                    <input type="text" data-path="company.name">
+                                </div>
                             </div>
                             <div class="input-group">
-                                <label>Texto del Footer</label>
+                                <label>Handle / Usuario (Ej: @empresa)</label>
+                                <div class="input-wrapper">
+                                    <svg class="icon input-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></svg>
+                                    <input type="text" data-path="company.handle">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Descripción "Quiénes Somos"</label>
+                            <textarea data-path="company.description" rows="4" placeholder="Escribe la descripción de la empresa..."></textarea>
+                            <div class="input-hint">Esta información se muestra en la tarjeta principal de la página.</div>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 0;">
+                            <label>Texto del Pie de Página (Footer)</label>
+                            <div class="input-wrapper">
+                                <svg class="icon input-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M14.83 14.83a4 4 0 1 1 0-5.66"/></svg>
                                 <input type="text" data-path="company.footer">
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- Contacto Tab -->
-                <section id="section-contacto" class="section-panel">
-                    <div class="card">
-                        <div class="card-header"><h2 class="card-title">Redes Sociales y Enlaces</h2></div>
-                        <div class="form-grid">
+                <!-- TAB CONTACTO -->
+                <section id="tab-contacto" class="tab-content">
+                    <div class="card-box">
+                        <div class="card-box-header">
+                            <div class="card-box-title">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                                <span>Redes Sociales y Enlaces</span>
+                            </div>
+                        </div>
+                        <div class="grid-2">
                             <div class="input-group">
                                 <label>Instagram URL</label>
-                                <input type="text" data-path="contact.instagram.url">
+                                <div class="input-wrapper">
+                                    <svg class="icon input-icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                    <input type="text" data-path="contact.instagram.url">
+                                </div>
                             </div>
                             <div class="input-group">
                                 <label>Instagram Subtítulo</label>
@@ -271,538 +467,486 @@
                             </div>
                             <div class="input-group">
                                 <label>Sitio Web URL</label>
-                                <input type="text" data-path="contact.website.url">
+                                <div class="input-wrapper">
+                                    <svg class="icon input-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                    <input type="text" data-path="contact.website.url">
+                                </div>
                             </div>
                             <div class="input-group">
                                 <label>Sitio Web Subtítulo</label>
                                 <input type="text" data-path="contact.website.subtitle">
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header"><h2 class="card-title">Datos de Contacto Directo</h2></div>
-                        <div class="form-grid">
-                            <div class="input-group">
-                                <label>Email</label>
-                                <input type="email" data-path="contact.email">
-                            </div>
-                            <div class="input-group">
-                                <label>WhatsApp Número (solo números y código de país)</label>
-                                <input type="text" data-path="contact.whatsapp.number">
-                            </div>
-                            <div class="input-group">
-                                <label>WhatsApp Texto a mostrar</label>
-                                <input type="text" data-path="contact.whatsapp.display">
+                            <div class="input-group" style="grid-column: 1 / -1;">
+                                <label>Correo Electrónico de Contacto</label>
+                                <div class="input-wrapper">
+                                    <svg class="icon input-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                    <input type="email" data-path="contact.email">
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card">
-                        <div class="card-header"><h2 class="card-title">Ubicación</h2></div>
-                        <div class="form-grid">
+                    <div class="card-box">
+                        <div class="card-box-header">
+                            <div class="card-box-title">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                <span>WhatsApp y Ubicación</span>
+                            </div>
+                        </div>
+                        <div class="grid-2">
                             <div class="input-group">
-                                <label>Ubicación Corta</label>
-                                <input type="text" data-path="contact.location.short">
+                                <label>WhatsApp Número (solo dígitos con código de país)</label>
+                                <div class="input-wrapper">
+                                    <svg class="icon input-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                    <input type="text" data-path="contact.whatsapp.number" placeholder="Ej: 584147910825">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label>WhatsApp Texto Visible</label>
+                                <input type="text" data-path="contact.whatsapp.display" placeholder="Ej: +58 414-7910825">
+                            </div>
+                            <div class="input-group">
+                                <label>Ubicación Corta (Subtítulo)</label>
+                                <input type="text" data-path="contact.location.short" placeholder="Ej: Pampatar, Nueva Esparta">
                             </div>
                             <div class="input-group">
                                 <label>Google Maps URL</label>
                                 <input type="text" data-path="contact.location.mapsUrl">
                             </div>
                         </div>
-                        <div class="form-grid full">
-                            <div class="input-group">
-                                <label>Dirección Completa</label>
-                                <textarea data-path="contact.location.full" rows="3"></textarea>
-                            </div>
+                        <div class="input-group" style="margin-bottom: 0;">
+                            <label>Dirección Completa (se muestra en tarjeta de Visítanos)</label>
+                            <textarea data-path="contact.location.full" rows="3"></textarea>
                         </div>
                     </div>
                 </section>
 
-                <!-- Portafolio Tab -->
-                <section id="section-portafolio" class="section-panel">
-                    <div class="card" style="background: transparent; box-shadow: none; padding: 0;">
-                        <div class="card-header">
-                            <h2 class="card-title" style="font-size: 1.5rem;">Categorías de Portafolio</h2>
-                            <button class="btn btn-success" onclick="addCategory()">+ Añadir Categoría</button>
+                <!-- TAB PORTAFOLIO -->
+                <section id="tab-portafolio" class="tab-content">
+                    <div class="card-box">
+                        <div class="card-box-header">
+                            <div class="card-box-title">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                                <span>Categorías y Proyectos</span>
+                            </div>
+                            <button class="btn btn-secondary btn-sm" onclick="addNewCategory()">
+                                <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                <span>Nueva Categoría</span>
+                            </button>
                         </div>
-                        <p style="margin-bottom: 20px; color: #666;">Arrastra y suelta (≡) para reordenar categorías y proyectos.</p>
+                        <p class="input-hint" style="margin-bottom: 20px;">Puedes reordenar las categorías arrastrándolas con el icono de agarre. Haz clic en una categoría para editar sus proyectos (ZIPs).</p>
                         
-                        <div id="portfolio-container" class="portfolio-list">
-                            <!-- Categorías generadas por JS -->
+                        <div id="categoriesContainer" class="accordion-group">
+                            <!-- Categorías dinámicas -->
                         </div>
                     </div>
                 </section>
-                
-            </div>
-            
-            <button class="btn btn-primary fab-save" onclick="saveAndExport()">Guardar Cambios</button>
-        </main>
+
+            </main>
+        </div>
     </div>
 
-    <div id="toastContainer" class="toast-container"></div>
+    <!-- Floating Save Bar -->
+    <div class="floating-bar">
+        <span class="floating-bar-text">Cambios pendientes</span>
+        <button class="btn btn-success btn-sm" onclick="saveAllChanges()">
+            <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            <span>Guardar Cambios</span>
+        </button>
+    </div>
+
+    <!-- Toast Area -->
+    <div id="toastArea" class="toast-area"></div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-icon">
+                <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+            </div>
+            <h3 class="modal-title" id="modalTitle">¿Eliminar elemento?</h3>
+            <p class="modal-desc" id="modalDesc">Esta acción no se puede deshacer.</p>
+            <div class="modal-buttons">
+                <button class="btn btn-outline" onclick="closeConfirmModal()">Cancelar</button>
+                <button class="btn btn-danger-solid" id="modalConfirmBtn">Eliminar</button>
+            </div>
+        </div>
+    </div>
 
     <script>
-        const TARGET_HASH = 'b889ac1887f660d10217f70474c25e5d8799f39478874aaa2c4441ecdf86f44a';
-        let state = null;
-        let dragSrcEl = null;
-        let dragType = null; // 'category' or 'project'
+        const AUTH_HASH = "b889ac1887f660d10217f70474c25e5d8799f39478874aaa2c4441ecdf86f44a";
+        let stateData = null;
+        let confirmActionFn = null;
 
-        const defaultData = {
-            "company": {
-                "name": "Inversiones Formar",
-                "handle": "@inversionesformar",
-                "description": "Somos una empresa dedicada a la realización y ejecución de proyectos de ingeniería de alta calidad, prestando la atención necesaria a nuestros clientes, a través de nuestro personal altamente calificado, en busca del mejor servicio y beneficio para la sociedad en general.",
-                "footer": "© 2025 Inversiones Formar · Todos los derechos reservados"
-            },
-            "contact": {
-                "instagram": {
-                    "url": "https://www.instagram.com/inversionesformar?igsh=MWFteHJqMTBqejM2eA==",
-                    "subtitle": "@inversionesformar"
-                },
-                "website": {
-                    "url": "https://www.inversionesformar.com.ve/?utm_source=ig&utm_medium=social&utm_content=link_in_bio",
-                    "subtitle": "inversionesformar.com.ve"
-                },
-                "email": "Invformar@gmail.com",
-                "whatsapp": {
-                    "number": "584147910825",
-                    "display": "+58 414-7910825"
-                },
-                "location": {
-                    "short": "Pampatar, Nueva Esparta",
-                    "full": "Av. Bolívar · CC A.B Nivel Mezzanina Local #23\nPlaya el Ángel · Pampatar",
-                    "mapsUrl": "https://maps.google.com/?q=Av+Bol%C3%ADvar+CC+AB+Nivel+Mezzanina+Local+23+Playa+el+Angel+Pampatar"
-                }
-            },
-            "portfolio": [
-                {
-                    "id": "vialidades",
-                    "name": "Vialidades",
-                    "zips": [
-                        { "file": "Vialidades.zip", "label": "Pavimentación y Vialidad", "photoTitles": ["Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño", "Avenida Circunvalación Norte", "Avenida Juan Bautista Arismendi"] },
-                        { "file": "REHABILITACION DE VIAS OPERACIONALES (2).zip", "label": "Rehabilitación de Vías Operacionales - Áreas Operacionales del Distrito Gas Anaco", "photoTitles": [] },
-                        { "file": "URBANISMO (1).zip", "label": "Urbanismo - Urbanización Villas de San Antonio", "photoTitles": [] }
-                    ]
-                }
-            ]
-        };
-
-        async function hashPassword(password) {
-            const encoder = new TextEncoder();
-            const data = encoder.encode(password);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-        }
-
+        // Login Handler
         async function handleLogin() {
             const pwd = document.getElementById('password').value;
+            const card = document.getElementById('loginCard');
             if (!pwd) return;
-            const hash = await hashPassword(pwd);
-            if (hash === TARGET_HASH) {
-                sessionStorage.setItem('admin_auth', 'true');
+
+            const encoder = new TextEncoder();
+            const data = encoder.encode(pwd);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+            if (hashHex === AUTH_HASH) {
+                sessionStorage.setItem('formar_admin_auth', 'true');
                 showDashboard();
             } else {
-                const card = document.getElementById('loginCard');
-                card.classList.remove('shake');
-                void card.offsetWidth; // trigger reflow
                 card.classList.add('shake');
-                document.getElementById('password').value = '';
                 showToast('Contraseña incorrecta', 'error');
+                setTimeout(() => card.classList.remove('shake'), 400);
             }
+        }
+
+        function showDashboard() {
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+            loadInitialData();
         }
 
         function logout() {
-            sessionStorage.removeItem('admin_auth');
-            document.getElementById('dashboard').classList.add('hidden');
-            document.getElementById('loginScreen').classList.remove('hidden');
-            document.getElementById('password').value = '';
+            sessionStorage.removeItem('formar_admin_auth');
+            location.reload();
         }
 
-        async function init() {
-            if (sessionStorage.getItem('admin_auth') === 'true') {
+        function checkAuth() {
+            if (sessionStorage.getItem('formar_admin_auth') === 'true') {
                 showDashboard();
             }
         }
 
-        async function showDashboard() {
-            document.getElementById('loginScreen').classList.add('hidden');
-            document.getElementById('dashboard').classList.remove('hidden');
-            await loadData();
-        }
-
-        async function loadData() {
-            try {
-                // Try to load from file
-                const response = await fetch('./site-config.json');
-                if (response.ok) {
-                    state = await response.json();
-                } else {
-                    throw new Error('File not found');
-                }
-            } catch (error) {
-                // Try localStorage
-                const localData = localStorage.getItem('site_config_backup');
-                if (localData) {
-                    try {
-                        state = JSON.parse(localData);
-                        showToast('Datos cargados desde el respaldo local.', 'success');
-                    } catch (e) {
-                        state = JSON.parse(JSON.stringify(defaultData));
-                    }
-                } else {
-                    state = JSON.parse(JSON.stringify(defaultData));
-                }
-            }
-            bindStateToInputs();
-            renderPortfolio();
-        }
-
-        // Object path resolution helper
-        function resolvePath(obj, path) {
-            return path.split('.').reduce((prev, curr) => prev ? prev[curr] : null, obj);
-        }
-        function setPath(obj, path, value) {
-            const keys = path.split('.');
-            let current = obj;
-            for (let i = 0; i < keys.length - 1; i++) {
-                if (!current[keys[i]]) current[keys[i]] = {};
-                current = current[keys[i]];
-            }
-            current[keys[keys.length - 1]] = value;
-        }
-
-        function bindStateToInputs() {
-            const inputs = document.querySelectorAll('input[data-path], textarea[data-path]');
-            inputs.forEach(input => {
-                const path = input.getAttribute('data-path');
-                input.value = resolvePath(state, path) || '';
-                
-                input.onchange = (e) => {
-                    setPath(state, path, e.target.value);
-                };
-            });
-        }
-
+        // Navigation
         function switchTab(tabId) {
-            document.querySelectorAll('.section-panel').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-            document.getElementById('section-' + tabId).classList.add('active');
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            const target = document.getElementById(`tab-${tabId}`);
+            if (target) target.classList.add('active');
+
+            const titleMap = { 'empresa': 'Empresa', 'contacto': 'Contacto y Enlaces', 'portafolio': 'Portafolio de Servicios' };
+            document.getElementById('tabTitle').textContent = titleMap[tabId] || 'Panel';
+
             event.currentTarget.classList.add('active');
-            if(window.innerWidth <= 900) toggleSidebar();
+
+            // Close sidebar on mobile
+            if (window.innerWidth <= 900) {
+                document.getElementById('sidebar').classList.remove('open');
+            }
         }
 
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('open');
         }
 
-        function showToast(msg, type = 'success') {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-            toast.innerHTML = msg;
-            container.appendChild(toast);
-            setTimeout(() => {
-                toast.style.animation = 'fadeOut 0.3s ease forwards';
-                setTimeout(() => toast.remove(), 300);
-            }, 3000);
+        // Data Management
+        async function loadInitialData() {
+            let loaded = null;
+            try {
+                const local = localStorage.getItem('site_config');
+                if (local) loaded = JSON.parse(local);
+            } catch(e){}
+
+            if (!loaded) {
+                try {
+                    const res = await fetch('./site-config.json');
+                    if (res.ok) loaded = await res.json();
+                } catch(e){}
+            }
+
+            if (!loaded) {
+                showToast('No se pudo cargar la configuración inicial', 'error');
+                return;
+            }
+
+            stateData = loaded;
+            populateForm();
+            renderCategories();
         }
 
-        // --- PORTFOLIO RENDERING & LOGIC ---
+        function getNestedValue(obj, path) {
+            return path.split('.').reduce((prev, curr) => (prev && prev[curr] !== undefined) ? prev[curr] : '', obj);
+        }
 
-        function renderPortfolio() {
-            const container = document.getElementById('portfolio-container');
-            container.innerHTML = '';
-            
-            state.portfolio.forEach((cat, catIndex) => {
-                const item = document.createElement('div');
-                item.className = 'accordion-item';
-                item.draggable = true;
-                item.dataset.index = catIndex;
-                item.dataset.type = 'category';
+        function setNestedValue(obj, path, val) {
+            const keys = path.split('.');
+            let lastKey = keys.pop();
+            let target = keys.reduce((prev, curr) => {
+                if (!prev[curr]) prev[curr] = {};
+                return prev[curr];
+            }, obj);
+            target[lastKey] = val;
+        }
+
+        function populateForm() {
+            document.querySelectorAll('[data-path]').forEach(input => {
+                const path = input.getAttribute('data-path');
+                const val = getNestedValue(stateData, path);
+                input.value = val || '';
                 
-                // Drag & Drop events for Category
-                item.addEventListener('dragstart', handleDragStart);
-                item.addEventListener('dragenter', handleDragEnter);
-                item.addEventListener('dragover', handleDragOver);
-                item.addEventListener('dragleave', handleDragLeave);
-                item.addEventListener('drop', handleDrop);
-                item.addEventListener('dragend', handleDragEnd);
+                input.oninput = (e) => {
+                    setNestedValue(stateData, path, e.target.value);
+                };
+            });
+        }
 
-                let zipsHtml = '';
-                if(cat.zips && cat.zips.length > 0) {
-                    cat.zips.forEach((zip, zipIndex) => {
-                        let photosHtml = '';
-                        if(zip.photoTitles) {
-                            zip.photoTitles.forEach((photo, pIdx) => {
-                                photosHtml += `
-                                    <div class="photo-item">
-                                        <input type="text" style="flex:1;" class="form-input" value="${photo.replace(/"/g, '&quot;')}" 
-                                            onchange="updatePhotoTitle(${catIndex}, ${zipIndex}, ${pIdx}, this.value)">
-                                        <button class="btn btn-danger btn-small" onclick="deletePhoto(${catIndex}, ${zipIndex}, ${pIdx})">X</button>
-                                    </div>
-                                `;
-                            });
-                        }
-                        
-                        zipsHtml += `
-                            <div class="project-item" draggable="true" data-index="${zipIndex}" data-cat="${catIndex}" data-type="project">
-                                <div class="project-header">
-                                    <span class="drag-handle" style="cursor: grab">≡</span>
-                                    <div class="input-group" style="flex:1; margin:0;">
-                                        <label style="font-size:0.8rem">Archivo ZIP</label>
-                                        <input type="text" value="${(zip.file||'').replace(/"/g, '&quot;')}" onchange="updateZipField(${catIndex}, ${zipIndex}, 'file', this.value)">
-                                    </div>
-                                    <div class="input-group" style="flex:1; margin:0;">
-                                        <label style="font-size:0.8rem">Etiqueta</label>
-                                        <input type="text" value="${(zip.label||'').replace(/"/g, '&quot;')}" onchange="updateZipField(${catIndex}, ${zipIndex}, 'label', this.value)">
-                                    </div>
-                                    <button class="btn btn-danger btn-small" onclick="deleteProject(${catIndex}, ${zipIndex})">Eliminar</button>
-                                </div>
-                                <div class="photo-list">
-                                    <div style="font-size: 0.85rem; font-weight: 500; color:#666;">Títulos de Fotos:</div>
-                                    ${photosHtml}
-                                    <button class="btn btn-secondary btn-small" style="align-self: flex-start; margin-top:5px;" onclick="addPhoto(${catIndex}, ${zipIndex})">+ Añadir Foto</button>
-                                </div>
-                            </div>
-                        `;
-                    });
-                } else {
-                    zipsHtml = '<p style="color:#666; font-size:0.9rem; text-align:center; padding:10px;">No hay proyectos en esta categoría.</p>';
-                }
+        // Render Portfolio Accordions
+        function renderCategories() {
+            const container = document.getElementById('categoriesContainer');
+            if (!container || !stateData || !stateData.portfolio) return;
 
-                item.innerHTML = `
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-title-wrap">
-                            <span class="drag-handle">≡</span>
-                            <input type="text" style="flex:1; padding:8px; font-weight:bold; border:1px solid transparent; background:transparent;" 
-                                value="${cat.name.replace(/"/g, '&quot;')}" onclick="event.stopPropagation()" onchange="updateCategoryName(${catIndex}, this.value)">
+            container.innerHTML = '';
+
+            stateData.portfolio.forEach((cat, cIdx) => {
+                const catCard = document.createElement('div');
+                catCard.className = 'cat-card';
+                catCard.draggable = true;
+                catCard.dataset.cidx = cIdx;
+
+                // Drag & Drop events
+                catCard.ondragstart = (e) => {
+                    e.dataTransfer.setData('text/plain', cIdx);
+                    catCard.classList.add('dragging');
+                };
+                catCard.ondragend = () => catCard.classList.remove('dragging');
+                catCard.ondragover = (e) => { e.preventDefault(); catCard.classList.add('drag-over'); };
+                catCard.ondragleave = () => catCard.classList.remove('drag-over');
+                catCard.ondrop = (e) => {
+                    e.preventDefault();
+                    catCard.classList.remove('drag-over');
+                    const fromIdx = parseInt(e.dataTransfer.getData('text/plain'));
+                    if (!isNaN(fromIdx) && fromIdx !== cIdx) {
+                        const moved = stateData.portfolio.splice(fromIdx, 1)[0];
+                        stateData.portfolio.splice(cIdx, 0, moved);
+                        renderCategories();
+                    }
+                };
+
+                const zipCount = cat.zips ? cat.zips.length : 0;
+
+                catCard.innerHTML = `
+                    <div class="cat-header" onclick="toggleCatAccordion(${cIdx})">
+                        <div class="cat-left">
+                            <span class="drag-grip" title="Arrastrar para reordenar" onclick="event.stopPropagation()">
+                                <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="9" cy="5" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="19" r="1"/></svg>
+                            </span>
+                            <input type="text" class="cat-title-input" value="${escapeHtml(cat.name)}" onclick="event.stopPropagation()" onchange="updateCatName(${cIdx}, this.value)">
+                            <span class="badge">${zipCount} proyecto${zipCount !== 1 ? 's' : ''}</span>
                         </div>
-                        <div class="accordion-actions" onclick="event.stopPropagation()">
-                            <button class="btn btn-danger btn-small" onclick="deleteCategory(${catIndex})">Eliminar</button>
-                            <span style="margin-left:10px;">▼</span>
+                        <div class="cat-actions" onclick="event.stopPropagation()">
+                            <button class="btn btn-danger btn-sm btn-icon-only" onclick="deleteCategory(${cIdx})" title="Eliminar categoría">
+                                <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                            </button>
+                            <svg class="icon chevron-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
                         </div>
                     </div>
-                    <div class="accordion-content">
-                        <div class="project-list">
-                            ${zipsHtml}
+                    <div class="cat-body" id="catBody-${cIdx}">
+                        <div class="zip-list" id="zipList-${cIdx}">
+                            <!-- ZIP items -->
                         </div>
-                        <div style="text-align:center; margin-top:16px;">
-                            <button class="btn btn-primary btn-small" onclick="addProject(${catIndex})">+ Añadir Proyecto a ${cat.name}</button>
+                        <button class="btn btn-outline btn-sm" style="margin-top: 12px;" onclick="addZipToCategory(${cIdx})">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            <span>Agregar Proyecto (ZIP)</span>
+                        </button>
+                    </div>
+                `;
+
+                container.appendChild(catCard);
+                renderZips(cIdx);
+            });
+        }
+
+        function renderZips(cIdx) {
+            const zipContainer = document.getElementById(`zipList-${cIdx}`);
+            if (!zipContainer || !stateData.portfolio[cIdx]) return;
+
+            const zips = stateData.portfolio[cIdx].zips || [];
+            zipContainer.innerHTML = '';
+
+            zips.forEach((zip, zIdx) => {
+                const zipCard = document.createElement('div');
+                zipCard.className = 'zip-card';
+
+                const photoTitles = zip.photoTitles || [];
+
+                zipCard.innerHTML = `
+                    <div class="zip-card-header">
+                        <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
+                            <svg class="icon" viewBox="0 0 24 24" style="color: var(--brand-primary);"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                            <input type="text" class="input-wrapper" style="font-weight: 600;" value="${escapeHtml(zip.label)}" placeholder="Título del proyecto/label" onchange="updateZipLabel(${cIdx}, ${zIdx}, this.value)">
+                        </div>
+                        <button class="btn btn-danger btn-sm btn-icon-only" onclick="deleteZip(${cIdx}, ${zIdx})" title="Eliminar proyecto">
+                            <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        </button>
+                    </div>
+                    <div class="grid-2">
+                        <div class="input-group" style="margin-bottom: 8px;">
+                            <label style="font-size: 0.75rem;">Archivo ZIP en /servicios/</label>
+                            <input type="text" value="${escapeHtml(zip.file)}" placeholder="Ej: Proyecto.zip" onchange="updateZipFile(${cIdx}, ${zIdx}, this.value)">
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                            <label style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase;">Nombres específicos de Fotos (${photoTitles.length})</label>
+                            <button class="btn btn-outline btn-sm" style="padding: 2px 8px; font-size: 0.75rem;" onclick="addPhotoTitle(${cIdx}, ${zIdx})">+ Nombre Foto</button>
+                        </div>
+                        <div class="photo-titles-box" id="photosBox-${cIdx}-${zIdx}">
+                            ${photoTitles.map((title, pIdx) => `
+                                <div class="photo-title-row">
+                                    <input type="text" value="${escapeHtml(title)}" placeholder="Nombre de la foto #${pIdx + 1}" onchange="updatePhotoTitle(${cIdx}, ${zIdx}, ${pIdx}, this.value)">
+                                    <button class="btn btn-danger btn-sm btn-icon-only" onclick="deletePhotoTitle(${cIdx}, ${zIdx}, ${pIdx})">
+                                        <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                    </button>
+                                </div>
+                            `).join('')}
                         </div>
                     </div>
                 `;
-                
-                container.appendChild(item);
-            });
 
-            // Re-bind drag and drop for nested projects
-            const projects = document.querySelectorAll('.project-item');
-            projects.forEach(p => {
-                p.addEventListener('dragstart', handleDragStart);
-                p.addEventListener('dragenter', handleDragEnter);
-                p.addEventListener('dragover', handleDragOver);
-                p.addEventListener('dragleave', handleDragLeave);
-                p.addEventListener('drop', handleDrop);
-                p.addEventListener('dragend', handleDragEnd);
+                zipContainer.appendChild(zipCard);
             });
         }
 
-        function toggleAccordion(header) {
-            header.classList.toggle('open');
-            const content = header.nextElementSibling;
-            content.classList.toggle('open');
+        // Category Actions
+        function toggleCatAccordion(cIdx) {
+            const card = document.querySelectorAll('.cat-card')[cIdx];
+            if (card) card.classList.toggle('open');
         }
 
-        function addCategory() {
-            state.portfolio.push({
-                id: 'nueva-categoria-' + Date.now(),
+        function updateCatName(cIdx, val) {
+            stateData.portfolio[cIdx].name = val;
+            stateData.portfolio[cIdx].id = slugify(val);
+        }
+
+        function addNewCategory() {
+            stateData.portfolio.push({
+                id: 'nueva-categoria',
                 name: 'Nueva Categoría',
                 zips: []
             });
-            renderPortfolio();
+            renderCategories();
+            toggleCatAccordion(stateData.portfolio.length - 1);
         }
 
-        function updateCategoryName(index, val) {
-            state.portfolio[index].name = val;
-            state.portfolio[index].id = val.toLowerCase().replace(/[^a-z0-9]/g, '-');
+        function deleteCategory(cIdx) {
+            const catName = stateData.portfolio[cIdx].name;
+            openConfirmModal(`¿Eliminar "${catName}"?`, 'Se eliminarán todos sus proyectos asociados.', () => {
+                stateData.portfolio.splice(cIdx, 1);
+                renderCategories();
+                showToast('Categoría eliminada', 'info');
+            });
         }
 
-        function deleteCategory(index) {
-            if(confirm('¿Estás seguro de eliminar esta categoría y todos sus proyectos?')) {
-                state.portfolio.splice(index, 1);
-                renderPortfolio();
-            }
-        }
-
-        function addProject(catIndex) {
-            if(!state.portfolio[catIndex].zips) state.portfolio[catIndex].zips = [];
-            state.portfolio[catIndex].zips.push({
-                file: 'NUEVO_PROYECTO.zip',
+        // ZIP Actions
+        function addZipToCategory(cIdx) {
+            if (!stateData.portfolio[cIdx].zips) stateData.portfolio[cIdx].zips = [];
+            stateData.portfolio[cIdx].zips.push({
+                file: 'NuevoProyecto.zip',
                 label: 'Nuevo Proyecto',
                 photoTitles: []
             });
-            renderPortfolio();
-            // Open the accordion
+            renderCategories();
+            const card = document.querySelectorAll('.cat-card')[cIdx];
+            if (card) card.classList.add('open');
+        }
+
+        function updateZipLabel(cIdx, zIdx, val) { stateData.portfolio[cIdx].zips[zIdx].label = val; }
+        function updateZipFile(cIdx, zIdx, val) { stateData.portfolio[cIdx].zips[zIdx].file = val; }
+        function deleteZip(cIdx, zIdx) {
+            stateData.portfolio[cIdx].zips.splice(zIdx, 1);
+            renderCategories();
+            const card = document.querySelectorAll('.cat-card')[cIdx];
+            if (card) card.classList.add('open');
+        }
+
+        // Photo Title Actions
+        function addPhotoTitle(cIdx, zIdx) {
+            if (!stateData.portfolio[cIdx].zips[zIdx].photoTitles) stateData.portfolio[cIdx].zips[zIdx].photoTitles = [];
+            stateData.portfolio[cIdx].zips[zIdx].photoTitles.push('Nueva Foto');
+            renderZips(cIdx);
+        }
+        function updatePhotoTitle(cIdx, zIdx, pIdx, val) { stateData.portfolio[cIdx].zips[zIdx].photoTitles[pIdx] = val; }
+        function deletePhotoTitle(cIdx, zIdx, pIdx) {
+            stateData.portfolio[cIdx].zips[zIdx].photoTitles.splice(pIdx, 1);
+            renderZips(cIdx);
+        }
+
+        // Save Logic
+        function saveAllChanges() {
+            try {
+                const jsonStr = JSON.stringify(stateData, null, 2);
+                localStorage.setItem('site_config', jsonStr);
+
+                // Download json file
+                const blob = new Blob([jsonStr], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'site-config.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                showToast('¡Cambios guardados y site-config.json descargado!', 'success');
+            } catch(e) {
+                console.error(e);
+                showToast('Error al guardar los cambios', 'error');
+            }
+        }
+
+        // Confirmation Modal
+        function openConfirmModal(title, desc, confirmFn) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDesc').textContent = desc;
+            confirmActionFn = confirmFn;
+            document.getElementById('confirmModal').classList.add('open');
+        }
+        function closeConfirmModal() {
+            document.getElementById('confirmModal').classList.remove('open');
+            confirmActionFn = null;
+        }
+        document.getElementById('modalConfirmBtn').onclick = () => {
+            if (confirmActionFn) confirmActionFn();
+            closeConfirmModal();
+        };
+
+        // Toast Helper
+        function showToast(msg, type = 'info') {
+            const area = document.getElementById('toastArea');
+            const toast = document.createElement('div');
+            toast.className = `toast-item ${type}`;
+
+            let iconSvg = '<svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>';
+            if (type === 'success') iconSvg = '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+            if (type === 'error') iconSvg = '<svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>';
+
+            toast.innerHTML = `${iconSvg}<span>${escapeHtml(msg)}</span>`;
+            area.appendChild(toast);
+
             setTimeout(() => {
-                const item = document.querySelectorAll('.accordion-item')[catIndex];
-                item.querySelector('.accordion-header').classList.add('open');
-                item.querySelector('.accordion-content').classList.add('open');
-            }, 50);
+                toast.style.animation = 'toastOut 0.3s ease forwards';
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
         }
 
-        function updateZipField(catIndex, zipIndex, field, val) {
-            state.portfolio[catIndex].zips[zipIndex][field] = val;
+        // Helpers
+        function slugify(text) {
+            return text.toString().toLowerCase().trim()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/[^\w\-]+/g, '')
+                .replace(/\-\-+/g, '-');
         }
 
-        function deleteProject(catIndex, zipIndex) {
-            if(confirm('¿Eliminar proyecto?')) {
-                state.portfolio[catIndex].zips.splice(zipIndex, 1);
-                renderPortfolio();
-                setTimeout(() => {
-                    const item = document.querySelectorAll('.accordion-item')[catIndex];
-                    item.querySelector('.accordion-header').classList.add('open');
-                    item.querySelector('.accordion-content').classList.add('open');
-                }, 50);
-            }
-        }
-
-        function addPhoto(catIndex, zipIndex) {
-            if(!state.portfolio[catIndex].zips[zipIndex].photoTitles) {
-                state.portfolio[catIndex].zips[zipIndex].photoTitles = [];
-            }
-            state.portfolio[catIndex].zips[zipIndex].photoTitles.push('Nueva Foto');
-            renderPortfolio();
-            setTimeout(() => {
-                const item = document.querySelectorAll('.accordion-item')[catIndex];
-                item.querySelector('.accordion-header').classList.add('open');
-                item.querySelector('.accordion-content').classList.add('open');
-            }, 50);
-        }
-
-        function updatePhotoTitle(catIndex, zipIndex, photoIndex, val) {
-            state.portfolio[catIndex].zips[zipIndex].photoTitles[photoIndex] = val;
-        }
-
-        function deletePhoto(catIndex, zipIndex, photoIndex) {
-            state.portfolio[catIndex].zips[zipIndex].photoTitles.splice(photoIndex, 1);
-            renderPortfolio();
-            setTimeout(() => {
-                const item = document.querySelectorAll('.accordion-item')[catIndex];
-                item.querySelector('.accordion-header').classList.add('open');
-                item.querySelector('.accordion-content').classList.add('open');
-            }, 50);
-        }
-
-        // --- DRAG AND DROP ---
-        
-        function handleDragStart(e) {
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON') {
-                e.preventDefault();
-                return;
-            }
-            dragSrcEl = this;
-            dragType = this.dataset.type;
-            e.dataTransfer.effectAllowed = 'move';
-            e.dataTransfer.setData('text/html', this.innerHTML);
-            this.classList.add('dragging');
-            e.stopPropagation();
-        }
-
-        function handleDragOver(e) {
-            if (e.preventDefault) {
-                e.preventDefault();
-            }
-            e.dataTransfer.dropEffect = 'move';
-            return false;
-        }
-
-        function handleDragEnter(e) {
-            if(this.dataset.type === dragType && this !== dragSrcEl) {
-                this.classList.add('drag-over');
-            }
-            e.stopPropagation();
-        }
-
-        function handleDragLeave(e) {
-            this.classList.remove('drag-over');
-            e.stopPropagation();
-        }
-
-        function handleDrop(e) {
-            if (e.stopPropagation) {
-                e.stopPropagation(); // stops the browser from redirecting.
-            }
-            if (dragSrcEl !== this && this.dataset.type === dragType) {
-                const srcIdx = parseInt(dragSrcEl.dataset.index);
-                const tgtIdx = parseInt(this.dataset.index);
-                
-                if (dragType === 'category') {
-                    // Reorder categories
-                    const item = state.portfolio.splice(srcIdx, 1)[0];
-                    state.portfolio.splice(tgtIdx, 0, item);
-                    renderPortfolio();
-                } else if (dragType === 'project') {
-                    // Check if they belong to the same category
-                    const srcCat = parseInt(dragSrcEl.dataset.cat);
-                    const tgtCat = parseInt(this.dataset.cat);
-                    
-                    if(srcCat === tgtCat) {
-                        const item = state.portfolio[srcCat].zips.splice(srcIdx, 1)[0];
-                        state.portfolio[tgtCat].zips.splice(tgtIdx, 0, item);
-                        renderPortfolio();
-                        
-                        setTimeout(() => {
-                            const accItem = document.querySelectorAll('.accordion-item')[srcCat];
-                            accItem.querySelector('.accordion-header').classList.add('open');
-                            accItem.querySelector('.accordion-content').classList.add('open');
-                        }, 50);
-                    }
-                }
-            }
-            return false;
-        }
-
-        function handleDragEnd(e) {
-            this.classList.remove('dragging');
-            document.querySelectorAll('.accordion-item, .project-item').forEach(function (col) {
-                col.classList.remove('drag-over');
-            });
-            dragSrcEl = null;
-            dragType = null;
-            e.stopPropagation();
-        }
-
-        // --- SAVE AND EXPORT ---
-
-        function saveAndExport() {
-            // Force save inputs to state just in case onchange didn't fire
-            document.querySelectorAll('input[data-path], textarea[data-path]').forEach(input => {
-                setPath(state, input.getAttribute('data-path'), input.value);
-            });
-
-            const dataStr = JSON.stringify(state, null, 2);
-            
-            // Backup in localStorage
-            localStorage.setItem('site_config_backup', dataStr);
-
-            // Export as file
-            const blob = new Blob([dataStr], { type: "application/json" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'site-config.json';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-
-            showToast('Configuración guardada y descargada.', 'success');
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         }
 
         // Init
-        document.addEventListener('DOMContentLoaded', init);
+        checkAuth();
     </script>
 </body>
 </html>
