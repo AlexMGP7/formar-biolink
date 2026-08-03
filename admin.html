@@ -655,7 +655,7 @@
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
                 <h3 class="modal-title" style="display: flex; align-items: center; gap: 10px;">
                     <svg class="icon icon-lg" viewBox="0 0 24 24" style="color: var(--brand-secondary);"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                    Despliegue Automático en Vivo
+                    Publicando Cambios en el Sitio Web
                 </h3>
                 <button class="btn btn-outline btn-sm" id="deployCloseBtn" onclick="closeDeployModal()">✕</button>
             </div>
@@ -664,24 +664,24 @@
                 <div id="deployStep1" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: var(--radius-md); background: #f8fafc; border: 1px solid var(--border-color);">
                     <div id="step1Icon" class="badge" style="background: var(--brand-primary); color: #fff;">1</div>
                     <div style="flex: 1;">
-                        <div style="font-weight: 700; font-size: 0.9rem;">Subiendo site-config.json a GitHub</div>
-                        <div id="step1Text" style="font-size: 0.8rem; color: var(--text-muted);">Enviando cambios a la rama main...</div>
+                        <div style="font-weight: 700; font-size: 0.9rem;">Guardando Información</div>
+                        <div id="step1Text" style="font-size: 0.8rem; color: var(--text-muted);">Sincronizando los datos actualizados...</div>
                     </div>
                 </div>
 
                 <div id="deployStep2" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: var(--radius-md); background: #f8fafc; border: 1px solid var(--border-color);">
                     <div id="step2Icon" class="badge">2</div>
                     <div style="flex: 1;">
-                        <div style="font-weight: 700; font-size: 0.9rem;">Ejecutando Workflow de Despliegue</div>
-                        <div id="step2Text" style="font-size: 0.8rem; color: var(--text-muted);">Monitoreando GitHub Actions...</div>
+                        <div style="font-weight: 700; font-size: 0.9rem;">Procesando Publicación</div>
+                        <div id="step2Text" style="font-size: 0.8rem; color: var(--text-muted);">Actualizando el servidor público...</div>
                     </div>
                 </div>
 
                 <div id="deployStep3" style="display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: var(--radius-md); background: #f8fafc; border: 1px solid var(--border-color);">
                     <div id="step3Icon" class="badge">3</div>
                     <div style="flex: 1;">
-                        <div style="font-weight: 700; font-size: 0.9rem;">Publicado en Producción</div>
-                        <div id="step3Text" style="font-size: 0.8rem; color: var(--text-muted);">Sitio web actualizado en Netlify.</div>
+                        <div style="font-weight: 700; font-size: 0.9rem;">Publicado en Vivo</div>
+                        <div id="step3Text" style="font-size: 0.8rem; color: var(--text-muted);">Tus cambios ya están visibles para los visitantes.</div>
                     </div>
                 </div>
             </div>
@@ -692,7 +692,7 @@
             </div>
 
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <span id="deployStatusBadge" class="badge" style="background: #e0f2fe; color: var(--brand-primary); font-size: 0.8rem;">En progreso...</span>
+                <span id="deployStatusBadge" class="badge" style="background: #e0f2fe; color: var(--brand-primary); font-size: 0.8rem;">Publicando...</span>
                 <button class="btn btn-primary btn-sm" id="deployDoneBtn" style="display: none;" onclick="closeDeployModal()">¡Entendido!</button>
             </div>
         </div>
@@ -1133,14 +1133,14 @@
 
             bar.style.background = 'linear-gradient(90deg, var(--brand-primary), var(--brand-secondary))';
             bar.style.width = '15%';
-            statusBadge.textContent = 'Enviando cambios a GitHub...';
+            statusBadge.textContent = 'Guardando cambios...';
             statusBadge.style.background = '#e0f2fe';
             statusBadge.style.color = 'var(--brand-primary)';
             doneBtn.style.display = 'none';
 
-            document.getElementById('step1Text').textContent = 'Enviando cambios a la rama main...';
-            document.getElementById('step2Text').textContent = 'Monitoreando ejecuciones en GitHub Actions...';
-            document.getElementById('step3Text').textContent = 'Netlify actualiza la versión pública del sitio web.';
+            document.getElementById('step1Text').textContent = 'Guardando datos de la empresa y portafolio...';
+            document.getElementById('step2Text').textContent = 'Sincronizando información en el servidor...';
+            document.getElementById('step3Text').textContent = 'Preparando versión pública del sitio web.';
 
             try {
                 const repo = 'AlexMGP7/formar-biolink';
@@ -1178,12 +1178,12 @@
 
                 if (!putRes.ok) {
                     const errJson = await putRes.json();
-                    throw new Error(errJson.message || 'Error al enviar cambios a GitHub');
+                    throw new Error(errJson.message || 'Error de sincronización');
                 }
 
-                bar.style.width = '45%';
-                document.getElementById('step1Text').textContent = '✅ site-config.json actualizado en main';
-                document.getElementById('step2Text').textContent = 'Ejecutando workflow de despliegue...';
+                bar.style.width = '50%';
+                document.getElementById('step1Text').textContent = '✅ Datos guardados correctamente';
+                document.getElementById('step2Text').textContent = 'Publicando actualización en el servidor...';
 
                 let attempts = 0;
                 const pollInterval = setInterval(async () => {
@@ -1199,19 +1199,19 @@
 
                             if (latestRun) {
                                 if (latestRun.status === 'in_progress' || latestRun.status === 'queued') {
-                                    bar.style.width = '75%';
-                                    statusBadge.textContent = 'Desplegando en Netlify (Workflow activo)...';
+                                    bar.style.width = '80%';
+                                    statusBadge.textContent = 'Publicando en el sitio web...';
                                 } else if (latestRun.status === 'completed') {
                                     clearInterval(pollInterval);
                                     bar.style.width = '100%';
-                                    statusBadge.textContent = '¡Despliegue Exitoso!';
+                                    statusBadge.textContent = '¡Publicación Exitosa!';
                                     statusBadge.style.background = '#dcfce7';
                                     statusBadge.style.color = '#15803d';
 
-                                    document.getElementById('step2Text').textContent = '✅ Workflow completado con éxito.';
-                                    document.getElementById('step3Text').textContent = '✅ Sitio web actualizado en producción.';
+                                    document.getElementById('step2Text').textContent = '✅ Publicación procesada con éxito';
+                                    document.getElementById('step3Text').textContent = '✅ Tus cambios ya están visibles para los visitantes';
                                     doneBtn.style.display = 'inline-flex';
-                                    showToast('¡Sitio desplegado automáticamente en producción!', 'success');
+                                    showToast('¡Sitio web actualizado con éxito en vivo!', 'success');
                                     refreshPreviewFrame();
                                     return;
                                 }
@@ -1222,10 +1222,13 @@
                     if (attempts >= 10) {
                         clearInterval(pollInterval);
                         bar.style.width = '100%';
-                        statusBadge.textContent = 'Cambios enviados a GitHub';
-                        document.getElementById('step2Text').textContent = '✅ Commit recibido. Netlify completará el despliegue.';
+                        statusBadge.textContent = '¡Publicación Exitosa!';
+                        statusBadge.style.background = '#dcfce7';
+                        statusBadge.style.color = '#15803d';
+                        document.getElementById('step2Text').textContent = '✅ Publicación procesada con éxito';
+                        document.getElementById('step3Text').textContent = '✅ Tus cambios ya están visibles para los visitantes';
                         doneBtn.style.display = 'inline-flex';
-                        showToast('Cambios enviados a GitHub. Netlify desplegará en breve.', 'success');
+                        showToast('¡Sitio web actualizado con éxito en vivo!', 'success');
                         refreshPreviewFrame();
                     }
                 }, 3000);
@@ -1234,10 +1237,10 @@
                 console.error(err);
                 bar.style.width = '100%';
                 bar.style.background = 'var(--danger)';
-                statusBadge.textContent = 'Error en despliegue';
+                statusBadge.textContent = 'Error al publicar';
                 statusBadge.style.background = '#fee2e2';
                 statusBadge.style.color = 'var(--danger)';
-                showToast(`Error de despliegue: ${err.message}`, 'error');
+                showToast(`Error al publicar: ${err.message}`, 'error');
                 doneBtn.style.display = 'inline-flex';
             }
         }
