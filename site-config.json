@@ -58,17 +58,23 @@
         {
           "file": "EDIFICACION.zip",
           "label": "Edificación Escolares",
-          "photoTitles": ["U.E.B.N Dr Luis Ortega"]
+          "photoTitles": [
+            "U.E.B.N Dr Luis Ortega"
+          ]
         },
         {
           "file": "PLANTA_LA_GUARDIA.zip",
           "label": "Casetas de Control",
-          "photoTitles": ["Caseta de Control Planta de Tratamiento La Guardia"]
+          "photoTitles": [
+            "Caseta de Control Planta de Tratamiento La Guardia"
+          ]
         },
         {
           "file": "INFRAESTRUCTURA DE PLANTA DE CONCRETO.zip",
           "label": "Infraestructura Industrial",
-          "photoTitles": ["Infraestructura de Planta de Concreto"]
+          "photoTitles": [
+            "Infraestructura de Planta de Concreto"
+          ]
         }
       ]
     },
