@@ -131,7 +131,18 @@
         {
           "file": "saneamiento AMBIENTAL (2).zip",
           "label": "Saneamiento Ambiental - Relleno Sanitario El Piache",
-          "photoTitles": []
+          "photoTitles": [
+            "Relleno Sanitario El Piache"
+          ]
+        },
+        {
+          "file": "RED_DE_HIDRANTES.zip",
+          "label": "Mantenimiento a Red de Hidrantes",
+          "photoTitles": [
+            "Mantenimiento a Red de Hidrantes",
+            "Mantenimiento a Red de Hidrantes",
+            "Mantenimiento a Red de Hidrantes"
+          ]
         }
       ]
     },
