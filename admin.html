@@ -1117,18 +1117,8 @@
         }
 
         function downloadBackupJson() {
-            closeTokenModal();
-            const jsonStr = JSON.stringify(stateData, null, 2);
-            const blob = new Blob([jsonStr], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'site-config.json';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            showToast('site-config.json descargado localmente', 'info');
+            // Function disabled to prevent any file downloads
+            showToast('Los cambios se sincronizan en vivo sin descargas', 'info');
         }
 
         function closeDeployModal() {
