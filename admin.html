@@ -360,7 +360,7 @@
 
         /* Mobile Responsive */
         @media (max-width: 900px) {
-            .sidebar { position: fixed; inset: 0 auto 0 0; transform: translateX(-100%); }
+            .sidebar { position: fixed; inset: 0 auto 0 0; transform: translateX(-100%); z-index: 1200; }
             .sidebar.open { transform: translateX(0); box-shadow: 0 0 40px rgba(0,0,0,0.5); }
             .hamburger { display: block; }
             .grid-2 { grid-template-columns: 1fr; }
@@ -368,25 +368,33 @@
 
             .topbar {
                 height: auto; padding: 12px 16px; flex-direction: column;
-                align-items: stretch; gap: 10px;
+                align-items: stretch; gap: 10px; position: sticky; top: 0;
+                z-index: 100; background: var(--bg-surface); border-bottom: 1px solid var(--border-color);
             }
             .topbar-left { justify-content: flex-start; }
             .topbar-title { font-size: 1.15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
             .topbar-right { display: flex; align-items: center; gap: 8px; width: 100%; }
             .topbar-right .btn { flex: 1; padding: 8px 10px; font-size: 0.8rem; justify-content: center; }
 
-            .card-box { padding: 18px; margin-bottom: 18px; }
+            .card-box { padding: 16px 12px; margin-bottom: 18px; }
             .card-box-header { flex-direction: column; align-items: flex-start; gap: 12px; }
             .card-box-header .btn { width: 100%; }
             .card-box-title { font-size: 1.05rem; }
 
-            .cat-header { padding: 14px 16px; flex-wrap: wrap; gap: 10px; }
-            .cat-left { width: 100%; justify-content: space-between; }
-            .cat-title-input { font-size: 0.95rem; max-width: 180px; }
-            .cat-actions { width: 100%; justify-content: space-between; border-top: 1px dashed var(--border-color); padding-top: 8px; }
+            .cat-header { padding: 14px 12px; flex-direction: column; align-items: stretch; gap: 10px; }
+            .cat-left { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+            .cat-title-input { font-size: 16px !important; flex: 1; min-width: 0; width: 100%; max-width: none; }
+            .cat-actions { width: 100%; display: flex; align-items: center; justify-content: space-between; border-top: 1px dashed var(--border-color); padding-top: 10px; margin-top: 2px; }
 
-            .content-area { padding: 14px; padding-bottom: 120px; }
-            .floating-bar { left: 16px; right: 16px; bottom: 16px; justify-content: space-between; border-radius: var(--radius-md); padding: 10px 16px; }
+            .zip-card { padding: 14px 12px; }
+            .zip-card-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: nowrap; }
+            .zip-card-header input { font-size: 16px !important; flex: 1; min-width: 0; width: 100%; }
+
+            .photo-card-body input { font-size: 16px !important; width: 100%; box-sizing: border-box; }
+            .form-select, input[type="text"], input[type="email"], textarea { font-size: 16px !important; }
+
+            .content-area { padding: 12px; padding-bottom: 120px; }
+            .floating-bar { left: 12px; right: 12px; bottom: 12px; justify-content: space-between; border-radius: var(--radius-md); padding: 10px 14px; }
         }
     </style>
 </head>
@@ -1141,11 +1149,20 @@
             checkUnsavedChanges();
         }
         function deleteZip(cIdx, zIdx) {
-            stateData.portfolio[cIdx].zips.splice(zIdx, 1);
-            renderCategories();
-            const card = document.querySelectorAll('.cat-card')[cIdx];
-            if (card) card.classList.add('open');
-            checkUnsavedChanges();
+            const zipObj = stateData.portfolio[cIdx].zips[zIdx];
+            const zipName = zipObj ? (zipObj.label || zipObj.file) : 'esta obra';
+            openConfirmModal(
+                `¿Eliminar "${zipName}"?`,
+                'Se eliminará esta obra y sus fotos asociadas de la categoría.',
+                () => {
+                    stateData.portfolio[cIdx].zips.splice(zIdx, 1);
+                    renderCategories();
+                    const card = document.querySelectorAll('.cat-card')[cIdx];
+                    if (card) card.classList.add('open');
+                    checkUnsavedChanges();
+                    showToast('Obra eliminada', 'info');
+                }
+            );
         }
 
         // Photo Title Actions
@@ -1161,9 +1178,20 @@
             checkUnsavedChanges();
         }
         function deletePhotoTitle(cIdx, zIdx, pIdx) {
-            stateData.portfolio[cIdx].zips[zIdx].photoTitles.splice(pIdx, 1);
-            renderZips(cIdx);
-            checkUnsavedChanges();
+            const zipObj = stateData.portfolio[cIdx].zips[zIdx];
+            const photoTitle = (zipObj && zipObj.photoTitles && zipObj.photoTitles[pIdx]) ? zipObj.photoTitles[pIdx] : `Foto #${pIdx+1}`;
+            openConfirmModal(
+                `¿Quitar foto "${photoTitle}"?`,
+                'Se eliminará esta fotografía de la lista de esta obra.',
+                () => {
+                    if (zipObj && zipObj.photoTitles) {
+                        zipObj.photoTitles.splice(pIdx, 1);
+                        renderZips(cIdx);
+                        checkUnsavedChanges();
+                        showToast('Fotografía quitada', 'info');
+                    }
+                }
+            );
         }
 
         // Save & Automated GitHub Deployment Logic
