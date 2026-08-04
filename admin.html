@@ -870,7 +870,7 @@
 
             if (!loaded) {
                 try {
-                    const res = await fetch('./site-config.json');
+                    const res = await fetch('https://alexmgp7.github.io/formar-biolink/site-config.json?v=' + Date.now());
                     if (res.ok) loaded = await res.json();
                 } catch(e){}
             }
