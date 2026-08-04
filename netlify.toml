@@ -1,0 +1,6 @@
+# Netlify Configuration for Pure Static Site
+# Setting command = "" ensures Netlify performs instant static deployment without wasting build credits.
+
+[build]
+  publish = "."
+  command = ""
