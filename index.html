@@ -401,7 +401,7 @@
     <!-- HEADER -->
     <div class="header">
       <div class="logo-ring">
-        <img src="./logo.png" alt="Logo Inversiones Formar"/>
+        <img src="https://alexmgp7.github.io/formar-biolink/logo.png" alt="Logo Inversiones Formar"/>
       </div>
       <div class="brand-name">Inversiones Formar</div>
       <div class="brand-handle">@inversionesformar</div>
@@ -787,7 +787,7 @@
       async function loadConfig() {
         let configData = null;
         try {
-          const res = await fetch('./site-config.json?v=' + Date.now());
+          const res = await fetch('https://alexmgp7.github.io/formar-biolink/site-config.json?v=' + Date.now());
           if (res.ok) {
             configData = await res.json();
           }
@@ -825,7 +825,7 @@
           
           // Descargar y descomprimir todos los archivos ZIP en paralelo
           const promises = config.zips.map(async (zipConfig) => {
-            const path = `./servicios/` + encodeURIComponent(zipConfig.file);
+            const path = `https://alexmgp7.github.io/formar-biolink/servicios/` + encodeURIComponent(zipConfig.file);
             try {
               const response = await fetch(path);
               if (!response.ok) {
