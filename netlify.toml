@@ -1,6 +1,9 @@
-# Netlify Configuration for Pure Static Site
-# Setting command = "" ensures Netlify performs instant static deployment without wasting build credits.
-
 [build]
   publish = "."
   command = ""
+
+[build.ignore]
+  # CANCELA TODOS LOS DEPLOYS EN NETLIFY AUTOMÁTICAMENTE (CONSUMO 0 CRÉDITOS).
+  # El frontend en Netlify ahora jala los datos dinámicamente desde el CDN gratuito de GitHub Pages,
+  # por lo que Netlify solo actúa como un cascarón estático congelado.
+  command = "exit 0"
