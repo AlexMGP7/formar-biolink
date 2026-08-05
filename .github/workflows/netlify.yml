@@ -9,6 +9,7 @@ on:
       - 'formar-biolink.html'
       - 'admin.html'
       - 'logo.png'
+      - 'favicon.ico'
       - 'netlify.toml'
   workflow_dispatch:
 
