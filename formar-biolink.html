@@ -83,6 +83,7 @@
     }
 
     .logo-ring {
+      position: relative;
       width: 106px;
       height: 106px;
       margin: 0 auto 12px;
@@ -90,15 +91,18 @@
       border: 3px solid rgba(255, 255, 255, 0.86);
       box-shadow: var(--shadow);
       background: linear-gradient(150deg, #fff, #ebf6ff);
-      display: grid;
-      place-items: center;
       overflow: hidden;
     }
 
     .brand-logo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      position: absolute;
+      top: -53px;
+      left: -5px;
+      width: 214px;
+      max-width: none;
+      height: 214px;
+      object-fit: contain;
+      clip-path: inset(0 58% 0 0);
     }
 
     .logo-fallback {
@@ -478,7 +482,7 @@
   <main class="container">
     <header class="header">
       <div class="logo-ring">
-        <img id="brandLogo" class="brand-logo" src="./favicon.ico" alt="Icono oficial de Inversiones Formar" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='grid';" />
+        <img id="brandLogo" class="brand-logo" src="./logo.png" alt="Símbolo de Inversiones Formar" onerror="this.style.display='none';document.getElementById('logoFallback').style.display='grid';" />
         <div class="logo-fallback" id="logoFallback" aria-hidden="true">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M3 20h18v2H3zM5 10h4v8H5zm10-4h4v12h-4zM10 4h4v14h-4z" />

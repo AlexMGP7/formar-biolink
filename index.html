@@ -53,6 +53,7 @@
       animation: fadeDown 0.7s ease both;
     }
     .logo-ring {
+      position: relative;
       width: 104px; height: 104px;
       border-radius: 50%; border: 3px solid #fff;
       background: #fff;
@@ -61,7 +62,7 @@
       box-shadow: 0 4px 24px rgba(0,0,0,0.25);
       margin-bottom: 14px;
     }
-    .logo-ring img { width: 90%; height: 90%; object-fit: contain; }
+    .logo-ring img { position: absolute; top: -52px; left: -5px; width: 210px; max-width: none; height: 210px; object-fit: contain; clip-path: inset(0 58% 0 0); }
     .brand-name {
       font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 27px;
       color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.35); margin-bottom: 5px;
@@ -402,7 +403,7 @@
     <!-- HEADER -->
     <div class="header">
       <div class="logo-ring">
-        <img src="favicon.ico" alt="Icono oficial de Inversiones Formar"/>
+        <img src="logo.png" alt="Símbolo de Inversiones Formar"/>
       </div>
       <div class="brand-name">Inversiones Formar</div>
       <div class="brand-handle">@inversionesformar</div>
