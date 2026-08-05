@@ -1,0 +1,19 @@
+{
+  "name": "formar-biolink",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "content:check": "node scripts/validate-content.mjs",
+    "content:migrate": "node scripts/migrate-zips.mjs",
+    "worker:dev": "wrangler dev --env staging",
+    "worker:deploy": "wrangler deploy --env production",
+    "worker:check": "wrangler check startup",
+    "worker:typecheck": "tsc --noEmit",
+    "worker:types": "wrangler types"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260804.1",
+    "typescript": "^5.9.2",
+    "wrangler": "^4.118.0"
+  }
+}

@@ -507,23 +507,8 @@
   <!-- ========================================================== -->
 
   <script>
-    /* === LÓGICA DE LA GALERÍA DE PORTAFOLIO CON DESCOMPRESIÓN DE ZIP Y MÚLTIPLES FOTOS === */
+    /* === LÓGICA DE LA GALERÍA DE PORTAFOLIO CON IMÁGENES DIRECTAS === */
     (function () {
-      // Función para cargar JSZip bajo demanda si se descarga un archivo ZIP
-      function loadJSZip() {
-        return new Promise((resolve, reject) => {
-          if (window.JSZip) {
-            resolve(window.JSZip);
-            return;
-          }
-          const script = document.createElement('script');
-          script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
-          script.onload = () => resolve(window.JSZip);
-          script.onerror = () => reject(new Error('No se pudo cargar JSZip'));
-          document.head.appendChild(script);
-        });
-      }
-
       // Convierte el texto en un slug amigable para nombres de archivos
       function getSlug(text) {
         return text.toLowerCase()
@@ -585,102 +570,8 @@
         if (event.target === imgModal) closeModal();
       });
 
-      // Estructura del portafolio que mapea categorías principales a sus subcategorías y archivos ZIP
-      let portfolioStructure = {
-        "vialidades": {
-          title: "Vialidades",
-          zips: [
-            { 
-              file: "Vialidades.zip", 
-              label: "Pavimentación y Vialidad",
-              photoTitles: [
-                "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
-                "Avenida Circunvalación Norte",
-                "Avenida Juan Bautista Arismendi"
-              ]
-            },
-            { file: "REHABILITACION DE VIAS OPERACIONALES (2).zip", label: "Rehabilitación de Vías Operacionales - Áreas Operacionales del Distrito Gas Anaco" },
-            { file: "URBANISMO (1).zip", label: "Urbanismo - Urbanización Villas de San Antonio" }
-          ]
-        },
-        "edificaciones": {
-          title: "Edificaciones",
-          zips: [
-            { file: "EDIFICACION.zip", label: "Edificación Escolares", photoTitles: ["U.E.B.N Dr Luis Ortega"] },
-            { file: "PLANTA_LA_GUARDIA.zip", label: "Casetas de Control", photoTitles: ["Caseta de Control Planta de Tratamiento La Guardia"] },
-            { file: "INFRAESTRUCTURA DE PLANTA DE CONCRETO.zip", label: "Infraestructura Industrial", photoTitles: ["Infraestructura de Planta de Concreto"] }
-          ]
-        },
-        "hidraulicas": {
-          title: "Hidráulicas",
-          zips: [
-            { file: "DIQUES DE CONTENCION (3).zip", label: "Diques de Contención - Presa de Retención de Sedimientos Río Naiguatá" },
-            { file: "EMBAULAMIENTO (3).zip", label: "Embaulamiento Quebrada El Güiere, Urbanización Villas de San Antonio" },
-            { file: "PLANTAS DE TRATAMIENTO (2).zip", label: "Planta de Tratamiento La Guardia / Planta de Tratamiento El Yaque" }
-          ]
-        },
-        "movimientos-de-tierra": {
-          title: "Movimiento de Tierra",
-          zips: [
-            { 
-              file: "MOVIMIENTO DE TIERRA (1).zip", 
-              label: "Movimiento de Tierra",
-              photoTitles: [
-                "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
-                "Vialidad Boca de Río"
-              ]
-            }
-          ]
-        },
-        "ingenieria-electrica": {
-          title: "Ingeniería Eléctrica",
-          zips: [
-            { file: "REDES DE ALTA Y BAJA TENSION (1).zip", label: "Redes de Alta y Baja Tensión - San Antonio" }
-          ]
-        },
-        "instalaciones-sanitarias": {
-          title: "Instalaciones Sanitarias",
-          zips: [
-            { 
-              file: "saneamiento AMBIENTAL (2).zip", 
-              label: "Saneamiento Ambiental - Relleno Sanitario El Piache",
-              photoTitles: ["Relleno Sanitario El Piache"]
-            },
-            {
-              file: "RED_DE_HIDRANTES.zip",
-              label: "Mantenimiento a Red de Hidrantes",
-              photoTitles: [
-                "Mantenimiento a Red de Hidrantes",
-                "Mantenimiento a Red de Hidrantes",
-                "Mantenimiento a Red de Hidrantes"
-              ]
-            }
-          ]
-        },
-        "red-de-gas-domestico": {
-          title: "Red de Gas Doméstico",
-          zips: [
-            { file: "RED DE GAS DOMESTICO (4).zip", label: "Red de Gas Doméstico - Urbanización Villa Rosa" },
-            { file: "MANTENIMIENTO DE ESTACIONES DE GAS (2).zip", label: "Estación de Medición y Regulación Gas Metáno, La Isleta" },
-            { file: "REEMPLAZO DE TRAMO DE GASODUCTO (1).zip", label: "Gasoducto 16\" José Francisco Bermúdez Tramo Coche- Margarita" }
-          ]
-        },
-        "otros-servicios": {
-          title: "Otros Servicios",
-          zips: [
-            { 
-              file: "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE.zip", 
-              label: "Mantenimiento e Inspección de Infraestructura",
-              photoMap: {
-                "GASODUCTO": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
-                "SUBMARINA": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
-                "PLATAFORMA": "Mantenimiento de la Plataforma de Combustible"
-              }
-            },
-            { file: "ESPIGON 04.zip", label: "Espigón Bahía El Tirano" }
-          ]
-        }
-      };
+      // Estructura del portafolio que mapea categorías principales a sus obras e imágenes directas
+      let portfolioStructure = {};
 
       function applyConfig(cfg) {
         if (!cfg) return;
@@ -762,7 +653,7 @@
               const slug = cat.id || getSlug(cat.name);
               portfolioStructure[slug] = {
                 title: cat.name,
-                zips: cat.zips || []
+                works: cat.works || []
               };
 
               const item = document.createElement('div');
@@ -809,141 +700,81 @@
 
       loadConfig();
 
-      // Descargar dinámicamente y abrir la galería
+      function publicImageUrl(source) {
+        if (!source) return '';
+        return source.startsWith('http') ? source : `https://alexmgp7.github.io/formar-biolink/${source}`;
+      }
+
+      // Abrir la galería usando un único formato de imágenes directas.
       async function fetchAsset(slug, originalName) {
         const config = portfolioStructure[slug];
         if (!config) {
-          alert(`No hay archivos asignados para el servicio "${originalName}".`);
+          alert(`No hay obras asignadas para el servicio "${originalName}".`);
           return;
         }
 
         const formattedTitle = config.title;
-        showModal(formattedTitle, [], "Descargando referencias y abriendo galería de proyectos...");
+        showModal(formattedTitle, [], "Cargando galería de proyectos...");
 
         try {
-          const JSZipLib = await loadJSZip();
-          
-          // Descargar y descomprimir todos los archivos ZIP en paralelo
-          const promises = config.zips.map(async (zipConfig) => {
-            const path = `https://alexmgp7.github.io/formar-biolink/servicios/` + encodeURIComponent(zipConfig.file);
-            try {
-              const response = await fetch(path);
-              if (!response.ok) {
-                throw new Error(`Error ${response.status} al cargar ${zipConfig.file}`);
-              }
-              const blob = await response.blob();
-              const zip = await JSZipLib.loadAsync(blob);
-              
-              const imagesInZip = [];
-              for (const relativePath in zip.files) {
-                const fileExt = relativePath.split('.').pop().toLowerCase();
-                if (['png', 'jpg', 'jpeg', 'webp', 'gif'].includes(fileExt) && !zip.files[relativePath].dir) {
-                  const imgFile = zip.files[relativePath];
-                  const imgBlob = await imgFile.async('blob');
-                  const imgUrl = URL.createObjectURL(imgBlob);
-                  loadedBlobUrls.push(imgUrl);
-                  imagesInZip.push({
-                    relativePath: relativePath,
-                    url: imgUrl
-                  });
-                }
-              }
-              
-              // Ordenar imágenes por nombre de archivo
-              imagesInZip.sort((a, b) => a.relativePath.localeCompare(b.relativePath, undefined, { numeric: true, sensitivity: 'base' }));
-              
-              return {
-                label: zipConfig.label,
-                photoTitles: zipConfig.photoTitles || null,
-                photoMap: zipConfig.photoMap || null,
-                success: true,
-                images: imagesInZip
-              };
-            } catch (err) {
-              console.error(`Error procesando ZIP ${zipConfig.file}:`, err);
-              return {
-                label: zipConfig.label,
-                success: false,
-                error: err.message
-              };
-            }
-          });
-          
-          const results = await Promise.all(promises);
-          
-          // Limpiar el contenedor de galería
+          const results = config.works.map((work) => ({
+            label: work.label,
+            success: Array.isArray(work.images) && work.images.length > 0,
+            images: (work.images || []).sort((a, b) => (a.order || 0) - (b.order || 0)).map((image, index) => ({
+              url: publicImageUrl(image.src),
+              title: image.title || `${work.label} (${index + 1})`,
+              alt: image.alt || image.title || work.label
+            })),
+            error: 'Esta obra todavía no tiene imágenes publicadas.'
+          }));
+
           imgGalleryContainer.innerHTML = '';
-          
           let totalImages = 0;
           results.forEach((res) => {
-            if (res.success && res.images.length > 0) {
+            if (res.success) {
               totalImages += res.images.length;
-              
-              // Crear el título de la subcategoría
               const subhead = document.createElement('h4');
               subhead.className = 'subcategory-title';
               subhead.textContent = res.label;
               imgGalleryContainer.appendChild(subhead);
-              
-              // Crear un grid/wrapper para las fotos de la subcategoría
+
               const subcatGrid = document.createElement('div');
               subcatGrid.style.display = 'flex';
               subcatGrid.style.flexDirection = 'column';
               subcatGrid.style.gap = '14px';
               subcatGrid.style.width = '100%';
-              
-              res.images.forEach((img, idx) => {
+
+              res.images.forEach((image) => {
                 const wrapper = document.createElement('div');
                 wrapper.className = 'gallery-item-wrapper';
-                
-                // Determinar el título específico para cada foto
-                let itemTitle = `${res.label} (${idx + 1})`;
-                if (res.photoTitles && res.photoTitles[idx]) {
-                  itemTitle = res.photoTitles[idx];
-                } else if (res.photoMap) {
-                  const upperRel = img.relativePath.toUpperCase();
-                  for (const key in res.photoMap) {
-                    if (upperRel.includes(key.toUpperCase())) {
-                      itemTitle = res.photoMap[key];
-                      break;
-                    }
-                  }
-                }
-                
                 const caption = document.createElement('span');
                 caption.className = 'gallery-item-caption';
-                caption.textContent = itemTitle;
-                
+                caption.textContent = image.title;
                 const container = document.createElement('div');
                 container.className = 'img-container';
-                
                 const imgElement = document.createElement('img');
-                imgElement.src = img.url;
-                imgElement.alt = itemTitle;
+                imgElement.src = image.url;
+                imgElement.alt = image.alt;
                 imgElement.style.maxWidth = '100%';
                 imgElement.style.maxHeight = '50vh';
                 imgElement.style.objectFit = 'contain';
                 imgElement.style.display = 'block';
-                
                 container.appendChild(imgElement);
-                wrapper.appendChild(caption);
-                wrapper.appendChild(container);
+                wrapper.append(caption, container);
                 subcatGrid.appendChild(wrapper);
               });
-              
               imgGalleryContainer.appendChild(subcatGrid);
-            } else if (!res.success) {
+            } else {
               const errorDiv = document.createElement('div');
               errorDiv.style.padding = '10px';
-              errorDiv.style.color = '#c82333';
+              errorDiv.style.color = '#5b728a';
               errorDiv.style.fontFamily = 'Arimo, sans-serif';
               errorDiv.style.fontSize = '13px';
-              errorDiv.style.textAlign = 'left';
-              errorDiv.textContent = `No se pudo cargar la sección "${res.label}" (${res.error}).`;
+              errorDiv.textContent = `${res.label}: ${res.error}`;
               imgGalleryContainer.appendChild(errorDiv);
             }
           });
-          
+
           if (totalImages === 0) {
             imgGalleryContainer.innerHTML = '';
             const placeholder = document.createElement('div');
@@ -951,14 +782,13 @@
             placeholder.style.color = '#5b728a';
             placeholder.style.fontFamily = 'Arimo, sans-serif';
             placeholder.style.fontSize = '14px';
-            placeholder.textContent = "No se encontraron imágenes compatibles en los paquetes de esta categoría.";
+            placeholder.textContent = "Esta categoría todavía no tiene imágenes publicadas.";
             imgGalleryContainer.appendChild(placeholder);
           }
-          
           imgModalHint.style.display = 'none';
-        } catch (e) {
-          console.error(e);
-          showModal(formattedTitle, [], "Error general al intentar cargar los archivos de la galería.");
+        } catch (error) {
+          console.error(error);
+          showModal(formattedTitle, [], "No se pudo cargar la galería.");
         }
       }
 

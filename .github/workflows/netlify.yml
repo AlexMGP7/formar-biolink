@@ -1,9 +1,16 @@
-name: Deploy to Netlify
+name: Deploy frontend shell to Netlify
 
 on:
   push:
     branches:
       - main
+    paths:
+      - 'index.html'
+      - 'formar-biolink.html'
+      - 'admin.html'
+      - 'logo.png'
+      - 'netlify.toml'
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -13,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to Netlify
-        run: npx netlify-cli deploy --dir=. --prod
+        run: npx netlify-cli@latest deploy --dir=. --prod --site "$NETLIFY_SITE_ID"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

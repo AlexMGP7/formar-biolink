@@ -1,4 +1,4 @@
-name: Despliegue Automático de Inversiones Formar
+name: Validar contenido de Inversiones Formar
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
           python3 -c "import json; json.load(open('site-config.json'))"
           echo "✅ Configuración JSON válida."
 
-      - name: Notificar actualización
+      - name: Validar imágenes directas
         run: |
-          echo "🚀 Cambios publicados correctamente en la rama main."
-          echo "Netlify desplegará la versión más reciente automáticamente."
+          node scripts/validate-content.mjs
+          echo "✅ Contenido listo para GitHub Pages."

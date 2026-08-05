@@ -1,0 +1,30 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "formar-biolink-admin-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-01",
+  "workers_dev": true,
+  "vars": {
+    "GITHUB_REPO": "AlexMGP7/formar-biolink",
+    "GITHUB_BRANCH": "main",
+    "ALLOWED_ORIGIN": "https://inversionesformar.netlify.app"
+  },
+  "env": {
+    "staging": {
+      "name": "formar-biolink-admin-api-staging",
+      "vars": {
+        "GITHUB_REPO": "AlexMGP7/formar-biolink",
+        "GITHUB_BRANCH": "main",
+        "ALLOWED_ORIGIN": "http://127.0.0.1:4173"
+      }
+    },
+    "production": {
+      "name": "formar-biolink-admin-api",
+      "vars": {
+        "GITHUB_REPO": "AlexMGP7/formar-biolink",
+        "GITHUB_BRANCH": "main",
+        "ALLOWED_ORIGIN": "https://inversionesformar.netlify.app"
+      }
+    }
+  }
+}
