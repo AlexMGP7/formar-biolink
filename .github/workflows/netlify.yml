@@ -1,16 +1,6 @@
-name: Deploy frontend shell to Netlify
+name: Configure Netlify proxy
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'index.html'
-      - 'formar-biolink.html'
-      - 'admin.html'
-      - 'logo.png'
-      - 'favicon.ico'
-      - 'netlify.toml'
   workflow_dispatch:
 
 jobs:
@@ -20,8 +10,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy to Netlify
-        run: npx netlify-cli@latest deploy --dir=. --prod --site "$NETLIFY_SITE_ID"
+      - name: Deploy proxy configuration to Netlify
+        run: npx netlify-cli@latest deploy --dir=netlify-proxy --prod --site "$NETLIFY_SITE_ID" --message "Configure GitHub Pages proxy"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

@@ -1,15 +1,18 @@
 ﻿# Inversiones Formar Biolink
 
-Sitio público estático con contenido versionado en GitHub y shell final en Netlify:
+Sitio público estático con contenido y frontend versionados en GitHub:
 
 - Público: https://inversionesformar.netlify.app/
 - Panel: https://inversionesformar.netlify.app/admin.html
-- Contenido y galerías: `site-config.json` e imágenes directas en `servicios/portfolio/`
+- Frontend, contenido y galerías: GitHub Pages
 - API segura del panel: `https://formar-biolink-admin-api.agonzalezpastena7.workers.dev`
+- URL pública estable: Netlify funciona únicamente como proxy hacia GitHub Pages
 
 ## Flujo de publicación
 
-El panel autentica contra el Worker de Cloudflare. Al pulsar `Publicar cambios`, el Worker valida el contenido y crea un commit en `AlexMGP7/formar-biolink`. GitHub Pages sirve el JSON y las imágenes; el workflow de Netlify publica el shell HTML/CSS/JS sin consumir un despliegue manual desde el equipo.
+El panel autentica contra el Worker de Cloudflare. Al pulsar `Publicar cambios`, el Worker valida el contenido y crea un commit en `AlexMGP7/formar-biolink`. GitHub Pages publica el frontend completo, el JSON y las imágenes.
+
+Netlify solo contiene las reglas de `netlify-proxy/` que encaminan el dominio final a GitHub Pages. El workflow `Configure Netlify proxy` es exclusivamente manual y solo debe ejecutarse si cambia esa infraestructura. Los cambios habituales del frontend o del contenido no consumen production deploys de Netlify.
 
 Las imágenes se suben desde el panel por toque, selección de archivos o arrastre. El navegador las convierte a WebP antes de publicarlas y guarda título, texto alternativo y orden.
 

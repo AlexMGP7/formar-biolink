@@ -1,6 +1,6 @@
 [build]
-  publish = "."
+  publish = "netlify-proxy"
   command = ""
 
-# El frontend de Netlify es un cascarón estático. El contenido se actualiza
-# desde GitHub Pages sin necesitar un nuevo deploy de Netlify.
+# Netlify solo conserva el dominio público y hace proxy a GitHub Pages.
+# El sitio no se conecta al repositorio en Netlify para evitar deploys automáticos.
