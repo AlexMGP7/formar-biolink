@@ -4,7 +4,6 @@
   "type": "module",
   "scripts": {
     "content:check": "node scripts/validate-content.mjs",
-    "content:migrate": "node scripts/migrate-zips.mjs",
     "worker:dev": "wrangler dev --env staging",
     "worker:deploy": "wrangler deploy --env production",
     "worker:check": "wrangler check startup",
