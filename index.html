@@ -402,7 +402,7 @@
     <!-- HEADER -->
     <div class="header">
       <div class="logo-ring">
-        <img src="https://alexmgp7.github.io/formar-biolink/logo.png" alt="Logo Inversiones Formar"/>
+        <img src="favicon.ico" alt="Icono oficial de Inversiones Formar"/>
       </div>
       <div class="brand-name">Inversiones Formar</div>
       <div class="brand-handle">@inversionesformar</div>
@@ -678,6 +678,18 @@
 
       async function loadConfig() {
         let configData = null;
+        if (new URLSearchParams(location.search).get('preview') === '1') {
+          try {
+            const draft = localStorage.getItem('formar-admin-preview');
+            if (draft) configData = JSON.parse(draft);
+          } catch(e) {}
+        }
+
+        if (configData) {
+          applyConfig(configData);
+          return;
+        }
+
         try {
           const res = await fetch('https://alexmgp7.github.io/formar-biolink/site-config.json?v=' + Date.now());
           if (res.ok) {
@@ -703,7 +715,7 @@
 
       function publicImageUrl(source) {
         if (!source) return '';
-        return source.startsWith('http') ? source : `https://alexmgp7.github.io/formar-biolink/${source}`;
+        return /^(https?:|blob:|data:)/.test(source) ? source : `https://alexmgp7.github.io/formar-biolink/${source}`;
       }
 
       // Abrir la galería usando un único formato de imágenes directas.
