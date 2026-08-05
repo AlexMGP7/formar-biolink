@@ -8,6 +8,17 @@ const imageExtensions = new Set(['jpg', 'jpeg', 'png', 'webp', 'gif']);
 const errors = [];
 const paths = new Set();
 
+const logoPath = config.company?.logo?.src;
+const logoExtension = String(logoPath || '').split('.').pop()?.toLowerCase();
+const validBrandPath = typeof logoPath === 'string' && logoPath.startsWith('assets/branding/') && !logoPath.includes('..') && !logoPath.includes('\\') && imageExtensions.has(logoExtension);
+if (!logoPath || (logoPath !== 'logo.png' && !validBrandPath)) {
+  errors.push(`Ruta de logo inválida: ${logoPath}`);
+} else {
+  const logoFilePath = join(root, logoPath);
+  if (!existsSync(logoFilePath)) errors.push(`Falta archivo de logo: ${logoPath}`);
+  else if ((await stat(logoFilePath)).size === 0) errors.push(`Archivo de logo vacío: ${logoPath}`);
+}
+
 for (const category of config.portfolio || []) {
   if (!category.id || !category.name || !Array.isArray(category.works)) errors.push(`Categoría inválida: ${category.name || 'sin nombre'}`);
   for (const work of category.works || []) {

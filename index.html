@@ -54,15 +54,16 @@
     }
     .logo-ring {
       position: relative;
-      width: 104px; height: 104px;
-      border-radius: 50%; border: 3px solid #fff;
+      width: 184px; height: 122px;
+      padding: 11px;
+      border-radius: 22px; border: 3px solid #fff;
       background: #fff;
       display: inline-flex; align-items: center; justify-content: center;
       overflow: hidden;
       box-shadow: 0 4px 24px rgba(0,0,0,0.25);
       margin-bottom: 14px;
     }
-    .logo-ring img { position: absolute; top: -52px; left: -5px; width: 210px; max-width: none; height: 210px; object-fit: contain; clip-path: inset(0 58% 0 0); }
+    .logo-ring img { display: block; width: 100%; height: 100%; object-fit: contain; }
     .brand-name {
       font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 27px;
       color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.35); margin-bottom: 5px;
@@ -403,7 +404,7 @@
     <!-- HEADER -->
     <div class="header">
       <div class="logo-ring">
-        <img src="logo.png" alt="Símbolo de Inversiones Formar"/>
+        <img id="brandLogo" src="logo.png" alt="Logo de Inversiones Formar"/>
       </div>
       <div class="brand-name">Inversiones Formar</div>
       <div class="brand-handle">@inversionesformar</div>
@@ -579,6 +580,16 @@
         if (!cfg) return;
 
         if (cfg.company) {
+          if (cfg.company.logo && cfg.company.logo.src) {
+            const logo = document.getElementById('brandLogo');
+            if (logo) {
+              const logoSource = String(cfg.company.logo.src);
+              logo.src = /^(blob:|data:|https?:)/.test(logoSource)
+                ? logoSource
+                : `https://alexmgp7.github.io/formar-biolink/${logoSource.replace(/^\.\//, '')}`;
+              logo.alt = cfg.company.logo.alt || `Logo de ${cfg.company.name || 'Inversiones Formar'}`;
+            }
+          }
           if (cfg.company.name) {
             const bName = document.querySelector('.brand-name');
             if (bName) bName.textContent = cfg.company.name;

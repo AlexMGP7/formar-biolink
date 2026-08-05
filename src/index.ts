@@ -144,15 +144,32 @@ function repoPath(env: Env) {
   return `/repos/${env.GITHUB_REPO}`;
 }
 
-function isValidImagePath(value: unknown) {
-  if (typeof value !== 'string' || !value.startsWith('servicios/portfolio/')) return false;
-  if (value.includes('..') || value.includes('\\') || value.startsWith('/')) return false;
+function hasAllowedImageExtension(value: string) {
   const extension = value.split('.').pop()?.toLowerCase() || '';
   return ALLOWED_IMAGE_EXTENSIONS.has(extension);
 }
 
+function isValidEditableImagePath(value: unknown) {
+  if (typeof value !== 'string') return false;
+  if (!value.startsWith('servicios/portfolio/') && !value.startsWith('assets/branding/')) return false;
+  if (value.includes('..') || value.includes('\\') || value.startsWith('/')) return false;
+  return hasAllowedImageExtension(value);
+}
+
+function isValidConfiguredLogoPath(value: unknown) {
+  return value === 'logo.png' || (typeof value === 'string' && value.startsWith('assets/branding/') && isValidEditableImagePath(value));
+}
+
 function validateConfig(config: unknown) {
   if (!config || typeof config !== 'object') throw new Error('La configuración no es válida.');
+  const company = (config as { company?: unknown }).company;
+  if (company && typeof company === 'object') {
+    const logo = (company as { logo?: unknown }).logo;
+    if (logo !== undefined) {
+      if (!logo || typeof logo !== 'object') throw new Error('El logo de la empresa no es válido.');
+      if (!isValidConfiguredLogoPath((logo as { src?: unknown }).src)) throw new Error('El logo apunta a una ruta inválida.');
+    }
+  }
   const portfolio = (config as { portfolio?: unknown }).portfolio;
   if (!Array.isArray(portfolio)) throw new Error('El portafolio no es válido.');
   if (portfolio.length > 100) throw new Error('Hay demasiadas categorías.');
@@ -166,7 +183,7 @@ function validateConfig(config: unknown) {
       if (images !== undefined && !Array.isArray(images)) throw new Error('Las imágenes de una obra no son válidas.');
       images?.forEach((image) => {
         if (!image || typeof image !== 'object') throw new Error('Hay una imagen inválida.');
-        if (!isValidImagePath((image as { src?: unknown }).src)) throw new Error('Una imagen apunta a una ruta inválida.');
+        if (!isValidEditableImagePath((image as { src?: unknown }).src)) throw new Error('Una imagen apunta a una ruta inválida.');
       });
     });
   });
@@ -200,9 +217,9 @@ async function publish(request: Request, env: Env) {
   const files = Array.isArray(body.files) ? body.files : [];
   const deletePaths = Array.isArray(body.deletePaths) ? body.deletePaths : [];
   if (files.length > MAX_IMAGE_COUNT) return json({ error: 'Demasiadas imágenes en una publicación.' }, 413);
-  if (deletePaths.some((path) => !isValidImagePath(path))) return json({ error: 'Hay una ruta de eliminación inválida.' }, 422);
+  if (deletePaths.some((path) => !isValidEditableImagePath(path))) return json({ error: 'Hay una ruta de eliminación inválida.' }, 422);
   for (const file of files) {
-    if (!isValidImagePath(file.path) || typeof file.contentBase64 !== 'string') return json({ error: 'Hay un archivo inválido.' }, 422);
+    if (!isValidEditableImagePath(file.path) || typeof file.contentBase64 !== 'string') return json({ error: 'Hay un archivo inválido.' }, 422);
     const bytes = Number(file.bytes || 0);
     if (!Number.isFinite(bytes) || bytes <= 0 || bytes > MAX_IMAGE_BYTES) return json({ error: 'Una imagen supera el límite permitido.' }, 413);
   }

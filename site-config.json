@@ -2,6 +2,10 @@
   "company": {
     "name": "Inversiones Formar",
     "handle": "@inversionesformar",
+    "logo": {
+      "src": "logo.png",
+      "alt": "Logo de Inversiones Formar"
+    },
     "description": "Somos una empresa dedicada a la realización y ejecución de proyectos de ingeniería de alta calidad, prestando la atención necesaria a nuestros clientes, a través de nuestro personal altamente calificado, en busca del mejor servicio y beneficio para la sociedad en general.",
     "footer": "© 2026 Inversiones Formar · Todos los derechos reservados"
   },
