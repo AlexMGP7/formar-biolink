@@ -54,10 +54,10 @@
     }
     .logo-ring {
       position: relative;
-      width: 184px; height: 122px;
-      padding: 11px;
-      border-radius: 22px; border: 3px solid #fff;
-      background: #fff;
+      width: 112px; height: 112px;
+      padding: 0;
+      border-radius: 50%; border: 3px solid #fff;
+      background: transparent;
       display: inline-flex; align-items: center; justify-content: center;
       overflow: hidden;
       box-shadow: 0 4px 24px rgba(0,0,0,0.25);
@@ -588,7 +588,9 @@
               const logoSource = String(cfg.company.logo.src);
               logo.src = /^(blob:|data:|https?:)/.test(logoSource)
                 ? logoSource
-                : `https://alexmgp7.github.io/formar-biolink/${logoSource.replace(/^\.\//, '')}`;
+                : ['localhost', '127.0.0.1'].includes(location.hostname)
+                  ? new URL(logoSource.replace(/^\.\//, ''), location.href).href
+                  : `https://alexmgp7.github.io/formar-biolink/${logoSource.replace(/^\.\//, '')}`;
               logo.alt = cfg.company.logo.alt || `Logo de ${cfg.company.name || 'Inversiones Formar'}`;
             }
           }

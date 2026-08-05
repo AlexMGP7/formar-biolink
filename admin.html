@@ -49,7 +49,7 @@
     .login-view::before { content: ''; position: absolute; inset: 0; opacity: .18; background-image: linear-gradient(rgba(115, 211, 233, .25) 1px, transparent 1px), linear-gradient(90deg, rgba(115, 211, 233, .25) 1px, transparent 1px); background-size: 42px 42px; transform: perspective(500px) rotateX(56deg) scale(1.4) translateY(90px); transform-origin: center bottom; }
     .login-view::after { content: ''; position: absolute; width: 460px; height: 460px; right: -210px; top: -220px; border: 1px solid rgba(112, 211, 234, .4); border-radius: 50%; box-shadow: 0 0 0 32px rgba(112, 211, 234, .06), 0 0 0 78px rgba(112, 211, 234, .04); }
     .login-card { position: relative; z-index: 1; width: min(440px, 100%); padding: 38px; border: 1px solid rgba(255,255,255,.14); border-radius: 26px; color: #fff; text-align: center; background: linear-gradient(145deg, rgba(30, 71, 110, .96), rgba(10, 30, 53, .96)); box-shadow: 0 30px 80px rgba(0,0,0,.35); }
-    .login-mark { position: relative; display: grid; place-items: center; width: min(300px, 100%); height: 150px; padding: 18px; margin: 0 auto 26px; border: 1px solid rgba(255,255,255,.7); border-radius: 23px; background: #fff; box-shadow: 0 12px 30px rgba(8, 162, 209, .28); overflow: hidden; }
+    .login-mark { position: relative; display: grid; place-items: center; width: 150px; height: 150px; padding: 0; margin: 0 auto 26px; border: 0; border-radius: 50%; background: transparent; box-shadow: 0 12px 30px rgba(8, 162, 209, .28); overflow: hidden; }
     .login-mark img { display: block; width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: contain; }
     .login-card h1 { margin: 0; font: 700 clamp(1.7rem, 4vw, 2.15rem)/1.05 'Space Grotesk', sans-serif; letter-spacing: -.04em; }
     .login-card p { max-width: 330px; margin: 12px auto 30px; color: #b6cbe0; line-height: 1.55; }
@@ -62,7 +62,7 @@
     .app-shell { min-height: 100vh; display: grid; grid-template-columns: var(--sidebar) minmax(0, 1fr); }
     .sidebar { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; padding: 22px 16px 18px; color: #fff; background: var(--navy); overflow-y: auto; }
     .brand { display: flex; gap: 12px; align-items: center; padding: 4px 8px 25px; border-bottom: 1px solid rgba(255,255,255,.1); }
-    .brand-mark { position: relative; display: grid; place-items: center; width: 62px; height: 48px; padding: 5px; flex: 0 0 auto; border-radius: 13px; background: #fff; overflow: hidden; }
+    .brand-mark { position: relative; display: grid; place-items: center; width: 48px; height: 48px; padding: 0; flex: 0 0 auto; border-radius: 50%; background: transparent; overflow: hidden; }
     .brand-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
     .brand-name { display: block; font: 600 1rem/1.1 'Space Grotesk', sans-serif; }
     .brand-sub { display: block; margin-top: 4px; color: #8ea7be; font: 400 .7rem 'DM Mono', monospace; }
@@ -133,8 +133,8 @@
     .form-card-header h2 { margin: 0; font: 700 1.1rem 'Space Grotesk', sans-serif; }
     .form-card-header p { margin: 4px 0 0; color: var(--muted); font-size: .78rem; }
     .logo-editor { display: grid; grid-template-columns: minmax(210px, .7fr) minmax(280px, 1.3fr); gap: 18px; padding: 18px; margin-bottom: 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--canvas); }
-    .logo-preview { display: grid; place-items: center; min-height: 180px; padding: 22px; border: 1px solid #d8e4ed; border-radius: 13px; background: #fff; overflow: hidden; }
-    .logo-preview img { display: block; width: min(270px, 100%); max-height: 145px; object-fit: contain; }
+    .logo-preview { display: grid; place-items: center; min-height: 240px; padding: 18px; border: 1px solid #d8e4ed; border-radius: 13px; background: #fff; overflow: hidden; }
+    .logo-preview img { display: block; width: min(220px, 100%); max-height: 220px; object-fit: contain; }
     .logo-controls { display: flex; flex-direction: column; justify-content: center; gap: 12px; min-width: 0; }
     .logo-controls h3 { margin: 0; font: 700 1rem 'Space Grotesk', sans-serif; }
     .logo-controls p { margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.5; }
@@ -243,7 +243,7 @@
     @media (max-width: 760px) {
       .login-view { padding: 16px; }
       .login-card { padding: 27px 22px; border-radius: 22px; }
-      .login-mark { width: min(260px, 100%); height: 130px; padding: 16px; margin-bottom: 22px; border-radius: 20px; }
+      .login-mark { width: 132px; height: 132px; padding: 0; margin-bottom: 22px; border-radius: 50%; }
       .login-mark img { width: 100%; height: 100%; }
       .app-shell { display: block; }
       .sidebar { position: fixed; z-index: 40; inset: 0 auto 0 0; width: min(300px, 88vw); transform: translateX(-105%); transition: .22s ease; box-shadow: 20px 0 50px rgba(0,0,0,.22); }
@@ -258,7 +258,7 @@
       .stat strong { font-size: 1.45rem; }
       .field-grid, .preview-grid { grid-template-columns: 1fr; gap: 0; }
       .logo-editor { grid-template-columns: 1fr; padding: 12px; }
-      .logo-preview { min-height: 150px; }
+      .logo-preview { min-height: 220px; }
       .logo-editor-actions .button { flex: 1 1 150px; }
       .preview-toolbar { align-items: flex-start; flex-direction: column; }
       .preview-toolbar-note { text-align: left; }
@@ -324,7 +324,7 @@
           <div class="card"><div class="field-grid"><div><strong>Portafolio</strong><p class="field-hint">Categorías, obras, imágenes, portadas y textos alternativos.</p></div><div><strong>Empresa</strong><p class="field-hint">Nombre, descripción y texto del pie de página.</p></div><div><strong>Contacto</strong><p class="field-hint">Instagram, web, correo, WhatsApp y ubicación.</p></div><div><strong>Publicación</strong><p class="field-hint">Una publicación crea un commit verificable en GitHub.</p></div></div></div>
         </section>
 
-        <section class="view" id="view-empresa"><div class="card"><div class="form-card-header"><div><h2>Identidad de la empresa</h2><p>El logo y estos textos aparecen en el perfil público.</p></div></div><div class="logo-editor"><div class="logo-preview"><img id="companyLogoPreview" src="logo.png" alt="Vista previa del logo de Inversiones Formar"></div><div class="logo-controls"><div><h3>Logo de la empresa</h3><p>Usa PNG, JPG o WebP. Puedes tocar la zona o arrastrar una imagen; antes de publicar verás el resultado real.</p></div><button class="logo-dropzone" id="logoDropzone" type="button"><strong>Toca para elegir el logo</strong><span>o arrastra el archivo aquí</span></button><div class="logo-editor-actions"><button class="button secondary small" id="chooseLogoButton" type="button">Cambiar logo</button><button class="button ghost small" id="officialLogoButton" type="button">Usar logo oficial</button><span class="logo-file-status" id="logoFileStatus">Logo oficial activo</span></div></div></div><form id="companyForm" class="field-grid"><div class="field"><label for="companyName">Nombre de la empresa</label><input class="field-input" id="companyName" data-path="company.name"></div><div class="field"><label for="companyHandle">Handle / usuario</label><input class="field-input" id="companyHandle" data-path="company.handle"></div><div class="field full"><label for="companyDescription">Descripción “Quiénes somos”</label><textarea class="field-input" id="companyDescription" data-path="company.description"></textarea></div><div class="field full"><label for="companyFooter">Texto del pie de página</label><input class="field-input" id="companyFooter" data-path="company.footer"></div></form></div></section>
+        <section class="view" id="view-empresa"><div class="card"><div class="form-card-header"><div><h2>Identidad de la empresa</h2><p>El logo y estos textos aparecen en el perfil público.</p></div></div><div class="logo-editor"><div class="logo-preview"><img id="companyLogoPreview" src="logo.png" alt="Vista previa del logo de Inversiones Formar"></div><div class="logo-controls"><div><h3>Logo de la empresa</h3><p>Usa PNG, JPG o WebP. Puedes tocar la zona o arrastrar una imagen; la optimizamos y publicamos como PNG.</p></div><button class="logo-dropzone" id="logoDropzone" type="button"><strong>Toca para elegir el logo</strong><span>o arrastra el archivo aquí</span></button><div class="logo-editor-actions"><button class="button secondary small" id="chooseLogoButton" type="button">Cambiar logo</button><button class="button ghost small" id="officialLogoButton" type="button">Usar logo oficial</button><span class="logo-file-status" id="logoFileStatus">Logo oficial activo</span></div></div></div><form id="companyForm" class="field-grid"><div class="field"><label for="companyName">Nombre de la empresa</label><input class="field-input" id="companyName" data-path="company.name"></div><div class="field"><label for="companyHandle">Handle / usuario</label><input class="field-input" id="companyHandle" data-path="company.handle"></div><div class="field full"><label for="companyDescription">Descripción “Quiénes somos”</label><textarea class="field-input" id="companyDescription" data-path="company.description"></textarea></div><div class="field full"><label for="companyFooter">Texto del pie de página</label><input class="field-input" id="companyFooter" data-path="company.footer"></div></form></div></section>
 
         <section class="view" id="view-contacto"><div class="card"><div class="form-card-header"><div><h2>Redes sociales y enlaces</h2><p>Mantén los canales de contacto actualizados.</p></div></div><div class="field-grid"><div class="field"><label>Instagram URL</label><input class="field-input" data-path="contact.instagram.url" type="url"></div><div class="field"><label>Instagram subtítulo</label><input class="field-input" data-path="contact.instagram.subtitle"></div><div class="field"><label>Sitio web URL</label><input class="field-input" data-path="contact.website.url" type="url"></div><div class="field"><label>Sitio web subtítulo</label><input class="field-input" data-path="contact.website.subtitle"></div><div class="field full"><label>Correo electrónico</label><input class="field-input" data-path="contact.email" type="email"></div></div></div><div class="card" style="margin-top:18px"><div class="form-card-header"><div><h2>WhatsApp y ubicación</h2><p>Datos que la gente usa para encontrarte y escribirte.</p></div></div><div class="field-grid"><div class="field"><label>Número de WhatsApp</label><input class="field-input" data-path="contact.whatsapp.number" inputmode="numeric"></div><div class="field"><label>Texto visible</label><input class="field-input" data-path="contact.whatsapp.display"></div><div class="field"><label>Ubicación corta</label><input class="field-input" data-path="contact.location.short"></div><div class="field"><label>Google Maps URL</label><input class="field-input" data-path="contact.location.mapsUrl" type="url"></div><div class="field full"><label>Dirección completa</label><textarea class="field-input" data-path="contact.location.full"></textarea></div></div></div></section>
 
@@ -349,7 +349,8 @@
       const PUBLIC_CDN = 'https://alexmgp7.github.io/formar-biolink/';
       const PUBLIC_SITE = 'https://inversionesformar.netlify.app/';
       const configuredApi = document.querySelector('meta[name="admin-api-url"]')?.content || '';
-      const isDemo = ['localhost', '127.0.0.1'].includes(location.hostname) && new URLSearchParams(location.search).has('demo');
+      const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+      const isDemo = isLocal && new URLSearchParams(location.search).has('demo');
       const API_BASE = configuredApi.replace(/\/$/, '');
       const state = { content: null, baseSha: null, savedSnapshot: '', pendingUploads: new Map(), pendingDeletes: new Set(), activeView: 'resumen', openWorks: new Set(), filter: '' };
       const titles = { resumen: 'Resumen', portafolio: 'Portafolio', empresa: 'Empresa', contacto: 'Contacto y enlaces' };
@@ -367,7 +368,7 @@
       const resolveAssetUrl = (value) => {
         if (isDirectAsset(value)) return String(value);
         const path = String(value || 'logo.png').replace(/^\.\//, '');
-        return isDemo ? new URL(path, location.href).href : `${PUBLIC_CDN}${path}`;
+        return isLocal ? new URL(path, location.href).href : `${PUBLIC_CDN}${path}`;
       };
       const isEditableBrandPath = (value) => typeof value === 'string' && value.startsWith('assets/branding/');
 
@@ -478,13 +479,13 @@
         if (!file.type.startsWith('image/')) { toast('El archivo elegido no es una imagen compatible.', 'error'); return; }
         setLoading(true, 'Preparando el logo…');
         try {
-          const blob = await compressImage(file);
+          const blob = await compressImage(file, { max: 1200, type: 'image/png', quality: 1 });
           const previous = state.content.company.logo || {};
           const previousPath = previous.path || previous.src;
           if (isEditableBrandPath(previousPath)) state.pendingDeletes.add(previousPath);
           if (previous.id) state.pendingUploads.delete(previous.id);
           const logoId = id();
-          const path = `assets/branding/company-logo-${Date.now()}.webp`;
+          const path = `assets/branding/company-logo-${Date.now()}.png`;
           const previewUrl = URL.createObjectURL(blob);
           state.content.company.logo = { id: logoId, src: previewUrl, path, alt: `Logo de ${state.content.company.name || 'Inversiones Formar'}` };
           state.pendingUploads.set(logoId, blob);
@@ -501,7 +502,7 @@
         renderLogoEditor(); markDirty(); toast('Logo oficial seleccionado.', 'success');
       }
       async function handleFiles(workIdValue, files, replaceId = null) { const work = findWork(workIdValue); if (!work || !files.length) return; setLoading(true, 'Preparando imágenes…'); try { let index = directImages(work).length; for (const file of files) { if (!file.type.startsWith('image/')) { toast(`${file.name} no es una imagen compatible.`, 'error'); continue; } const blob = await compressImage(file); const imageId = id(); const path = `servicios/portfolio/${work.id}/${slug(work.label)}-${Date.now()}-${index}.webp`; const previewUrl = URL.createObjectURL(blob); const image = { id: imageId, src: previewUrl, path, title: file.name.replace(/\.[^.]+$/, ''), alt: file.name.replace(/\.[^.]+$/, ''), order: directImages(work).length }; if (replaceId) { const existingIndex = directImages(work).findIndex((item) => item.id === replaceId); if (existingIndex >= 0) { const previous = work.images[existingIndex]; if (previous.path) state.pendingDeletes.add(previous.path); state.pendingUploads.delete(previous.id); work.images.splice(existingIndex, 1, image); } replaceId = null; } else work.images.push(image); state.pendingUploads.set(imageId, blob); index += 1; } renderPortfolio(); markDirty(); toast('Imagen lista para publicar.', 'success'); } catch (error) { toast(error.message || 'No se pudo preparar la imagen.', 'error'); } finally { setLoading(false); } }
-      function compressImage(file) { return new Promise((resolve, reject) => { const url = URL.createObjectURL(file); const img = new Image(); img.onload = () => { const max = 2200; const ratio = Math.min(1, max / Math.max(img.width, img.height)); const canvas = document.createElement('canvas'); canvas.width = Math.max(1, Math.round(img.width * ratio)); canvas.height = Math.max(1, Math.round(img.height * ratio)); const context = canvas.getContext('2d'); context.drawImage(img, 0, 0, canvas.width, canvas.height); canvas.toBlob((blob) => { URL.revokeObjectURL(url); if (!blob) reject(new Error('No se pudo comprimir la imagen.')); else resolve(blob); }, 'image/webp', .84); }; img.onerror = () => { URL.revokeObjectURL(url); reject(new Error(`No se pudo leer ${file.name}.`)); }; img.src = url; }); }
+      function compressImage(file, { max = 2200, type = 'image/webp', quality = .84 } = {}) { return new Promise((resolve, reject) => { const url = URL.createObjectURL(file); const img = new Image(); img.onload = () => { const ratio = Math.min(1, max / Math.max(img.width, img.height)); const canvas = document.createElement('canvas'); canvas.width = Math.max(1, Math.round(img.width * ratio)); canvas.height = Math.max(1, Math.round(img.height * ratio)); const context = canvas.getContext('2d'); context.drawImage(img, 0, 0, canvas.width, canvas.height); canvas.toBlob((blob) => { URL.revokeObjectURL(url); if (!blob) reject(new Error('No se pudo comprimir la imagen.')); else resolve(blob); }, type, quality); }; img.onerror = () => { URL.revokeObjectURL(url); reject(new Error(`No se pudo leer ${file.name}.`)); }; img.src = url; }); }
       function openWorkModal(categoryIndex = 0) { const select = $('#newWorkCategory'); select.innerHTML = ''; getCategories().forEach((category, index) => { const option = document.createElement('option'); option.value = index; option.textContent = category.name; select.appendChild(option); }); if (getCategories()[categoryIndex]) select.value = categoryIndex; $('#newWorkName').value = ''; $('#newWorkDescription').value = ''; $('#workModal').hidden = false; $('#newWorkName').focus(); }
       function createWork(event) { event.preventDefault(); const name = $('#newWorkName').value.trim(); const categoryIndex = Number($('#newWorkCategory').value); if (!name || !getCategories()[categoryIndex]) return; const category = getCategories()[categoryIndex]; const work = { id: `${slug(name)}-${Date.now()}`, label: name, description: $('#newWorkDescription').value.trim(), images: [] }; category.works ||= []; category.works.unshift(work); state.openWorks.add(work.id); $('#workModal').hidden = true; setView('portafolio'); renderPortfolio(); markDirty(); requestAnimationFrame(() => document.querySelector(`[data-work-id="${CSS.escape(work.id)}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })); toast('Obra creada. Añade imágenes y publícala cuando esté lista.', 'success'); }
       function addCategory() { const name = `Nueva categoría ${getCategories().length + 1}`; state.content.portfolio.push({ id: slug(name), name, works: [] }); markDirty(); renderPortfolio(); toast('Categoría creada. Puedes cambiarle el nombre ahora.', 'success'); }
