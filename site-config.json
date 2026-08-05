@@ -35,24 +35,21 @@
           "id": "vialidades-pavimentacion-y-vialidad",
           "images": [
             {
-              "id": "vialidades-pavimentacion-y-vialidad-1",
               "src": "servicios/portfolio/vialidades/vialidades-pavimentacion-y-vialidad/01-vialidad-1.jpg",
-              "title": "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
-              "alt": "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
+              "title": "Avenida Juan Bautista Arismendi",
+              "alt": "Avenida Juan Bautista Arismendi",
               "order": 0
             },
             {
-              "id": "vialidades-pavimentacion-y-vialidad-2",
               "src": "servicios/portfolio/vialidades/vialidades-pavimentacion-y-vialidad/02-vialidad-2.jpg",
               "title": "Avenida Circunvalación Norte",
               "alt": "Avenida Circunvalación Norte",
               "order": 1
             },
             {
-              "id": "vialidades-pavimentacion-y-vialidad-3",
               "src": "servicios/portfolio/vialidades/vialidades-pavimentacion-y-vialidad/03-vialidad-3.jpg",
-              "title": "Avenida Juan Bautista Arismendi",
-              "alt": "Avenida Juan Bautista Arismendi",
+              "title": "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
+              "alt": "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
               "order": 2
             }
           ]
@@ -62,28 +59,24 @@
           "id": "vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco",
           "images": [
             {
-              "id": "vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1",
               "src": "servicios/portfolio/vialidades/vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco/01-rehabilitacion-de-vias-operacionales-1.jpg",
               "title": "REHABILITACION DE VIAS OPERACIONALES (1)",
               "alt": "REHABILITACION DE VIAS OPERACIONALES (1)",
               "order": 0
             },
             {
-              "id": "vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-2",
               "src": "servicios/portfolio/vialidades/vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco/02-rehabilitacion-de-vias-operacionales-2.jpg",
               "title": "REHABILITACION DE VIAS OPERACIONALES (2)",
               "alt": "REHABILITACION DE VIAS OPERACIONALES (2)",
               "order": 1
             },
             {
-              "id": "vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-3",
               "src": "servicios/portfolio/vialidades/vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco/03-rehabilitacion-de-vias-operacionales-3.jpg",
               "title": "REHABILITACION DE VIAS OPERACIONALES (3)",
               "alt": "REHABILITACION DE VIAS OPERACIONALES (3)",
               "order": 2
             },
             {
-              "id": "vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-4",
               "src": "servicios/portfolio/vialidades/vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco/04-rehabilitacion-de-vias-operacionales-4.jpg",
               "title": "REHABILITACION DE VIAS OPERACIONALES (4)",
               "alt": "REHABILITACION DE VIAS OPERACIONALES (4)",
@@ -96,28 +89,24 @@
           "id": "vialidades-urbanismo-urbanizacion-villas-de-san-antonio",
           "images": [
             {
-              "id": "vialidades-urbanismo-urbanizacion-villas-de-san-antonio-1",
               "src": "servicios/portfolio/vialidades/vialidades-urbanismo-urbanizacion-villas-de-san-antonio/01-rbanismo-1.jpg",
               "title": "RBANISMO (1)",
               "alt": "RBANISMO (1)",
               "order": 0
             },
             {
-              "id": "vialidades-urbanismo-urbanizacion-villas-de-san-antonio-2",
               "src": "servicios/portfolio/vialidades/vialidades-urbanismo-urbanizacion-villas-de-san-antonio/02-rbanismo-2.jpg",
               "title": "RBANISMO (2)",
               "alt": "RBANISMO (2)",
               "order": 1
             },
             {
-              "id": "vialidades-urbanismo-urbanizacion-villas-de-san-antonio-3",
               "src": "servicios/portfolio/vialidades/vialidades-urbanismo-urbanizacion-villas-de-san-antonio/03-rbanismo-3.jpg",
               "title": "RBANISMO (3)",
               "alt": "RBANISMO (3)",
               "order": 2
             },
             {
-              "id": "vialidades-urbanismo-urbanizacion-villas-de-san-antonio-4",
               "src": "servicios/portfolio/vialidades/vialidades-urbanismo-urbanizacion-villas-de-san-antonio/04-rbanismo-4.jpg",
               "title": "RBANISMO (4)",
               "alt": "RBANISMO (4)",
@@ -136,7 +125,6 @@
           "id": "edificaciones-edificacion-escolares",
           "images": [
             {
-              "id": "edificaciones-edificacion-escolares-1",
               "src": "servicios/portfolio/edificaciones/edificaciones-edificacion-escolares/01-edificacion.png",
               "title": "U.E.B.N Dr Luis Ortega",
               "alt": "U.E.B.N Dr Luis Ortega",
@@ -149,7 +137,6 @@
           "id": "edificaciones-casetas-de-control",
           "images": [
             {
-              "id": "edificaciones-casetas-de-control-1",
               "src": "servicios/portfolio/edificaciones/edificaciones-casetas-de-control/01-edificacion.jpg",
               "title": "Caseta de Control Planta de Tratamiento La Guardia",
               "alt": "Caseta de Control Planta de Tratamiento La Guardia",
@@ -162,7 +149,6 @@
           "id": "edificaciones-infraestructura-industrial",
           "images": [
             {
-              "id": "edificaciones-infraestructura-industrial-1",
               "src": "servicios/portfolio/edificaciones/edificaciones-infraestructura-industrial/01-infraestructura-de-planta-de-concreto.jpg",
               "title": "Infraestructura de Planta de Concreto",
               "alt": "Infraestructura de Planta de Concreto",
@@ -181,21 +167,18 @@
           "id": "hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata",
           "images": [
             {
-              "id": "hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata-1",
               "src": "servicios/portfolio/hidraulicas/hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata/01-diques-de-contencion-1.jpg",
               "title": "DIQUES DE CONTENCION (1)",
               "alt": "DIQUES DE CONTENCION (1)",
               "order": 0
             },
             {
-              "id": "hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata-2",
               "src": "servicios/portfolio/hidraulicas/hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata/02-diques-de-contencion-2.jpg",
               "title": "DIQUES DE CONTENCION (2)",
               "alt": "DIQUES DE CONTENCION (2)",
               "order": 1
             },
             {
-              "id": "hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata-3",
               "src": "servicios/portfolio/hidraulicas/hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata/03-diques-de-contencion-3.jpg",
               "title": "DIQUES DE CONTENCION (3)",
               "alt": "DIQUES DE CONTENCION (3)",
@@ -208,21 +191,18 @@
           "id": "hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio",
           "images": [
             {
-              "id": "hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio-1",
               "src": "servicios/portfolio/hidraulicas/hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio/01-embaulamiento-1.jpg",
               "title": "EMBAULAMIENTO (1)",
               "alt": "EMBAULAMIENTO (1)",
               "order": 0
             },
             {
-              "id": "hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio-2",
               "src": "servicios/portfolio/hidraulicas/hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio/02-embaulamiento-2.jpg",
               "title": "EMBAULAMIENTO (2)",
               "alt": "EMBAULAMIENTO (2)",
               "order": 1
             },
             {
-              "id": "hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio-3",
               "src": "servicios/portfolio/hidraulicas/hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio/03-embaulamiento-3.jpg",
               "title": "EMBAULAMIENTO (3)",
               "alt": "EMBAULAMIENTO (3)",
@@ -235,21 +215,18 @@
           "id": "hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque",
           "images": [
             {
-              "id": "hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque-1",
               "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/01-plantas-de-tratamiento-1.jpg",
               "title": "PLANTAS DE TRATAMIENTO (1)",
               "alt": "PLANTAS DE TRATAMIENTO (1)",
               "order": 0
             },
             {
-              "id": "hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque-2",
               "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/02-plantas-de-tratamiento-2.jpg",
               "title": "PLANTAS DE TRATAMIENTO (2)",
               "alt": "PLANTAS DE TRATAMIENTO (2)",
               "order": 1
             },
             {
-              "id": "hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque-3",
               "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/03-plantas-de-tratamiento-3.jpg",
               "title": "PLANTAS DE TRATAMIENTO (3)",
               "alt": "PLANTAS DE TRATAMIENTO (3)",
@@ -268,14 +245,12 @@
           "id": "movimientos-de-tierra-movimiento-de-tierra",
           "images": [
             {
-              "id": "movimientos-de-tierra-movimiento-de-tierra-1",
               "src": "servicios/portfolio/movimientos-de-tierra/movimientos-de-tierra-movimiento-de-tierra/01-movimiento-de-tierra-1.jpg",
               "title": "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
               "alt": "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
               "order": 0
             },
             {
-              "id": "movimientos-de-tierra-movimiento-de-tierra-2",
               "src": "servicios/portfolio/movimientos-de-tierra/movimientos-de-tierra-movimiento-de-tierra/02-movimiento-de-tierra-3.jpg",
               "title": "Vialidad Boca de Río",
               "alt": "Vialidad Boca de Río",
@@ -294,21 +269,18 @@
           "id": "ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio",
           "images": [
             {
-              "id": "ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio-1",
               "src": "servicios/portfolio/ingenieria-electrica/ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio/01-redes-de-alta-y-baja-tension-1.jpg",
               "title": "REDES DE ALTA Y BAJA TENSION (1)",
               "alt": "REDES DE ALTA Y BAJA TENSION (1)",
               "order": 0
             },
             {
-              "id": "ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio-2",
               "src": "servicios/portfolio/ingenieria-electrica/ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio/02-redes-de-alta-y-baja-tension-2.jpg",
               "title": "REDES DE ALTA Y BAJA TENSION (2)",
               "alt": "REDES DE ALTA Y BAJA TENSION (2)",
               "order": 1
             },
             {
-              "id": "ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio-3",
               "src": "servicios/portfolio/ingenieria-electrica/ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio/03-redes-de-alta-y-baja-tension-3.jpg",
               "title": "REDES DE ALTA Y BAJA TENSION (3)",
               "alt": "REDES DE ALTA Y BAJA TENSION (3)",
@@ -327,21 +299,18 @@
           "id": "instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache",
           "images": [
             {
-              "id": "instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache-1",
               "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/01-saneamiento-ambiental-1.png",
               "title": "Relleno Sanitario El Piache",
               "alt": "Relleno Sanitario El Piache",
               "order": 0
             },
             {
-              "id": "instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache-2",
               "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/02-saneamiento-ambiental-2.png",
               "title": "saneamiento AMBIENTAL (2)",
               "alt": "saneamiento AMBIENTAL (2)",
               "order": 1
             },
             {
-              "id": "instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache-3",
               "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/03-saneamiento-ambiental-3.png",
               "title": "saneamiento AMBIENTAL (3)",
               "alt": "saneamiento AMBIENTAL (3)",
@@ -354,21 +323,18 @@
           "id": "instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes",
           "images": [
             {
-              "id": "instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes-1",
               "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes/01-whatsapp-image-2026-08-03-at-6-11-10-pm-1.jpeg",
               "title": "Mantenimiento a Red de Hidrantes",
               "alt": "Mantenimiento a Red de Hidrantes",
               "order": 0
             },
             {
-              "id": "instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes-2",
               "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes/02-whatsapp-image-2026-08-03-at-6-11-10-pm-2.jpeg",
               "title": "Mantenimiento a Red de Hidrantes",
               "alt": "Mantenimiento a Red de Hidrantes",
               "order": 1
             },
             {
-              "id": "instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes-3",
               "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes/03-whatsapp-image-2026-08-03-at-6-11-10-pm.jpeg",
               "title": "Mantenimiento a Red de Hidrantes",
               "alt": "Mantenimiento a Red de Hidrantes",
@@ -387,28 +353,24 @@
           "id": "red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa",
           "images": [
             {
-              "id": "red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa-1",
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/01-red-de-gas-domestico-1.jpg",
               "title": "RED DE GAS DOMESTICO (1)",
               "alt": "RED DE GAS DOMESTICO (1)",
               "order": 0
             },
             {
-              "id": "red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa-2",
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/02-red-de-gas-domestico-2.jpg",
               "title": "RED DE GAS DOMESTICO (2)",
               "alt": "RED DE GAS DOMESTICO (2)",
               "order": 1
             },
             {
-              "id": "red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa-3",
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/03-red-de-gas-domestico-3.jpg",
               "title": "RED DE GAS DOMESTICO (3)",
               "alt": "RED DE GAS DOMESTICO (3)",
               "order": 2
             },
             {
-              "id": "red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa-4",
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/04-red-de-gas-domestico-4.jpg",
               "title": "RED DE GAS DOMESTICO (4)",
               "alt": "RED DE GAS DOMESTICO (4)",
@@ -421,21 +383,18 @@
           "id": "red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta",
           "images": [
             {
-              "id": "red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta-1",
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta/01-mantenimiento-de-estaciones-de-gas-1.jpg",
               "title": "MANTENIMIENTO DE ESTACIONES DE GAS (1)",
               "alt": "MANTENIMIENTO DE ESTACIONES DE GAS (1)",
               "order": 0
             },
             {
-              "id": "red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta-2",
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta/02-mantenimiento-de-estaciones-de-gas-2.jpg",
               "title": "MANTENIMIENTO DE ESTACIONES DE GAS (2)",
               "alt": "MANTENIMIENTO DE ESTACIONES DE GAS (2)",
               "order": 1
             },
             {
-              "id": "red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta-3",
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta/03-mantenimiento-de-estaciones-de-gas-3.jpg",
               "title": "MANTENIMIENTO DE ESTACIONES DE GAS (3)",
               "alt": "MANTENIMIENTO DE ESTACIONES DE GAS (3)",
@@ -448,21 +407,18 @@
           "id": "red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita",
           "images": [
             {
-              "id": "red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1",
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita/01-reemplazo-de-tramo-de-gasoducto-1.jpg",
               "title": "REEMPLAZO DE TRAMO DE GASODUCTO (1)",
               "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (1)",
               "order": 0
             },
             {
-              "id": "red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-2",
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita/02-reemplazo-de-tramo-de-gasoducto-3.jpg",
               "title": "REEMPLAZO DE TRAMO DE GASODUCTO (3)",
               "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (3)",
               "order": 1
             },
             {
-              "id": "red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-3",
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita/03-reemplazo-de-tramo-de-gasoducto-4.jpg",
               "title": "REEMPLAZO DE TRAMO DE GASODUCTO (4)",
               "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (4)",
@@ -481,56 +437,48 @@
           "id": "otros-servicios-mantenimiento-e-inspeccion-de-infraestructura",
           "images": [
             {
-              "id": "otros-servicios-mantenimiento-e-inspeccion-de-infraestructura-1",
               "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/01-mantenimiento-de-gasoducto-submarino-1.jpg",
               "title": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
               "alt": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
               "order": 0
             },
             {
-              "id": "otros-servicios-mantenimiento-e-inspeccion-de-infraestructura-2",
               "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/02-mantenimiento-de-gasoducto-submarino-2.jpg",
               "title": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
               "alt": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
               "order": 1
             },
             {
-              "id": "otros-servicios-mantenimiento-e-inspeccion-de-infraestructura-3",
               "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/03-mantenimiento-de-plataforma-de-combustible-1.jpg",
               "title": "Mantenimiento de la Plataforma de Combustible",
               "alt": "Mantenimiento de la Plataforma de Combustible",
               "order": 2
             },
             {
-              "id": "otros-servicios-mantenimiento-e-inspeccion-de-infraestructura-4",
               "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/04-mantenimiento-de-plataforma-de-combustible-1.png",
               "title": "Mantenimiento de la Plataforma de Combustible",
               "alt": "Mantenimiento de la Plataforma de Combustible",
               "order": 3
             },
             {
-              "id": "otros-servicios-mantenimiento-e-inspeccion-de-infraestructura-5",
               "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/05-mantenimiento-de-plataforma-de-combustible-2.jpg",
               "title": "Mantenimiento de la Plataforma de Combustible",
               "alt": "Mantenimiento de la Plataforma de Combustible",
               "order": 4
             },
             {
-              "id": "otros-servicios-mantenimiento-e-inspeccion-de-infraestructura-6",
               "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/06-mantenimiento-de-plataforma-de-combustible-3.jpg",
               "title": "Mantenimiento de la Plataforma de Combustible",
               "alt": "Mantenimiento de la Plataforma de Combustible",
               "order": 5
             },
             {
-              "id": "otros-servicios-mantenimiento-e-inspeccion-de-infraestructura-7",
               "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/07-mantenimiento-de-plataforma-de-combustible.jpg",
               "title": "Mantenimiento de la Plataforma de Combustible",
               "alt": "Mantenimiento de la Plataforma de Combustible",
               "order": 6
             },
             {
-              "id": "otros-servicios-mantenimiento-e-inspeccion-de-infraestructura-8",
               "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/08-mantenimiento-tuberia-submarina-de-gas-2.jpg",
               "title": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
               "alt": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
@@ -543,28 +491,24 @@
           "id": "otros-servicios-espigon-bahia-el-tirano",
           "images": [
             {
-              "id": "otros-servicios-espigon-bahia-el-tirano-1",
               "src": "servicios/portfolio/otros-servicios/otros-servicios-espigon-bahia-el-tirano/01-espigon-01.jpg",
               "title": "ESPIGON 01",
               "alt": "ESPIGON 01",
               "order": 0
             },
             {
-              "id": "otros-servicios-espigon-bahia-el-tirano-2",
               "src": "servicios/portfolio/otros-servicios/otros-servicios-espigon-bahia-el-tirano/02-espigon-02.jpg",
               "title": "ESPIGON 02",
               "alt": "ESPIGON 02",
               "order": 1
             },
             {
-              "id": "otros-servicios-espigon-bahia-el-tirano-3",
               "src": "servicios/portfolio/otros-servicios/otros-servicios-espigon-bahia-el-tirano/03-espigon-03.jpg",
               "title": "ESPIGON 03",
               "alt": "ESPIGON 03",
               "order": 2
             },
             {
-              "id": "otros-servicios-espigon-bahia-el-tirano-4",
               "src": "servicios/portfolio/otros-servicios/otros-servicios-espigon-bahia-el-tirano/04-espigon-04.jpg",
               "title": "ESPIGON 04",
               "alt": "ESPIGON 04",
