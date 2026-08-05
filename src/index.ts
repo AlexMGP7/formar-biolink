@@ -109,6 +109,7 @@ function githubHeaders(env: Env) {
   return {
     Accept: 'application/vnd.github+json',
     Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+    'User-Agent': 'formar-biolink-admin-api',
     'X-GitHub-Api-Version': '2022-11-28',
   };
 }
@@ -117,10 +118,11 @@ async function githubRequest(path: string, env: Env, init: RequestInit = {}) {
   const headers = new Headers(githubHeaders(env));
   Object.entries(init.headers || {}).forEach(([key, value]) => headers.set(key, String(value)));
   const response = await fetch(`https://api.github.com${path}`, { ...init, headers });
-  const body = await response.json().catch(() => ({}));
+  const rawBody = await response.text();
+  const body = JSON.parse(rawBody || '{}') as GitHubJson;
   if (!response.ok) {
-    const message = typeof body === 'object' && body && 'message' in body ? body.message : `GitHub API error ${response.status}`;
-    throw new Error(String(message));
+    const message = typeof body.message === 'string' ? body.message : rawBody.slice(0, 180);
+    throw new Error(`GitHub API error ${response.status}${message ? `: ${message}` : ''}`);
   }
   return body as GitHubJson;
 }
