@@ -61,6 +61,7 @@
         {
           "label": "Rehabilitación de Vías Operacionales - Áreas Operacionales del Distrito Gas Anaco",
           "id": "vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco",
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/vialidades/vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco/01-rehabilitacion-de-vias-operacionales-1.jpg",
@@ -91,6 +92,7 @@
         {
           "label": "Urbanismo - Urbanización Villas de San Antonio",
           "id": "vialidades-urbanismo-urbanizacion-villas-de-san-antonio",
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/vialidades/vialidades-urbanismo-urbanizacion-villas-de-san-antonio/01-rbanismo-1.jpg",
@@ -169,6 +171,7 @@
         {
           "label": "Diques de Contención - Presa de Retención de Sedimientos Río Naiguatá",
           "id": "hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata",
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/hidraulicas/hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata/01-diques-de-contencion-1.jpg",
@@ -193,6 +196,7 @@
         {
           "label": "Embaulamiento Quebrada El Güiere, Urbanización Villas de San Antonio",
           "id": "hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio",
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/hidraulicas/hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio/01-embaulamiento-1.jpg",
@@ -220,20 +224,20 @@
           "images": [
             {
               "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/01-plantas-de-tratamiento-1.jpg",
-              "title": "PLANTAS DE TRATAMIENTO (1)",
-              "alt": "PLANTAS DE TRATAMIENTO (1)",
+              "title": "Planta de Tratamiento La Guardia",
+              "alt": "Vista de la Planta de Tratamiento La Guardia",
               "order": 0
             },
             {
               "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/02-plantas-de-tratamiento-2.jpg",
-              "title": "PLANTAS DE TRATAMIENTO (2)",
-              "alt": "PLANTAS DE TRATAMIENTO (2)",
+              "title": "Planta de Tratamiento El Yaque",
+              "alt": "Vista de la Planta de Tratamiento El Yaque",
               "order": 1
             },
             {
               "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/03-plantas-de-tratamiento-3.jpg",
-              "title": "PLANTAS DE TRATAMIENTO (3)",
-              "alt": "PLANTAS DE TRATAMIENTO (3)",
+              "title": "Planta de Tratamiento El Yaque",
+              "alt": "Vista de la Planta de Tratamiento El Yaque",
               "order": 2
             }
           ]
@@ -271,6 +275,7 @@
         {
           "label": "Redes de Alta y Baja Tensión - San Antonio",
           "id": "ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio",
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/ingenieria-electrica/ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio/01-redes-de-alta-y-baja-tension-1.jpg",
@@ -301,6 +306,7 @@
         {
           "label": "Saneamiento Ambiental - Relleno Sanitario El Piache",
           "id": "instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache",
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/01-saneamiento-ambiental-1.png",
@@ -321,30 +327,6 @@
               "order": 2
             }
           ]
-        },
-        {
-          "label": "Mantenimiento a Red de Hidrantes",
-          "id": "instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes",
-          "images": [
-            {
-              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes/01-whatsapp-image-2026-08-03-at-6-11-10-pm-1.jpeg",
-              "title": "Mantenimiento a Red de Hidrantes",
-              "alt": "Mantenimiento a Red de Hidrantes",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes/02-whatsapp-image-2026-08-03-at-6-11-10-pm-2.jpeg",
-              "title": "Mantenimiento a Red de Hidrantes",
-              "alt": "Mantenimiento a Red de Hidrantes",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes/03-whatsapp-image-2026-08-03-at-6-11-10-pm.jpeg",
-              "title": "Mantenimiento a Red de Hidrantes",
-              "alt": "Mantenimiento a Red de Hidrantes",
-              "order": 2
-            }
-          ]
         }
       ]
     },
@@ -355,6 +337,7 @@
         {
           "label": "Red de Gas Doméstico - Urbanización Villa Rosa",
           "id": "red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa",
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/01-red-de-gas-domestico-1.jpg",
@@ -385,6 +368,7 @@
         {
           "label": "Estación de Medición y Regulación Gas Metáno, La Isleta",
           "id": "red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta",
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta/01-mantenimiento-de-estaciones-de-gas-1.jpg",
@@ -409,6 +393,7 @@
         {
           "label": "Gasoducto 16\" José Francisco Bermúdez Tramo Coche- Margarita",
           "id": "red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita",
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita/01-reemplazo-de-tramo-de-gasoducto-1.jpg",
@@ -453,46 +438,72 @@
               "order": 1
             },
             {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/03-mantenimiento-de-plataforma-de-combustible-1.jpg",
-              "title": "Mantenimiento de la Plataforma de Combustible",
-              "alt": "Mantenimiento de la Plataforma de Combustible",
-              "order": 2
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/04-mantenimiento-de-plataforma-de-combustible-1.png",
-              "title": "Mantenimiento de la Plataforma de Combustible",
-              "alt": "Mantenimiento de la Plataforma de Combustible",
-              "order": 3
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/05-mantenimiento-de-plataforma-de-combustible-2.jpg",
-              "title": "Mantenimiento de la Plataforma de Combustible",
-              "alt": "Mantenimiento de la Plataforma de Combustible",
-              "order": 4
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/06-mantenimiento-de-plataforma-de-combustible-3.jpg",
-              "title": "Mantenimiento de la Plataforma de Combustible",
-              "alt": "Mantenimiento de la Plataforma de Combustible",
-              "order": 5
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/07-mantenimiento-de-plataforma-de-combustible.jpg",
-              "title": "Mantenimiento de la Plataforma de Combustible",
-              "alt": "Mantenimiento de la Plataforma de Combustible",
-              "order": 6
-            },
-            {
               "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/08-mantenimiento-tuberia-submarina-de-gas-2.jpg",
               "title": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
               "alt": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
+              "order": 2
+            },
+            {
+              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/03-mantenimiento-de-plataforma-de-combustible-1.jpg",
+              "title": "Mantenimiento de la Plataforma de Combustible El Guamache",
+              "alt": "Mantenimiento de la Plataforma de Combustible El Guamache",
+              "order": 3
+            },
+            {
+              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/04-mantenimiento-de-plataforma-de-combustible-1.png",
+              "title": "Mantenimiento de la Plataforma de Combustible El Guamache",
+              "alt": "Mantenimiento de la Plataforma de Combustible El Guamache",
+              "order": 4
+            },
+            {
+              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/05-mantenimiento-de-plataforma-de-combustible-2.jpg",
+              "title": "Mantenimiento de la Plataforma de Combustible El Guamache",
+              "alt": "Mantenimiento de la Plataforma de Combustible El Guamache",
+              "order": 5
+            },
+            {
+              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/06-mantenimiento-de-plataforma-de-combustible-3.jpg",
+              "title": "Mantenimiento de la Plataforma de Combustible El Guamache",
+              "alt": "Mantenimiento de la Plataforma de Combustible El Guamache",
+              "order": 6
+            },
+            {
+              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/07-mantenimiento-de-plataforma-de-combustible.jpg",
+              "title": "Mantenimiento de la Plataforma de Combustible El Guamache",
+              "alt": "Mantenimiento de la Plataforma de Combustible El Guamache",
               "order": 7
+            }
+          ]
+        },
+        {
+          "label": "Mantenimiento a Red de Hidrantes Aeropuerto Internacional Santiago Mariño",
+          "id": "instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes",
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes/01-whatsapp-image-2026-08-03-at-6-11-10-pm-1.jpeg",
+              "title": "Mantenimiento a Red de Hidrantes",
+              "alt": "Mantenimiento a la red de hidrantes del Aeropuerto Internacional Santiago Mariño",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes/02-whatsapp-image-2026-08-03-at-6-11-10-pm-2.jpeg",
+              "title": "Mantenimiento a Red de Hidrantes",
+              "alt": "Trabajos en la red de hidrantes del Aeropuerto Internacional Santiago Mariño",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes/03-whatsapp-image-2026-08-03-at-6-11-10-pm.jpeg",
+              "title": "Mantenimiento a Red de Hidrantes",
+              "alt": "Equipo durante el mantenimiento de hidrantes en el Aeropuerto Internacional Santiago Mariño",
+              "order": 2
             }
           ]
         },
         {
           "label": "Espigón Bahía El Tirano",
           "id": "otros-servicios-espigon-bahia-el-tirano",
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/otros-servicios/otros-servicios-espigon-bahia-el-tirano/01-espigon-01.jpg",

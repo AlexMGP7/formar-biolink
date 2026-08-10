@@ -23,6 +23,7 @@ for (const category of config.portfolio || []) {
   if (!category.id || !category.name || !Array.isArray(category.works)) errors.push(`Categoría inválida: ${category.name || 'sin nombre'}`);
   for (const work of category.works || []) {
     if (!work.id || !work.label || !Array.isArray(work.images)) errors.push(`Obra inválida: ${work.label || 'sin nombre'}`);
+    if (work.showImageTitles !== undefined && typeof work.showImageTitles !== 'boolean') errors.push(`Visibilidad de títulos inválida: ${work.label || 'sin nombre'}`);
     for (const image of work.images || []) {
       const imagePath = image.src;
       const extension = String(imagePath || '').split('.').pop()?.toLowerCase();

@@ -317,15 +317,37 @@
       word-break: break-word;
     }
     .img-container {
+      position: relative;
+      isolation: isolate;
       width: 100%;
-      max-height: 50vh;
+      aspect-ratio: 4 / 3;
+      max-height: min(50vh, 340px);
       overflow: hidden;
       border-radius: 10px;
       border: 1px solid #d8e7f6;
-      background: #f6fbff;
+      background: #dce8f2;
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+    .gallery-image-backdrop {
+      position: absolute;
+      z-index: -1;
+      inset: -22px;
+      width: calc(100% + 44px);
+      height: calc(100% + 44px);
+      object-fit: cover;
+      filter: blur(20px) saturate(.8) brightness(.82);
+      transform: scale(1.06);
+      opacity: .72;
+    }
+    .gallery-image {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     .img-close {
       position: absolute;
@@ -707,7 +729,10 @@
         }
 
         try {
-          const res = await fetch('https://alexmgp7.github.io/formar-biolink/site-config.json?v=' + Date.now());
+          const configUrl = ['localhost', '127.0.0.1'].includes(location.hostname)
+            ? `./site-config.json?v=${Date.now()}`
+            : `https://alexmgp7.github.io/formar-biolink/site-config.json?v=${Date.now()}`;
+          const res = await fetch(configUrl);
           if (res.ok) {
             configData = await res.json();
           }
@@ -731,7 +756,10 @@
 
       function publicImageUrl(source) {
         if (!source) return '';
-        return /^(https?:|blob:|data:)/.test(source) ? source : `https://alexmgp7.github.io/formar-biolink/${source}`;
+        if (/^(https?:|blob:|data:)/.test(source)) return source;
+        return ['localhost', '127.0.0.1'].includes(location.hostname)
+          ? new URL(source.replace(/^\.\//, ''), location.href).href
+          : `https://alexmgp7.github.io/formar-biolink/${source}`;
       }
 
       // Abrir la galería usando un único formato de imágenes directas.
@@ -748,10 +776,11 @@
         try {
           const results = config.works.map((work) => ({
             label: work.label,
+            showImageTitles: work.showImageTitles !== false,
             success: Array.isArray(work.images) && work.images.length > 0,
             images: (work.images || []).sort((a, b) => (a.order || 0) - (b.order || 0)).map((image, index) => ({
               url: publicImageUrl(image.src),
-              title: image.title || `${work.label} (${index + 1})`,
+              title: typeof image.title === 'string' ? image.title.trim() : `${work.label} (${index + 1})`,
               alt: image.alt || image.title || work.label
             })),
             error: 'Esta obra todavía no tiene imágenes publicadas.'
@@ -776,20 +805,26 @@
               res.images.forEach((image) => {
                 const wrapper = document.createElement('div');
                 wrapper.className = 'gallery-item-wrapper';
-                const caption = document.createElement('span');
-                caption.className = 'gallery-item-caption';
-                caption.textContent = image.title;
                 const container = document.createElement('div');
                 container.className = 'img-container';
+                const backdrop = document.createElement('img');
+                backdrop.className = 'gallery-image-backdrop';
+                backdrop.src = image.url;
+                backdrop.alt = '';
+                backdrop.setAttribute('aria-hidden', 'true');
                 const imgElement = document.createElement('img');
+                imgElement.className = 'gallery-image';
                 imgElement.src = image.url;
                 imgElement.alt = image.alt;
-                imgElement.style.maxWidth = '100%';
-                imgElement.style.maxHeight = '50vh';
-                imgElement.style.objectFit = 'contain';
-                imgElement.style.display = 'block';
-                container.appendChild(imgElement);
-                wrapper.append(caption, container);
+                imgElement.loading = 'lazy';
+                container.append(backdrop, imgElement);
+                if (res.showImageTitles && image.title) {
+                  const caption = document.createElement('span');
+                  caption.className = 'gallery-item-caption';
+                  caption.textContent = image.title;
+                  wrapper.appendChild(caption);
+                }
+                wrapper.appendChild(container);
                 subcatGrid.appendChild(wrapper);
               });
               imgGalleryContainer.appendChild(subcatGrid);

@@ -8,7 +8,7 @@ export interface Env {
 }
 
 const SESSION_COOKIE = 'formar_admin_session';
-const SESSION_TTL_SECONDS = 8 * 60 * 60;
+const SESSION_TTL_SECONDS = 30 * 24 * 60 * 60;
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 const MAX_IMAGE_COUNT = 24;
 const ALLOWED_IMAGE_EXTENSIONS = new Set(['webp', 'jpg', 'jpeg', 'png', 'gif']);
@@ -102,7 +102,13 @@ async function hasValidSession(request: Request, env: Env) {
 }
 
 function sessionCookie(value: string, maxAge = SESSION_TTL_SECONDS) {
-  return `${SESSION_COOKIE}=${value}; Max-Age=${maxAge}; Path=/; HttpOnly; Secure; SameSite=None`;
+  return `${SESSION_COOKIE}=${value}; Max-Age=${maxAge}; Path=/; HttpOnly; Secure; SameSite=None; Partitioned; Priority=High`;
+}
+
+async function refreshSession(response: Response, env: Env) {
+  const headers = new Headers(response.headers);
+  headers.set('Set-Cookie', sessionCookie(await createSession(env)));
+  return new Response(response.body, { status: response.status, headers });
 }
 
 function githubHeaders(env: Env) {
@@ -179,6 +185,8 @@ function validateConfig(config: unknown) {
     if (!Array.isArray(works)) throw new Error('Una categoría no tiene obras válidas.');
     works.forEach((work) => {
       if (!work || typeof work !== 'object') throw new Error('Hay una obra inválida.');
+      const showImageTitles = (work as { showImageTitles?: unknown }).showImageTitles;
+      if (showImageTitles !== undefined && typeof showImageTitles !== 'boolean') throw new Error('La visibilidad de títulos de una obra no es válida.');
       const images = (work as { images?: unknown }).images;
       if (images !== undefined && !Array.isArray(images)) throw new Error('Las imágenes de una obra no son válidas.');
       images?.forEach((image) => {
@@ -287,11 +295,11 @@ async function handle(request: Request, env: Env) {
   if (url.pathname === '/auth/logout' && request.method === 'POST') return json({ ok: true }, 200, { 'Set-Cookie': sessionCookie('', 0) });
   if (url.pathname === '/admin/content' && request.method === 'GET') {
     if (!(await hasValidSession(request, env))) return json({ error: 'Sesión expirada.' }, 401);
-    return json(await getContent(env));
+    return refreshSession(json(await getContent(env)), env);
   }
   if (url.pathname === '/admin/publish' && request.method === 'POST') {
     if (!(await hasValidSession(request, env))) return json({ error: 'Sesión expirada.' }, 401);
-    return publish(request, env);
+    return refreshSession(await publish(request, env), env);
   }
   return json({ error: 'Ruta no encontrada.' }, 404);
 }
