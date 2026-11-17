@@ -158,7 +158,7 @@
               "src": "servicios/portfolio/red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta/estacion-de-medicion-y-regulacion-gas-metano-la-isleta-1794944421023-3.webp",
               "title": "Gemini_Generated_Image_t5ru3nt5ru3nt5ru",
               "alt": "Gemini_Generated_Image_t5ru3nt5ru3nt5ru",
-              "order": 3
+              "order": 1
             },
             {
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta/03-mantenimiento-de-estaciones-de-gas-3.jpg",
@@ -378,16 +378,16 @@
           "showImageTitles": false,
           "images": [
             {
-              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/01-saneamiento-ambiental-1.png",
-              "title": "Relleno Sanitario El Piache",
-              "alt": "Relleno Sanitario El Piache",
-              "order": 0
-            },
-            {
               "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/02-saneamiento-ambiental-2.png",
               "title": "saneamiento AMBIENTAL (2)",
               "alt": "saneamiento AMBIENTAL (2)",
-              "order": 1
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/saneamiento-ambiental-relleno-sanitario-el-piache-1794945145281-3.webp",
+              "title": "saneamiento AMBIENTAL (1)",
+              "alt": "saneamiento AMBIENTAL (1)",
+              "order": 3
             },
             {
               "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/03-saneamiento-ambiental-3.png",
