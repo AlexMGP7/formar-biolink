@@ -122,6 +122,38 @@
       "name": "Hidráulicas y Marítimas ",
       "works": [
         {
+          "id": "espigon-bahia-el-tirano-1794939142079",
+          "label": "Espigón Bahía El Tirano",
+          "description": "",
+          "showImageTitles": true,
+          "images": [
+            {
+              "src": "servicios/portfolio/espigon-bahia-el-tirano-1794939142079/espigon-bahia-el-tirano-1794939191509-0.webp",
+              "title": "ESPIGON 04",
+              "alt": "ESPIGON 04",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/espigon-bahia-el-tirano-1794939142079/espigon-bahia-el-tirano-1794939191811-1.webp",
+              "title": "ESPIGON 03",
+              "alt": "ESPIGON 03",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/espigon-bahia-el-tirano-1794939142079/espigon-bahia-el-tirano-1794939192114-2.webp",
+              "title": "ESPIGON 02",
+              "alt": "ESPIGON 02",
+              "order": 2
+            },
+            {
+              "src": "servicios/portfolio/espigon-bahia-el-tirano-1794939142079/espigon-bahia-el-tirano-1794939192426-3.webp",
+              "title": "ESPIGON 01",
+              "alt": "ESPIGON 01",
+              "order": 3
+            }
+          ]
+        },
+        {
           "label": "Diques de Contención - Presa de Retención de Sedimientos Río Naiguatá",
           "id": "hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata",
           "showImageTitles": false,
@@ -255,37 +287,6 @@
               "order": 3
             }
           ]
-        },
-        {
-          "label": "Urbanismo - Urbanización Villas de San Antonio",
-          "id": "vialidades-urbanismo-urbanizacion-villas-de-san-antonio",
-          "showImageTitles": false,
-          "images": [
-            {
-              "src": "servicios/portfolio/vialidades/vialidades-urbanismo-urbanizacion-villas-de-san-antonio/01-rbanismo-1.jpg",
-              "title": "RBANISMO (1)",
-              "alt": "RBANISMO (1)",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/vialidades/vialidades-urbanismo-urbanizacion-villas-de-san-antonio/02-rbanismo-2.jpg",
-              "title": "RBANISMO (2)",
-              "alt": "RBANISMO (2)",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/vialidades/vialidades-urbanismo-urbanizacion-villas-de-san-antonio/03-rbanismo-3.jpg",
-              "title": "RBANISMO (3)",
-              "alt": "RBANISMO (3)",
-              "order": 2
-            },
-            {
-              "src": "servicios/portfolio/vialidades/vialidades-urbanismo-urbanizacion-villas-de-san-antonio/04-rbanismo-4.jpg",
-              "title": "RBANISMO (4)",
-              "alt": "RBANISMO (4)",
-              "order": 3
-            }
-          ]
         }
       ]
     },
@@ -348,6 +349,38 @@
       "id": "edificaciones-y-urbanismos",
       "name": "Edificaciones y Urbanismos",
       "works": [
+        {
+          "id": "urbanizacion-villas-de-san-antonio-1794938989069",
+          "label": "Urbanización Villas de San Antonio",
+          "description": "",
+          "showImageTitles": true,
+          "images": [
+            {
+              "src": "servicios/portfolio/urbanizacion-villas-de-san-antonio-1794938989069/urbanizacion-villas-de-san-antonio-1794939012537-3.webp",
+              "title": "RBANISMO (1)",
+              "alt": "RBANISMO (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/urbanizacion-villas-de-san-antonio-1794938989069/urbanizacion-villas-de-san-antonio-1794939012298-2.webp",
+              "title": "RBANISMO (2)",
+              "alt": "RBANISMO (2)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/urbanizacion-villas-de-san-antonio-1794938989069/urbanizacion-villas-de-san-antonio-1794939011979-1.webp",
+              "title": "RBANISMO (3)",
+              "alt": "RBANISMO (3)",
+              "order": 2
+            },
+            {
+              "src": "servicios/portfolio/urbanizacion-villas-de-san-antonio-1794938989069/urbanizacion-villas-de-san-antonio-1794939011642-0.webp",
+              "title": "RBANISMO (4)",
+              "alt": "RBANISMO (4)",
+              "order": 3
+            }
+          ]
+        },
         {
           "label": "Edificación Escolares",
           "id": "edificaciones-edificacion-escolares",
@@ -485,37 +518,6 @@
               "title": "Mantenimiento a Red de Hidrantes",
               "alt": "Equipo durante el mantenimiento de hidrantes en el Aeropuerto Internacional Santiago Mariño",
               "order": 2
-            }
-          ]
-        },
-        {
-          "label": "Espigón Bahía El Tirano",
-          "id": "otros-servicios-espigon-bahia-el-tirano",
-          "showImageTitles": false,
-          "images": [
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-espigon-bahia-el-tirano/01-espigon-01.jpg",
-              "title": "ESPIGON 01",
-              "alt": "ESPIGON 01",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-espigon-bahia-el-tirano/02-espigon-02.jpg",
-              "title": "ESPIGON 02",
-              "alt": "ESPIGON 02",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-espigon-bahia-el-tirano/03-espigon-03.jpg",
-              "title": "ESPIGON 03",
-              "alt": "ESPIGON 03",
-              "order": 2
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-espigon-bahia-el-tirano/04-espigon-04.jpg",
-              "title": "ESPIGON 04",
-              "alt": "ESPIGON 04",
-              "order": 3
             }
           ]
         }
