@@ -31,6 +31,135 @@
   },
   "portfolio": [
     {
+      "id": "petroleo-y-gas",
+      "name": "Petróleo y Gas",
+      "works": [
+        {
+          "label": "Red de Gas Doméstico - Urbanización Villa Rosa",
+          "id": "red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa",
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/01-red-de-gas-domestico-1.jpg",
+              "title": "RED DE GAS DOMESTICO (1)",
+              "alt": "RED DE GAS DOMESTICO (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/02-red-de-gas-domestico-2.jpg",
+              "title": "RED DE GAS DOMESTICO (2)",
+              "alt": "RED DE GAS DOMESTICO (2)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/03-red-de-gas-domestico-3.jpg",
+              "title": "RED DE GAS DOMESTICO (3)",
+              "alt": "RED DE GAS DOMESTICO (3)",
+              "order": 2
+            },
+            {
+              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/04-red-de-gas-domestico-4.jpg",
+              "title": "RED DE GAS DOMESTICO (4)",
+              "alt": "RED DE GAS DOMESTICO (4)",
+              "order": 3
+            }
+          ]
+        },
+        {
+          "label": "Estación de Medición y Regulación Gas Metáno, La Isleta",
+          "id": "red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta",
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta/01-mantenimiento-de-estaciones-de-gas-1.jpg",
+              "title": "MANTENIMIENTO DE ESTACIONES DE GAS (1)",
+              "alt": "MANTENIMIENTO DE ESTACIONES DE GAS (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta/02-mantenimiento-de-estaciones-de-gas-2.jpg",
+              "title": "MANTENIMIENTO DE ESTACIONES DE GAS (2)",
+              "alt": "MANTENIMIENTO DE ESTACIONES DE GAS (2)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta/03-mantenimiento-de-estaciones-de-gas-3.jpg",
+              "title": "MANTENIMIENTO DE ESTACIONES DE GAS (3)",
+              "alt": "MANTENIMIENTO DE ESTACIONES DE GAS (3)",
+              "order": 2
+            }
+          ]
+        },
+        {
+          "label": "Gasoducto 16\" José Francisco Bermúdez Tramo Coche- Margarita",
+          "id": "red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita",
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita/01-reemplazo-de-tramo-de-gasoducto-1.jpg",
+              "title": "REEMPLAZO DE TRAMO DE GASODUCTO (1)",
+              "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita/02-reemplazo-de-tramo-de-gasoducto-3.jpg",
+              "title": "REEMPLAZO DE TRAMO DE GASODUCTO (3)",
+              "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (3)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita/03-reemplazo-de-tramo-de-gasoducto-4.jpg",
+              "title": "REEMPLAZO DE TRAMO DE GASODUCTO (4)",
+              "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (4)",
+              "order": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "edificaciones-y-urbanismos",
+      "name": "Edificaciones y Urbanismos",
+      "works": [
+        {
+          "label": "Edificación Escolares",
+          "id": "edificaciones-edificacion-escolares",
+          "images": [
+            {
+              "src": "servicios/portfolio/edificaciones/edificaciones-edificacion-escolares/01-edificacion.png",
+              "title": "U.E.B.N Dr Luis Ortega",
+              "alt": "U.E.B.N Dr Luis Ortega",
+              "order": 0
+            }
+          ]
+        },
+        {
+          "label": "Casetas de Control",
+          "id": "edificaciones-casetas-de-control",
+          "images": [
+            {
+              "src": "servicios/portfolio/edificaciones/edificaciones-casetas-de-control/01-edificacion.jpg",
+              "title": "Caseta de Control Planta de Tratamiento La Guardia",
+              "alt": "Caseta de Control Planta de Tratamiento La Guardia",
+              "order": 0
+            }
+          ]
+        },
+        {
+          "label": "Infraestructura Industrial",
+          "id": "edificaciones-infraestructura-industrial",
+          "images": [
+            {
+              "src": "servicios/portfolio/edificaciones/edificaciones-infraestructura-industrial/01-infraestructura-de-planta-de-concreto.jpg",
+              "title": "Infraestructura de Planta de Concreto",
+              "alt": "Infraestructura de Planta de Concreto",
+              "order": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "vialidades",
       "name": "Vialidades",
       "works": [
@@ -123,50 +252,8 @@
       ]
     },
     {
-      "id": "edificaciones",
-      "name": "Edificaciones",
-      "works": [
-        {
-          "label": "Edificación Escolares",
-          "id": "edificaciones-edificacion-escolares",
-          "images": [
-            {
-              "src": "servicios/portfolio/edificaciones/edificaciones-edificacion-escolares/01-edificacion.png",
-              "title": "U.E.B.N Dr Luis Ortega",
-              "alt": "U.E.B.N Dr Luis Ortega",
-              "order": 0
-            }
-          ]
-        },
-        {
-          "label": "Casetas de Control",
-          "id": "edificaciones-casetas-de-control",
-          "images": [
-            {
-              "src": "servicios/portfolio/edificaciones/edificaciones-casetas-de-control/01-edificacion.jpg",
-              "title": "Caseta de Control Planta de Tratamiento La Guardia",
-              "alt": "Caseta de Control Planta de Tratamiento La Guardia",
-              "order": 0
-            }
-          ]
-        },
-        {
-          "label": "Infraestructura Industrial",
-          "id": "edificaciones-infraestructura-industrial",
-          "images": [
-            {
-              "src": "servicios/portfolio/edificaciones/edificaciones-infraestructura-industrial/01-infraestructura-de-planta-de-concreto.jpg",
-              "title": "Infraestructura de Planta de Concreto",
-              "alt": "Infraestructura de Planta de Concreto",
-              "order": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "hidraulicas",
-      "name": "Hidráulicas",
+      "id": "hidraulicas-y-maritimas",
+      "name": "Hidráulicas y Marítimas ",
       "works": [
         {
           "label": "Diques de Contención - Presa de Retención de Sedimientos Río Naiguatá",
@@ -269,8 +356,8 @@
       ]
     },
     {
-      "id": "ingenieria-electrica",
-      "name": "Ingeniería Eléctrica",
+      "id": "electricas",
+      "name": "Eléctricas",
       "works": [
         {
           "label": "Redes de Alta y Baja Tensión - San Antonio",
@@ -300,8 +387,8 @@
       ]
     },
     {
-      "id": "instalaciones-sanitarias",
-      "name": "Instalaciones Sanitarias",
+      "id": "sanitarias",
+      "name": "Sanitarias",
       "works": [
         {
           "label": "Saneamiento Ambiental - Relleno Sanitario El Piache",
@@ -324,93 +411,6 @@
               "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/03-saneamiento-ambiental-3.png",
               "title": "saneamiento AMBIENTAL (3)",
               "alt": "saneamiento AMBIENTAL (3)",
-              "order": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "red-de-gas-domestico",
-      "name": "Red de Gas Doméstico",
-      "works": [
-        {
-          "label": "Red de Gas Doméstico - Urbanización Villa Rosa",
-          "id": "red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa",
-          "showImageTitles": false,
-          "images": [
-            {
-              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/01-red-de-gas-domestico-1.jpg",
-              "title": "RED DE GAS DOMESTICO (1)",
-              "alt": "RED DE GAS DOMESTICO (1)",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/02-red-de-gas-domestico-2.jpg",
-              "title": "RED DE GAS DOMESTICO (2)",
-              "alt": "RED DE GAS DOMESTICO (2)",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/03-red-de-gas-domestico-3.jpg",
-              "title": "RED DE GAS DOMESTICO (3)",
-              "alt": "RED DE GAS DOMESTICO (3)",
-              "order": 2
-            },
-            {
-              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/04-red-de-gas-domestico-4.jpg",
-              "title": "RED DE GAS DOMESTICO (4)",
-              "alt": "RED DE GAS DOMESTICO (4)",
-              "order": 3
-            }
-          ]
-        },
-        {
-          "label": "Estación de Medición y Regulación Gas Metáno, La Isleta",
-          "id": "red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta",
-          "showImageTitles": false,
-          "images": [
-            {
-              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta/01-mantenimiento-de-estaciones-de-gas-1.jpg",
-              "title": "MANTENIMIENTO DE ESTACIONES DE GAS (1)",
-              "alt": "MANTENIMIENTO DE ESTACIONES DE GAS (1)",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta/02-mantenimiento-de-estaciones-de-gas-2.jpg",
-              "title": "MANTENIMIENTO DE ESTACIONES DE GAS (2)",
-              "alt": "MANTENIMIENTO DE ESTACIONES DE GAS (2)",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-estacion-de-medicion-y-regulacion-gas-metano-la-isleta/03-mantenimiento-de-estaciones-de-gas-3.jpg",
-              "title": "MANTENIMIENTO DE ESTACIONES DE GAS (3)",
-              "alt": "MANTENIMIENTO DE ESTACIONES DE GAS (3)",
-              "order": 2
-            }
-          ]
-        },
-        {
-          "label": "Gasoducto 16\" José Francisco Bermúdez Tramo Coche- Margarita",
-          "id": "red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita",
-          "showImageTitles": false,
-          "images": [
-            {
-              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita/01-reemplazo-de-tramo-de-gasoducto-1.jpg",
-              "title": "REEMPLAZO DE TRAMO DE GASODUCTO (1)",
-              "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (1)",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita/02-reemplazo-de-tramo-de-gasoducto-3.jpg",
-              "title": "REEMPLAZO DE TRAMO DE GASODUCTO (3)",
-              "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (3)",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita/03-reemplazo-de-tramo-de-gasoducto-4.jpg",
-              "title": "REEMPLAZO DE TRAMO DE GASODUCTO (4)",
-              "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (4)",
               "order": 2
             }
           ]
