@@ -290,30 +290,31 @@
       ]
     },
     {
-      "id": "edificaciones-y-urbanismos",
-      "name": "Edificaciones y Urbanismos",
+      "id": "sanitarias",
+      "name": "Sanitarias",
       "works": [
         {
-          "label": "Edificación Escolares",
-          "id": "edificaciones-edificacion-escolares",
+          "label": "Saneamiento Ambiental - Relleno Sanitario El Piache",
+          "id": "instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache",
+          "showImageTitles": false,
           "images": [
             {
-              "src": "servicios/portfolio/edificaciones/edificaciones-edificacion-escolares/01-edificacion.png",
-              "title": "U.E.B.N Dr Luis Ortega",
-              "alt": "U.E.B.N Dr Luis Ortega",
+              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/01-saneamiento-ambiental-1.png",
+              "title": "Relleno Sanitario El Piache",
+              "alt": "Relleno Sanitario El Piache",
               "order": 0
-            }
-          ]
-        },
-        {
-          "label": "Casetas de Control",
-          "id": "edificaciones-casetas-de-control",
-          "images": [
+            },
             {
-              "src": "servicios/portfolio/edificaciones/edificaciones-casetas-de-control/01-edificacion.jpg",
-              "title": "Caseta de Control Planta de Tratamiento La Guardia",
-              "alt": "Caseta de Control Planta de Tratamiento La Guardia",
-              "order": 0
+              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/02-saneamiento-ambiental-2.png",
+              "title": "saneamiento AMBIENTAL (2)",
+              "alt": "saneamiento AMBIENTAL (2)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/03-saneamiento-ambiental-3.png",
+              "title": "saneamiento AMBIENTAL (3)",
+              "alt": "saneamiento AMBIENTAL (3)",
+              "order": 2
             }
           ]
         }
@@ -344,31 +345,30 @@
       ]
     },
     {
-      "id": "sanitarias",
-      "name": "Sanitarias",
+      "id": "edificaciones-y-urbanismos",
+      "name": "Edificaciones y Urbanismos",
       "works": [
         {
-          "label": "Saneamiento Ambiental - Relleno Sanitario El Piache",
-          "id": "instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache",
-          "showImageTitles": false,
+          "label": "Edificación Escolares",
+          "id": "edificaciones-edificacion-escolares",
           "images": [
             {
-              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/01-saneamiento-ambiental-1.png",
-              "title": "Relleno Sanitario El Piache",
-              "alt": "Relleno Sanitario El Piache",
+              "src": "servicios/portfolio/edificaciones/edificaciones-edificacion-escolares/01-edificacion.png",
+              "title": "U.E.B.N Dr Luis Ortega",
+              "alt": "U.E.B.N Dr Luis Ortega",
               "order": 0
-            },
+            }
+          ]
+        },
+        {
+          "label": "Casetas de Control",
+          "id": "edificaciones-casetas-de-control",
+          "images": [
             {
-              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/02-saneamiento-ambiental-2.png",
-              "title": "saneamiento AMBIENTAL (2)",
-              "alt": "saneamiento AMBIENTAL (2)",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/03-saneamiento-ambiental-3.png",
-              "title": "saneamiento AMBIENTAL (3)",
-              "alt": "saneamiento AMBIENTAL (3)",
-              "order": 2
+              "src": "servicios/portfolio/edificaciones/edificaciones-casetas-de-control/01-edificacion.jpg",
+              "title": "Caseta de Control Planta de Tratamiento La Guardia",
+              "alt": "Caseta de Control Planta de Tratamiento La Guardia",
+              "order": 0
             }
           ]
         }
