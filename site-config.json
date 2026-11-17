@@ -206,27 +206,27 @@
           "showImageTitles": false,
           "images": [
             {
-              "src": "servicios/portfolio/espigon-bahia-el-tirano-1794939142079/espigon-bahia-el-tirano-1794939191509-0.webp",
-              "title": "ESPIGON 04",
-              "alt": "ESPIGON 04",
+              "src": "servicios/portfolio/espigon-bahia-el-tirano-1794939142079/espigon-bahia-el-tirano-1794939192426-3.webp",
+              "title": "ESPIGON 01",
+              "alt": "ESPIGON 01",
               "order": 0
-            },
-            {
-              "src": "servicios/portfolio/espigon-bahia-el-tirano-1794939142079/espigon-bahia-el-tirano-1794939191811-1.webp",
-              "title": "ESPIGON 03",
-              "alt": "ESPIGON 03",
-              "order": 1
             },
             {
               "src": "servicios/portfolio/espigon-bahia-el-tirano-1794939142079/espigon-bahia-el-tirano-1794939192114-2.webp",
               "title": "ESPIGON 02",
               "alt": "ESPIGON 02",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/espigon-bahia-el-tirano-1794939142079/espigon-bahia-el-tirano-1794939191811-1.webp",
+              "title": "ESPIGON 03",
+              "alt": "ESPIGON 03",
               "order": 2
             },
             {
-              "src": "servicios/portfolio/espigon-bahia-el-tirano-1794939142079/espigon-bahia-el-tirano-1794939192426-3.webp",
-              "title": "ESPIGON 01",
-              "alt": "ESPIGON 01",
+              "src": "servicios/portfolio/espigon-bahia-el-tirano-1794939142079/espigon-bahia-el-tirano-1794939191509-0.webp",
+              "title": "ESPIGON 04",
+              "alt": "ESPIGON 04",
               "order": 3
             }
           ]
