@@ -292,21 +292,21 @@
           "id": "vialidades-pavimentacion-y-vialidad",
           "images": [
             {
+              "src": "servicios/portfolio/vialidades/vialidades-pavimentacion-y-vialidad/03-vialidad-3.jpg",
+              "title": "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
+              "alt": "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
+              "order": 0
+            },
+            {
               "src": "servicios/portfolio/vialidades/vialidades-pavimentacion-y-vialidad/01-vialidad-1.jpg",
               "title": "Avenida Juan Bautista Arismendi",
               "alt": "Avenida Juan Bautista Arismendi",
-              "order": 0
+              "order": 1
             },
             {
               "src": "servicios/portfolio/vialidades/vialidades-pavimentacion-y-vialidad/02-vialidad-2.jpg",
               "title": "Avenida Circunvalación Norte",
               "alt": "Avenida Circunvalación Norte",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/vialidades/vialidades-pavimentacion-y-vialidad/03-vialidad-3.jpg",
-              "title": "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
-              "alt": "Aeropuerto Internacional del Caribe General en Jefe Santiago Mariño",
               "order": 2
             }
           ]
