@@ -35,6 +35,84 @@
       "name": "Petróleo y Gas",
       "works": [
         {
+          "id": "mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1794941477434",
+          "label": "Mantenimiento a Red de Hidrantes Aeropuerto Internacional Santiago Mariño",
+          "description": "",
+          "showImageTitles": true,
+          "images": [
+            {
+              "src": "servicios/portfolio/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1794941477434/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1794941485724-2.webp",
+              "title": "MANTENIMIENTO A RED DE HIDRANTES (1)",
+              "alt": "MANTENIMIENTO A RED DE HIDRANTES (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1794941477434/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1794941485101-0.webp",
+              "title": "MANTENIMIENTO A RED DE HIDRANTES (3)",
+              "alt": "MANTENIMIENTO A RED DE HIDRANTES (3)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1794941477434/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1794941485413-1.webp",
+              "title": "MANTENIMIENTO A RED DE HIDRANTES (2)",
+              "alt": "MANTENIMIENTO A RED DE HIDRANTES (2)",
+              "order": 2
+            }
+          ]
+        },
+        {
+          "id": "mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941385660",
+          "label": "Mantenimiento de la Plataforma de Combustible El Guamache",
+          "description": "",
+          "showImageTitles": true,
+          "images": [
+            {
+              "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941385660/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941400789-0.webp",
+              "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
+              "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941385660/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941401082-2.webp",
+              "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
+              "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941385660/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941400884-1.webp",
+              "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (2)",
+              "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (2)",
+              "order": 2
+            }
+          ]
+        },
+        {
+          "id": "gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1794941332943",
+          "label": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermudez",
+          "description": "",
+          "showImageTitles": true,
+          "images": [
+            {
+              "src": "servicios/portfolio/gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1794941332943/gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1794941347515-1.webp",
+              "title": "MANTENIMIENTO DE GASODUCTO SUBMARINO (1)",
+              "alt": "MANTENIMIENTO DE GASODUCTO SUBMARINO (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1794941332943/gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1794941347221-0.webp",
+              "title": "MANTENIMIENTO DE GASODUCTO SUBMARINO (2)",
+              "alt": "MANTENIMIENTO DE GASODUCTO SUBMARINO (2)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1794941332943/gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1794941347783-2.webp",
+              "title": "Mantenimiento tuberia submarina de gas (2)",
+              "alt": "Mantenimiento tuberia submarina de gas (2)",
+              "order": 2
+            }
+          ]
+        },
+        {
           "label": "Red de Gas Doméstico - Urbanización Villa Rosa",
           "id": "red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa",
           "showImageTitles": false,
@@ -125,7 +203,7 @@
           "id": "espigon-bahia-el-tirano-1794939142079",
           "label": "Espigón Bahía El Tirano",
           "description": "",
-          "showImageTitles": true,
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/espigon-bahia-el-tirano-1794939142079/espigon-bahia-el-tirano-1794939191509-0.webp",
@@ -353,7 +431,7 @@
           "id": "urbanizacion-villas-de-san-antonio-1794938989069",
           "label": "Urbanización Villas de San Antonio",
           "description": "",
-          "showImageTitles": true,
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/urbanizacion-villas-de-san-antonio-1794938989069/urbanizacion-villas-de-san-antonio-1794939012537-3.webp",
