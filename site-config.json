@@ -438,7 +438,7 @@
         {
           "id": "urbanizacion-villas-de-san-antonio-1794938989069",
           "label": "Urbanización Villas de San Antonio",
-          "description": "",
+          "description": "Construcción de unidades de vivienda y urbanismo en San Antonio",
           "showImageTitles": false,
           "images": [
             {
@@ -527,87 +527,7 @@
     {
       "id": "otros-servicios",
       "name": "Otros Servicios",
-      "works": [
-        {
-          "label": "Mantenimiento e Inspección de Infraestructura",
-          "id": "otros-servicios-mantenimiento-e-inspeccion-de-infraestructura",
-          "images": [
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/01-mantenimiento-de-gasoducto-submarino-1.jpg",
-              "title": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
-              "alt": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/02-mantenimiento-de-gasoducto-submarino-2.jpg",
-              "title": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
-              "alt": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/08-mantenimiento-tuberia-submarina-de-gas-2.jpg",
-              "title": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
-              "alt": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermúdez",
-              "order": 2
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/03-mantenimiento-de-plataforma-de-combustible-1.jpg",
-              "title": "Mantenimiento de la Plataforma de Combustible El Guamache",
-              "alt": "Mantenimiento de la Plataforma de Combustible El Guamache",
-              "order": 3
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/04-mantenimiento-de-plataforma-de-combustible-1.png",
-              "title": "Mantenimiento de la Plataforma de Combustible El Guamache",
-              "alt": "Mantenimiento de la Plataforma de Combustible El Guamache",
-              "order": 4
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/05-mantenimiento-de-plataforma-de-combustible-2.jpg",
-              "title": "Mantenimiento de la Plataforma de Combustible El Guamache",
-              "alt": "Mantenimiento de la Plataforma de Combustible El Guamache",
-              "order": 5
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/06-mantenimiento-de-plataforma-de-combustible-3.jpg",
-              "title": "Mantenimiento de la Plataforma de Combustible El Guamache",
-              "alt": "Mantenimiento de la Plataforma de Combustible El Guamache",
-              "order": 6
-            },
-            {
-              "src": "servicios/portfolio/otros-servicios/otros-servicios-mantenimiento-e-inspeccion-de-infraestructura/07-mantenimiento-de-plataforma-de-combustible.jpg",
-              "title": "Mantenimiento de la Plataforma de Combustible El Guamache",
-              "alt": "Mantenimiento de la Plataforma de Combustible El Guamache",
-              "order": 7
-            }
-          ]
-        },
-        {
-          "label": "Mantenimiento a Red de Hidrantes Aeropuerto Internacional Santiago Mariño",
-          "id": "instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes",
-          "showImageTitles": false,
-          "images": [
-            {
-              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes/01-whatsapp-image-2026-08-03-at-6-11-10-pm-1.jpeg",
-              "title": "Mantenimiento a Red de Hidrantes",
-              "alt": "Mantenimiento a la red de hidrantes del Aeropuerto Internacional Santiago Mariño",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes/02-whatsapp-image-2026-08-03-at-6-11-10-pm-2.jpeg",
-              "title": "Mantenimiento a Red de Hidrantes",
-              "alt": "Trabajos en la red de hidrantes del Aeropuerto Internacional Santiago Mariño",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-mantenimiento-a-red-de-hidrantes/03-whatsapp-image-2026-08-03-at-6-11-10-pm.jpeg",
-              "title": "Mantenimiento a Red de Hidrantes",
-              "alt": "Equipo durante el mantenimiento de hidrantes en el Aeropuerto Internacional Santiago Mariño",
-              "order": 2
-            }
-          ]
-        }
-      ]
+      "works": []
     }
   ]
 }
