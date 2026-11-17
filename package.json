@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "admin:test": "node --test scripts/admin-assets.test.mjs",
     "content:check": "node scripts/validate-content.mjs",
     "worker:dev": "wrangler dev --env staging",
     "worker:deploy": "wrangler deploy --env production",
