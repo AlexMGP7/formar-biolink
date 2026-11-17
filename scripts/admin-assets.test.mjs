@@ -9,7 +9,7 @@ const declarations = [...script.matchAll(/^      (?:async )?function (\w+)\(/gm)
 const names = new Set([
   'directImages', 'queueAssetRemoval', 'removeImage', 'findWork', 'findImage',
   'handleFiles', 'handleLogoFile', 'useOfficialLogo', 'deleteWork', 'deleteCategory',
-  'cleanConfig', 'publish',
+  'cleanConfig', 'publish', 'renderCategory',
 ]);
 const functions = declarations.flatMap((match, index) => names.has(match[1])
   ? [script.slice(match.index, declarations[index + 1]?.index)] : []).join('\n');
@@ -24,6 +24,11 @@ function editor() {
   let serial = 0;
   let payload;
   const noop = () => {};
+  const node = () => ({
+    dataset: {}, listeners: new Map(), classList: { add: noop, remove: noop },
+    addEventListener(type, callback) { this.listeners.set(type, callback); },
+    appendChild: noop, append: noop,
+  });
   const context = vm.createContext({
     state, isDemo: false, Date: { now: () => ++serial },
     id: () => `image-${++serial}`, slug: () => 'obra',
@@ -35,7 +40,8 @@ function editor() {
     confirm: () => true, renderPortfolio: noop, renderStats: noop,
     renderLogoEditor: noop, markDirty: noop, setLoading: noop,
     toast: (message, type) => { if (type === 'error') errors.push(message); },
-    $: () => ({}), fileToBase64: async () => 'cGhvdG8=', loadContent: noop,
+    $: node, document: { createElement: node }, esc: String,
+    fileToBase64: async () => 'cGhvdG8=', loadContent: noop,
     api: async (path, options) => {
       assert.equal(path, '/admin/publish');
       payload = JSON.parse(options.body);
@@ -107,4 +113,24 @@ test('returning to the official logo discards unpublished uploads', async () => 
   assert.deepEqual(e.payload().files, []);
   assert.equal(e.payload().config.company.logo.src, 'logo.png');
   assert.deepEqual(e.errors, []);
+});
+
+for (const value of ['', '-1', '999', 'invalid', '0.5']) {
+  test(`dropping a file or invalid category index ${JSON.stringify(value)} preserves category order`, () => {
+    const e = editor();
+    const first = { name: 'Primera', works: [] }, second = { name: 'Segunda', works: [] };
+    e.state.content.portfolio = [first, second];
+    const category = e.context.renderCategory(second, 1, '');
+    category.listeners.get('drop')({ preventDefault() {}, dataTransfer: { getData: () => value } });
+    assert.deepEqual(e.state.content.portfolio, [first, second]);
+  });
+}
+
+test('dragging a category still changes its order', () => {
+  const e = editor();
+  const first = { name: 'Primera', works: [] }, second = { name: 'Segunda', works: [] };
+  e.state.content.portfolio = [first, second];
+  const category = e.context.renderCategory(second, 1, '');
+  category.listeners.get('drop')({ preventDefault() {}, dataTransfer: { getData: () => '0' } });
+  assert.deepEqual(e.state.content.portfolio, [second, first]);
 });
