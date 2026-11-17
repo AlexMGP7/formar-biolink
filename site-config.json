@@ -344,37 +344,6 @@
       ]
     },
     {
-      "id": "electricas",
-      "name": "Eléctricas",
-      "works": [
-        {
-          "label": "Redes de Alta y Baja Tensión - San Antonio",
-          "id": "ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio",
-          "showImageTitles": false,
-          "images": [
-            {
-              "src": "servicios/portfolio/ingenieria-electrica/ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio/01-redes-de-alta-y-baja-tension-1.jpg",
-              "title": "REDES DE ALTA Y BAJA TENSION (1)",
-              "alt": "REDES DE ALTA Y BAJA TENSION (1)",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/ingenieria-electrica/ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio/02-redes-de-alta-y-baja-tension-2.jpg",
-              "title": "REDES DE ALTA Y BAJA TENSION (2)",
-              "alt": "REDES DE ALTA Y BAJA TENSION (2)",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/ingenieria-electrica/ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio/03-redes-de-alta-y-baja-tension-3.jpg",
-              "title": "REDES DE ALTA Y BAJA TENSION (3)",
-              "alt": "REDES DE ALTA Y BAJA TENSION (3)",
-              "order": 2
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "sanitarias",
       "name": "Sanitarias",
       "works": [
@@ -399,6 +368,37 @@
               "src": "servicios/portfolio/instalaciones-sanitarias/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/03-saneamiento-ambiental-3.png",
               "title": "saneamiento AMBIENTAL (3)",
               "alt": "saneamiento AMBIENTAL (3)",
+              "order": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electricas",
+      "name": "Eléctricas",
+      "works": [
+        {
+          "label": "Redes de Alta y Baja Tensión - San Antonio",
+          "id": "ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio",
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/ingenieria-electrica/ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio/01-redes-de-alta-y-baja-tension-1.jpg",
+              "title": "REDES DE ALTA Y BAJA TENSION (1)",
+              "alt": "REDES DE ALTA Y BAJA TENSION (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/ingenieria-electrica/ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio/02-redes-de-alta-y-baja-tension-2.jpg",
+              "title": "REDES DE ALTA Y BAJA TENSION (2)",
+              "alt": "REDES DE ALTA Y BAJA TENSION (2)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/ingenieria-electrica/ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio/03-redes-de-alta-y-baja-tension-3.jpg",
+              "title": "REDES DE ALTA Y BAJA TENSION (3)",
+              "alt": "REDES DE ALTA Y BAJA TENSION (3)",
               "order": 2
             }
           ]
