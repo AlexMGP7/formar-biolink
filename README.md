@@ -21,12 +21,23 @@ Las imágenes se suben desde el panel por toque, selección de archivos o arrast
 ```bash
 npm install
 npm run content:check
+npm run admin:test
+npm run public:test
 npm run worker:typecheck
 npm run worker:check
 python3 -m http.server 4173
 ```
 
 Para revisar el panel sin iniciar sesión: `http://127.0.0.1:4173/admin.html?demo=1`.
+
+Las pruebas de navegador comprueban los 14 campos del perfil desde el panel hasta la vista previa y una página pública nueva, además del logo y los datos del portafolio. Se ejecutan localmente con contenido de prueba, sin publicar cambios reales:
+
+```bash
+npx playwright install chromium firefox
+npm run e2e:test
+```
+
+GitHub ejecuta estas comprobaciones en Chromium, Firefox y vista móvil en cada cambio de `main`. Si fallan, conserva capturas y trazas en los artefactos del workflow de validación.
 
 ## Secretos del Worker
 

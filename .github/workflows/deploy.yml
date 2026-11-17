@@ -14,8 +14,19 @@ jobs:
       - name: Checkout del código
         uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Instalar dependencias de pruebas
+        run: npm ci
+
       - name: Probar edición de archivos pendientes
         run: node --test scripts/admin-assets.test.mjs
+
+      - name: Probar datos visibles de contacto
+        run: node --test scripts/public-contact.test.mjs
 
       - name: Validar site-config.json
         run: |
@@ -27,3 +38,19 @@ jobs:
         run: |
           node scripts/validate-content.mjs
           echo "✅ Contenido listo para GitHub Pages."
+
+      - name: Instalar navegadores de pruebas
+        run: npx playwright install --with-deps chromium firefox
+
+      - name: Probar del panel a la página pública
+        run: npm run e2e:test
+
+      - name: Conservar evidencias si falla una prueba
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pruebas-panel-publico
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 14

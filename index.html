@@ -402,6 +402,14 @@
       box-sizing: border-box;
       letter-spacing: 0.3px;
     }
+    .subcategory-description {
+      width: 100%;
+      margin: 0 0 12px;
+      color: #5b728a;
+      font: 13px/1.5 'Arimo', sans-serif;
+      text-align: left;
+      white-space: pre-line;
+    }
     .gallery-item-wrapper {
       display: flex;
       flex-direction: column;
@@ -639,22 +647,22 @@
           const links = document.querySelectorAll('.link-card');
           if (cfg.contact.instagram && links[0]) {
             if (cfg.contact.instagram.url) links[0].href = cfg.contact.instagram.url;
-            const sub = links[0].querySelector('.link-sub');
+            const sub = links[0].querySelector('.lc-sub');
             if (sub && cfg.contact.instagram.subtitle) sub.textContent = cfg.contact.instagram.subtitle;
           }
           if (cfg.contact.website && links[1]) {
             if (cfg.contact.website.url) links[1].href = cfg.contact.website.url;
-            const sub = links[1].querySelector('.link-sub');
+            const sub = links[1].querySelector('.lc-sub');
             if (sub && cfg.contact.website.subtitle) sub.textContent = cfg.contact.website.subtitle;
           }
           if (cfg.contact.email && links[2]) {
             links[2].href = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(cfg.contact.email)}`;
-            const sub = links[2].querySelector('.link-sub');
+            const sub = links[2].querySelector('.lc-sub');
             if (sub) sub.textContent = cfg.contact.email;
           }
           if (cfg.contact.location && links[3]) {
             if (cfg.contact.location.mapsUrl) links[3].href = cfg.contact.location.mapsUrl;
-            const sub = links[3].querySelector('.link-sub');
+            const sub = links[3].querySelector('.lc-sub');
             if (sub && cfg.contact.location.short) sub.textContent = cfg.contact.location.short;
           }
 
@@ -776,6 +784,7 @@
         try {
           const results = config.works.map((work) => ({
             label: work.label,
+            description: typeof work.description === 'string' ? work.description : '',
             showImageTitles: work.showImageTitles !== false,
             success: Array.isArray(work.images) && work.images.length > 0,
             images: (work.images || []).sort((a, b) => (a.order || 0) - (b.order || 0)).map((image, index) => ({
@@ -795,6 +804,13 @@
               subhead.className = 'subcategory-title';
               subhead.textContent = res.label;
               imgGalleryContainer.appendChild(subhead);
+
+              if (res.description) {
+                const description = document.createElement('p');
+                description.className = 'subcategory-description';
+                description.textContent = res.description;
+                imgGalleryContainer.appendChild(description);
+              }
 
               const subcatGrid = document.createElement('div');
               subcatGrid.style.display = 'flex';

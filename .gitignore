@@ -1,4 +1,7 @@
 node_modules/
+.playwright-cli/
+playwright-report/
+test-results/
 .dev.vars
 worker-startup.cpuprofile
 .wrangler/
