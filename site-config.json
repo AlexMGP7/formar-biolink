@@ -280,30 +280,6 @@
               "order": 2
             }
           ]
-        },
-        {
-          "label": "Planta de Tratamiento La Guardia / Planta de Tratamiento El Yaque",
-          "id": "hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque",
-          "images": [
-            {
-              "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/01-plantas-de-tratamiento-1.jpg",
-              "title": "Planta de Tratamiento La Guardia",
-              "alt": "Vista de la Planta de Tratamiento La Guardia",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/02-plantas-de-tratamiento-2.jpg",
-              "title": "Planta de Tratamiento El Yaque",
-              "alt": "Vista de la Planta de Tratamiento El Yaque",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/03-plantas-de-tratamiento-3.jpg",
-              "title": "Planta de Tratamiento El Yaque",
-              "alt": "Vista de la Planta de Tratamiento El Yaque",
-              "order": 2
-            }
-          ]
         }
       ]
     },
@@ -373,6 +349,32 @@
       "name": "Sanitarias",
       "works": [
         {
+          "id": "planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque-1794945560296",
+          "label": "Planta de Tratamiento La Guardia / Planta de Tratamiento El Yaque",
+          "description": "",
+          "showImageTitles": true,
+          "images": [
+            {
+              "src": "servicios/portfolio/planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque-1794945560296/planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque-1794945628822-2.webp",
+              "title": "Planta de Tratamiento La Guardia",
+              "alt": "PLANTAS DE TRATAMIENTO (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque-1794945560296/planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque-1794945628189-0.webp",
+              "title": "Planta de Tratamiento El Yaque",
+              "alt": "PLANTAS DE TRATAMIENTO (3)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque-1794945560296/planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque-1794945628521-1.webp",
+              "title": "Planta de Tratamiento El Yaque",
+              "alt": "PLANTAS DE TRATAMIENTO (2)",
+              "order": 2
+            }
+          ]
+        },
+        {
           "label": "Saneamiento Ambiental - Relleno Sanitario El Piache",
           "id": "instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache",
           "showImageTitles": false,
@@ -393,7 +395,7 @@
               "src": "servicios/portfolio/instalaciones-sanitarias-saneamiento-ambiental-relleno-sanitario-el-piache/saneamiento-ambiental-relleno-sanitario-el-piache-1794945287604-3.webp",
               "title": "saneamiento AMBIENTAL (3)",
               "alt": "saneamiento AMBIENTAL (3)",
-              "order": 3
+              "order": 2
             }
           ]
         }
@@ -418,6 +420,12 @@
               "title": "Vialidad Boca de Río",
               "alt": "Vialidad Boca de Río",
               "order": 1
+            },
+            {
+              "src": "servicios/portfolio/movimientos-de-tierra-movimiento-de-tierra/movimiento-de-tierra-1794945937897-2.webp",
+              "title": "",
+              "alt": "",
+              "order": 2
             }
           ]
         }
