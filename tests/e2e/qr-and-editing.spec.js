@@ -88,7 +88,7 @@ test('visible location and optional contact text can be edited and cleared', asy
   const preview = page.frameLocator('#previewFrame');
   await expect(preview.locator('.link-card').nth(3).locator('.lc-sub')).toHaveText('C.C. A.B., Pampatar, Venezuela');
   await page.getByRole('button', { name: 'Cerrar vista previa', exact: true }).click();
-  for (const input of await page.locator('#view-contacto [data-path]').all()) await input.fill('');
+  for (const input of await page.locator('#view-contacto [data-path^="contact."]').all()) await input.fill('');
   await page.getByRole('button', { name: 'Vista previa', exact: true }).click();
   await expect(preview.locator('.link-card .lc-sub')).toHaveText(['', '', '', '']);
   for (const link of await preview.locator('.link-card').all()) await expect(link).not.toHaveAttribute('href');

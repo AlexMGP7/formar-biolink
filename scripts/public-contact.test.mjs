@@ -7,7 +7,7 @@ const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const start = html.indexOf('      function applyConfig(cfg) {');
 const end = html.indexOf('      async function loadConfig()', start);
 assert.ok(start >= 0 && end > start, 'Public configuration renderer is present');
-const markup = [...html.matchAll(/<a\b[^>]*class="link-card"[^>]*>([\s\S]*?)<\/a>/g)];
+const markup = [...html.matchAll(/<a\b[^>]*class="[^"]*\blink-card\b[^"]*"[^>]*>([\s\S]*?)<\/a>/g)];
 assert.equal(markup.length, 4, 'Four contact cards are present');
 
 function render(contact) {
@@ -17,7 +17,7 @@ function render(contact) {
     const subtitle = { textContent: text[2] };
     return {
       href: tag.match(/href="([^"]*)"/)[1], subtitle,
-      querySelector: (selector) => selector === `.${text[1]}` ? subtitle : null,
+      querySelector: (selector) => text[1].split(/\s+/).some(name => selector === `.${name}`) ? subtitle : null,
       setAttribute(name, value) { this[name] = value; },
       removeAttribute(name) { delete this[name]; },
     };

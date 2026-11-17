@@ -51,6 +51,8 @@ Los archivos se generan localmente con `npm run qr:generate`. `npm run qr:test` 
 
 En `Contacto y enlaces`, cada tarjeta tiene un enlace de destino y un texto visible independiente. `Ubicación: texto visible en la tarjeta` cambia la tarjeta de ubicación; `Dirección completa` cambia el bloque `Visítanos`. Se pueden borrar textos opcionales sin recuperar valores antiguos. La vista previa y la publicación validan correos y enlaces antes de continuar.
 
+`Tamaño del correo` permite elegir entre 12 y 20 px, con 16 px como valor inicial. Se guarda en `appearance.emailFontSize`. El correo y la ubicación usan tarjetas de ancho completo. La presentación del correo adapta el tamaño al espacio disponible y permite varias líneas para direcciones excepcionalmente largas, conservando un mínimo de 12 px. Las pruebas verifican el correo actual en una línea entre 320 y 1280 px y la conservación del ajuste del panel en la configuración pública.
+
 Si una sesión caduca al publicar, el panel conserva el borrador y las fotos pendientes para volver a entrar y publicar. Cerrar sesión voluntariamente pide confirmar antes de descartar un borrador. El Worker verifica el contenido contra una revisión fija de GitHub y solo elimina fotos que existen y ya no aparecen en la nueva configuración.
 
 ## Secretos del Worker

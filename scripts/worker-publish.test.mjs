@@ -4,7 +4,7 @@ import test from 'node:test';
 import worker from '../src/index.ts';
 
 const env = { GITHUB_TOKEN: 'test-token', SESSION_SECRET: 'test-secret', GITHUB_REPO: 'test/formar', GITHUB_BRANCH: 'main', ALLOWED_ORIGIN: 'https://example.com' };
-const config = { company: { logo: { src: 'logo.png' } }, portfolio: [{ works: [{ images: [{ src: 'servicios/portfolio/kept.png' }] }] }] };
+const config = { company: { logo: { src: 'logo.png' } }, appearance: { emailFontSize: 18 }, portfolio: [{ works: [{ images: [{ src: 'servicios/portfolio/kept.png' }] }] }] };
 const payload = Buffer.from(JSON.stringify({ exp: Math.floor(Date.now() / 1000) + 3600 })).toString('base64url');
 const signature = createHmac('sha256', env.SESSION_SECRET).update(payload).digest('base64url');
 
@@ -42,6 +42,8 @@ async function publish(options = {}) {
 test('publication only deletes existing photos that the new content no longer uses', async () => {
   const { response, requests } = await publish();
   assert.equal(response.status, 200);
+  const configBlob = requests.find(request => request.path.endsWith('/git/blobs'));
+  assert.equal(JSON.parse(Buffer.from(configBlob.body.content, 'base64').toString()).appearance.emailFontSize, 18);
   const tree = requests.find(request => request.path.endsWith('/git/trees'));
   assert.deepEqual(tree.body.tree.filter(entry => entry.sha === null).map(entry => entry.path), ['servicios/portfolio/deleted.png']);
   const contentRead = requests.find(request => request.path.endsWith('/contents/site-config.json'));
