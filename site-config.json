@@ -144,18 +144,6 @@
               "order": 0
             }
           ]
-        },
-        {
-          "label": "Infraestructura Industrial",
-          "id": "edificaciones-infraestructura-industrial",
-          "images": [
-            {
-              "src": "servicios/portfolio/edificaciones/edificaciones-infraestructura-industrial/01-infraestructura-de-planta-de-concreto.jpg",
-              "title": "Infraestructura de Planta de Concreto",
-              "alt": "Infraestructura de Planta de Concreto",
-              "order": 0
-            }
-          ]
         }
       ]
     },
