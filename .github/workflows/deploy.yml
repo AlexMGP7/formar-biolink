@@ -28,6 +28,12 @@ jobs:
       - name: Probar datos visibles de contacto
         run: node --test scripts/public-contact.test.mjs
 
+      - name: Verificar el QR descargable
+        run: npm run qr:test
+
+      - name: Proteger publicaciones y fotos existentes
+        run: npm run worker:test
+
       - name: Validar site-config.json
         run: |
           echo "Validando site-config.json..."

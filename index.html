@@ -3,6 +3,14 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="public-url" content="https://inversionesformar.netlify.app/">
+  <script type="module">
+    const base = location.hostname === 'alexmgp7.github.io' ? '/formar-biolink/' : '/';
+    const style = document.createElement('link');
+    style.rel = 'stylesheet'; style.href = `${base}assets/qr-dialog.css`;
+    document.head.appendChild(style);
+    import(`${base}assets/qr-dialog.js`);
+  </script>
   <title>Inversiones Formar</title>
   <link rel="icon" href="favicon.ico" sizes="32x32" type="image/x-icon"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Arimo:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -440,6 +448,7 @@
       </div>
       <div class="brand-name">Inversiones Formar</div>
       <div class="brand-handle">@inversionesformar</div>
+      <button class="formar-qr-trigger" type="button" data-qr-open>Mostrar código QR</button>
     </div>
 
     <!-- SEP QUIÉNES SOMOS -->
@@ -610,6 +619,11 @@
 
       function applyConfig(cfg) {
         if (!cfg) return;
+        const setLink = (node, value) => {
+          if (!node || typeof value !== 'string') return;
+          if (value.trim()) { node.href = value.trim(); node.removeAttribute('aria-disabled'); }
+          else { node.removeAttribute('href'); node.setAttribute('aria-disabled', 'true'); }
+        };
 
         if (cfg.company) {
           if (cfg.company.logo && cfg.company.logo.src) {
@@ -624,20 +638,20 @@
               logo.alt = cfg.company.logo.alt || `Logo de ${cfg.company.name || 'Inversiones Formar'}`;
             }
           }
-          if (cfg.company.name) {
+          if (typeof cfg.company.name === 'string') {
             const bName = document.querySelector('.brand-name');
             if (bName) bName.textContent = cfg.company.name;
             document.title = cfg.company.name;
           }
-          if (cfg.company.handle) {
+          if (typeof cfg.company.handle === 'string') {
             const bHandle = document.querySelector('.brand-handle');
             if (bHandle) bHandle.textContent = cfg.company.handle;
           }
-          if (cfg.company.description) {
+          if (typeof cfg.company.description === 'string') {
             const secText = document.querySelector('.section-text');
             if (secText) secText.textContent = cfg.company.description;
           }
-          if (cfg.company.footer) {
+          if (typeof cfg.company.footer === 'string') {
             const footer = document.querySelector('.footer');
             if (footer) footer.textContent = cfg.company.footer;
           }
@@ -646,47 +660,44 @@
         if (cfg.contact) {
           const links = document.querySelectorAll('.link-card');
           if (cfg.contact.instagram && links[0]) {
-            if (cfg.contact.instagram.url) links[0].href = cfg.contact.instagram.url;
+            setLink(links[0], cfg.contact.instagram.url);
             const sub = links[0].querySelector('.lc-sub');
-            if (sub && cfg.contact.instagram.subtitle) sub.textContent = cfg.contact.instagram.subtitle;
+            if (sub && typeof cfg.contact.instagram.subtitle === 'string') sub.textContent = cfg.contact.instagram.subtitle;
           }
           if (cfg.contact.website && links[1]) {
-            if (cfg.contact.website.url) links[1].href = cfg.contact.website.url;
+            setLink(links[1], cfg.contact.website.url);
             const sub = links[1].querySelector('.lc-sub');
-            if (sub && cfg.contact.website.subtitle) sub.textContent = cfg.contact.website.subtitle;
+            if (sub && typeof cfg.contact.website.subtitle === 'string') sub.textContent = cfg.contact.website.subtitle;
           }
-          if (cfg.contact.email && links[2]) {
-            links[2].href = `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(cfg.contact.email)}`;
+          if (typeof cfg.contact.email === 'string' && links[2]) {
+            setLink(links[2], cfg.contact.email ? `https://mail.google.com/mail/?view=cm&to=${encodeURIComponent(cfg.contact.email)}` : '');
             const sub = links[2].querySelector('.lc-sub');
             if (sub) sub.textContent = cfg.contact.email;
           }
           if (cfg.contact.location && links[3]) {
-            if (cfg.contact.location.mapsUrl) links[3].href = cfg.contact.location.mapsUrl;
+            setLink(links[3], cfg.contact.location.mapsUrl);
             const sub = links[3].querySelector('.lc-sub');
-            if (sub && cfg.contact.location.short) sub.textContent = cfg.contact.location.short;
+            if (sub && typeof cfg.contact.location.short === 'string') sub.textContent = cfg.contact.location.short;
           }
 
           if (cfg.contact.whatsapp) {
             const waBtn = document.querySelector('.wa-btn');
-            if (waBtn && cfg.contact.whatsapp.number) {
-              waBtn.href = `https://wa.me/${cfg.contact.whatsapp.number}`;
-            }
+            if (typeof cfg.contact.whatsapp.number === 'string') setLink(waBtn, cfg.contact.whatsapp.number ? `https://wa.me/${cfg.contact.whatsapp.number}` : '');
             const waSub = document.querySelector('.wa-sub');
-            if (waSub && cfg.contact.whatsapp.display) {
-              waSub.textContent = `Escríbenos al ${cfg.contact.whatsapp.display}`;
+            if (waSub && typeof cfg.contact.whatsapp.display === 'string') {
+              waSub.textContent = cfg.contact.whatsapp.display ? `Escríbenos al ${cfg.contact.whatsapp.display}` : '';
             }
             const doubtBanner = document.querySelector('.doubt-banner');
-            if (doubtBanner && cfg.contact.whatsapp.number) {
-              doubtBanner.href = `https://wa.me/${cfg.contact.whatsapp.number}`;
-            }
+            if (typeof cfg.contact.whatsapp.number === 'string') setLink(doubtBanner, cfg.contact.whatsapp.number ? `https://wa.me/${cfg.contact.whatsapp.number}` : '');
           }
 
           if (cfg.contact.location) {
             const addrLink = document.querySelector('.address-link');
-            if (addrLink && cfg.contact.location.mapsUrl) addrLink.href = cfg.contact.location.mapsUrl;
+            setLink(addrLink, cfg.contact.location.mapsUrl);
             const addrSub = document.querySelector('.addr-sub');
-            if (addrSub && cfg.contact.location.full) {
-              addrSub.innerHTML = cfg.contact.location.full.replace(/\n/g, '<br>');
+            if (addrSub && typeof cfg.contact.location.full === 'string') {
+              addrSub.textContent = cfg.contact.location.full;
+              addrSub.style.whiteSpace = 'pre-line';
             }
           }
         }

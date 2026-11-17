@@ -197,8 +197,8 @@ function validateConfig(config: unknown) {
   });
 }
 
-async function getContent(env: Env) {
-  const path = `${repoPath(env)}/contents/site-config.json?ref=${encodeURIComponent(env.GITHUB_BRANCH)}`;
+async function getContent(env: Env, ref = env.GITHUB_BRANCH) {
+  const path = `${repoPath(env)}/contents/site-config.json?ref=${encodeURIComponent(ref)}`;
   const file = await githubRequest(path, env) as { content?: string; sha?: string };
   if (!file.content || !file.sha) throw new Error('No se pudo leer site-config.json.');
   return { config: JSON.parse(decodeGitHubContent(file.content)), sha: file.sha };
@@ -223,23 +223,33 @@ async function publish(request: Request, env: Env) {
   if (!body?.config || !body.baseSha) return json({ error: 'Faltan datos de publicación.' }, 422);
   validateConfig(body.config);
   const files = Array.isArray(body.files) ? body.files : [];
-  const deletePaths = Array.isArray(body.deletePaths) ? body.deletePaths : [];
+  const requestedDeletePaths = Array.isArray(body.deletePaths) ? body.deletePaths : [];
   if (files.length > MAX_IMAGE_COUNT) return json({ error: 'Demasiadas imágenes en una publicación.' }, 413);
-  if (deletePaths.some((path) => !isValidEditableImagePath(path))) return json({ error: 'Hay una ruta de eliminación inválida.' }, 422);
+  if (requestedDeletePaths.some((path) => !isValidEditableImagePath(path))) return json({ error: 'Hay una ruta de eliminación inválida.' }, 422);
   for (const file of files) {
     if (!isValidEditableImagePath(file.path) || typeof file.contentBase64 !== 'string') return json({ error: 'Hay un archivo inválido.' }, 422);
     const bytes = Number(file.bytes || 0);
     if (!Number.isFinite(bytes) || bytes <= 0 || bytes > MAX_IMAGE_BYTES) return json({ error: 'Una imagen supera el límite permitido.' }, 413);
   }
 
-  const currentContent = await getContent(env);
-  if (currentContent.sha !== body.baseSha) return json({ error: 'El contenido cambió mientras editabas. Recarga antes de publicar.' }, 409);
-
   const ref = await githubRequest(`${repoPath(env)}/git/ref/heads/${encodeURIComponent(env.GITHUB_BRANCH)}`, env) as { object?: { sha?: string } };
   const currentSha = ref.object?.sha;
   if (!currentSha) return json({ error: 'No se pudo leer la rama de publicación.' }, 502);
+  const currentContent = await getContent(env, currentSha);
+  if (currentContent.sha !== body.baseSha) return json({ error: 'El contenido cambió mientras editabas. Recarga antes de publicar.' }, 409);
   const commit = await githubRequest(`${repoPath(env)}/git/commits/${currentSha}`, env) as { tree?: { sha?: string } };
   if (!commit.tree?.sha) return json({ error: 'No se pudo preparar la publicación.' }, 502);
+
+  let deletePaths: string[] = [];
+  if (requestedDeletePaths.length) {
+    const snapshot = await githubRequest(`${repoPath(env)}/git/trees/${commit.tree.sha}?recursive=1`, env) as { tree?: Array<{ path?: string }>; truncated?: boolean };
+    if (!Array.isArray(snapshot.tree) || snapshot.truncated) return json({ error: 'No se pudieron verificar las fotos antes de publicar. Vuelve a intentarlo.' }, 502);
+    const existingPaths = new Set(snapshot.tree.map((entry) => entry.path));
+    const config = body.config as { company?: { logo?: { src?: string } }; portfolio: Array<{ works: Array<{ images?: Array<{ src?: string }> }> }> };
+    const referencedPaths = new Set<string | undefined>([config.company?.logo?.src]);
+    for (const category of config.portfolio) for (const work of category.works) for (const image of work.images || []) referencedPaths.add(image.src);
+    deletePaths = [...new Set(requestedDeletePaths)].filter((path) => existingPaths.has(path) && !referencedPaths.has(path));
+  }
 
   const configContent = JSON.stringify(body.config, null, 2) + '\n';
   const configBlob = await githubRequest(`${repoPath(env)}/git/blobs`, env, {

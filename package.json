@@ -6,16 +6,22 @@
     "admin:test": "node --test scripts/admin-assets.test.mjs",
     "public:test": "node --test scripts/public-contact.test.mjs",
     "e2e:test": "playwright test",
+    "qr:generate": "node scripts/generate-qr.mjs",
+    "qr:test": "node scripts/generate-qr.mjs --check && node --test scripts/qr.test.mjs",
     "content:check": "node scripts/validate-content.mjs",
     "worker:dev": "wrangler dev --env staging",
     "worker:deploy": "wrangler deploy --env production",
     "worker:check": "wrangler check startup",
     "worker:typecheck": "tsc --noEmit",
+    "worker:test": "node --test scripts/worker-publish.test.mjs",
     "worker:types": "wrangler types"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260804.1",
     "@playwright/test": "^1.65.1",
+    "jsqr": "^1.4.0",
+    "pngjs": "^7.0.0",
+    "qrcode": "^1.5.4",
     "typescript": "^5.9.2",
     "wrangler": "^4.118.0"
   }

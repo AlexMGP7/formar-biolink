@@ -23,6 +23,8 @@ npm install
 npm run content:check
 npm run admin:test
 npm run public:test
+npm run qr:test
+npm run worker:test
 npm run worker:typecheck
 npm run worker:check
 python3 -m http.server 4173
@@ -38,6 +40,18 @@ npm run e2e:test
 ```
 
 GitHub ejecuta estas comprobaciones en Chromium, Firefox y vista móvil en cada cambio de `main`. Si fallan, conserva capturas y trazas en los artefactos del workflow de validación.
+
+## Compartir el QR
+
+La página pública tiene el botón `Mostrar código QR`; el panel tiene `Código QR` en el menú. Ambos permiten copiar el enlace y descargar el mismo QR en PNG de 1024 px o en SVG para imprenta. Apunta siempre a `https://inversionesformar.netlify.app/`, sin parámetros de vista previa, y sigue funcionando al editar el contenido.
+
+Los archivos se generan localmente con `npm run qr:generate`. `npm run qr:test` los vuelve a comprobar y decodifica la imagen para verificar el destino. No dependen de un servicio externo para generar el QR cuando alguien abre la página.
+
+## Editar y publicar
+
+En `Contacto y enlaces`, cada tarjeta tiene un enlace de destino y un texto visible independiente. `Ubicación: texto visible en la tarjeta` cambia la tarjeta de ubicación; `Dirección completa` cambia el bloque `Visítanos`. Se pueden borrar textos opcionales sin recuperar valores antiguos. La vista previa y la publicación validan correos y enlaces antes de continuar.
+
+Si una sesión caduca al publicar, el panel conserva el borrador y las fotos pendientes para volver a entrar y publicar. Cerrar sesión voluntariamente pide confirmar antes de descartar un borrador. El Worker verifica el contenido contra una revisión fija de GitHub y solo elimina fotos que existen y ya no aparecen en la nueva configuración.
 
 ## Secretos del Worker
 

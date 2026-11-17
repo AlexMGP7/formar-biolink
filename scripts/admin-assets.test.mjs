@@ -31,6 +31,7 @@ function editor() {
   });
   const context = vm.createContext({
     state, isDemo: false, Date: { now: () => ++serial },
+    validateProfileInputs: () => true,
     id: () => `image-${++serial}`, slug: () => 'obra',
     getCategories: () => state.content.portfolio,
     getWorks: (category) => category.works,

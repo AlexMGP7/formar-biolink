@@ -18,6 +18,8 @@ function render(contact) {
     return {
       href: tag.match(/href="([^"]*)"/)[1], subtitle,
       querySelector: (selector) => selector === `.${text[1]}` ? subtitle : null,
+      setAttribute(name, value) { this[name] = value; },
+      removeAttribute(name) { delete this[name]; },
     };
   });
   const context = vm.createContext({
@@ -49,4 +51,16 @@ test('saved social, website and location subtitles replace their original labels
   assert.equal(cards[1].href, 'https://example.com/');
   assert.equal(cards[3].subtitle.textContent, 'Ubicación actualizada');
   assert.equal(cards[3].href, 'https://maps.google.com/?q=qa');
+});
+
+test('clearing contact labels and destinations removes the old public values', () => {
+  const cards = render({
+    instagram: { url: '', subtitle: '' }, website: { url: '', subtitle: '' },
+    email: '', location: { mapsUrl: '', short: '' },
+  });
+  for (const card of cards) {
+    assert.equal(card.subtitle.textContent, '');
+    assert.equal(card.href, undefined);
+    assert.equal(card['aria-disabled'], 'true');
+  }
 });

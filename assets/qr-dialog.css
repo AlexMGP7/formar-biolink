@@ -1,0 +1,45 @@
+.formar-qr-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  margin-top: 14px;
+  padding: 8px 16px;
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 999px;
+  background: rgba(255,255,255,.94);
+  color: #12304e;
+  font: 600 13px/1.3 'Arimo', sans-serif;
+  cursor: pointer;
+}
+.formar-qr-dialog {
+  width: min(460px, calc(100vw - 28px));
+  max-height: calc(100dvh - 28px);
+  margin: auto;
+  padding: 24px;
+  overflow-y: auto;
+  border: 1px solid #dce6ef;
+  border-radius: 20px;
+  background: #fff;
+  color: #12304e;
+  box-shadow: 0 24px 80px #081c4266;
+  font: 15px/1.5 'Arimo', sans-serif;
+}
+.formar-qr-dialog::backdrop { background: #081c42a6; }
+.formar-qr-head { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
+.formar-qr-head h2 { margin: 0; font: 700 21px/1.25 'Arimo', sans-serif; }
+.formar-qr-close { flex: 0 0 40px; width: 40px; height: 40px; border: 1px solid #dce6ef; border-radius: 10px; color: #12304e; background: #fff; font-size: 25px; cursor: pointer; }
+.formar-qr-image { display: block; width: min(100%, 300px); height: auto; margin: 12px auto; }
+.formar-qr-help { margin: 0 0 16px; color: #61738b; font-size: 14px; }
+.formar-qr-link-label { display: block; margin-bottom: 5px; font-weight: 700; font-size: 13px; }
+.formar-qr-link { width: 100%; min-width: 0; padding: 10px; border: 1px solid #dce6ef; border-radius: 9px; color: #12304e; background: #f6f9fc; font: 13px/1.4 'Arimo', sans-serif; }
+.formar-qr-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 14px; }
+.formar-qr-action { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 9px 12px; border: 1px solid #b9d5e4; border-radius: 10px; background: #fff; color: #12304e; text-decoration: none; font: 600 13px/1.4 'Arimo', sans-serif; cursor: pointer; }
+.formar-qr-action.primary { background: #18528f; border-color: #18528f; color: #fff; }
+.formar-qr-copy { width: 100%; margin-top: 9px; }
+.formar-qr-status { min-height: 21px; margin-top: 8px; color: #176444; font-size: 13px; }
+.formar-qr-dialog :focus-visible, .formar-qr-trigger:focus-visible { outline: 3px solid #0ba3d4; outline-offset: 3px; }
+@media (max-width: 400px) {
+  .formar-qr-dialog { padding: 18px; }
+  .formar-qr-head h2 { font-size: 19px; }
+}
