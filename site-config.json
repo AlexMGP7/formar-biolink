@@ -118,30 +118,80 @@
       ]
     },
     {
-      "id": "edificaciones-y-urbanismos",
-      "name": "Edificaciones y Urbanismos",
+      "id": "hidraulicas-y-maritimas",
+      "name": "Hidráulicas y Marítimas ",
       "works": [
         {
-          "label": "Edificación Escolares",
-          "id": "edificaciones-edificacion-escolares",
+          "label": "Diques de Contención - Presa de Retención de Sedimientos Río Naiguatá",
+          "id": "hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata",
+          "showImageTitles": false,
           "images": [
             {
-              "src": "servicios/portfolio/edificaciones/edificaciones-edificacion-escolares/01-edificacion.png",
-              "title": "U.E.B.N Dr Luis Ortega",
-              "alt": "U.E.B.N Dr Luis Ortega",
+              "src": "servicios/portfolio/hidraulicas/hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata/01-diques-de-contencion-1.jpg",
+              "title": "DIQUES DE CONTENCION (1)",
+              "alt": "DIQUES DE CONTENCION (1)",
               "order": 0
+            },
+            {
+              "src": "servicios/portfolio/hidraulicas/hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata/02-diques-de-contencion-2.jpg",
+              "title": "DIQUES DE CONTENCION (2)",
+              "alt": "DIQUES DE CONTENCION (2)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/hidraulicas/hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata/03-diques-de-contencion-3.jpg",
+              "title": "DIQUES DE CONTENCION (3)",
+              "alt": "DIQUES DE CONTENCION (3)",
+              "order": 2
             }
           ]
         },
         {
-          "label": "Casetas de Control",
-          "id": "edificaciones-casetas-de-control",
+          "label": "Embaulamiento Quebrada El Güiere, Urbanización Villas de San Antonio",
+          "id": "hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio",
+          "showImageTitles": false,
           "images": [
             {
-              "src": "servicios/portfolio/edificaciones/edificaciones-casetas-de-control/01-edificacion.jpg",
-              "title": "Caseta de Control Planta de Tratamiento La Guardia",
-              "alt": "Caseta de Control Planta de Tratamiento La Guardia",
+              "src": "servicios/portfolio/hidraulicas/hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio/01-embaulamiento-1.jpg",
+              "title": "EMBAULAMIENTO (1)",
+              "alt": "EMBAULAMIENTO (1)",
               "order": 0
+            },
+            {
+              "src": "servicios/portfolio/hidraulicas/hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio/02-embaulamiento-2.jpg",
+              "title": "EMBAULAMIENTO (2)",
+              "alt": "EMBAULAMIENTO (2)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/hidraulicas/hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio/03-embaulamiento-3.jpg",
+              "title": "EMBAULAMIENTO (3)",
+              "alt": "EMBAULAMIENTO (3)",
+              "order": 2
+            }
+          ]
+        },
+        {
+          "label": "Planta de Tratamiento La Guardia / Planta de Tratamiento El Yaque",
+          "id": "hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque",
+          "images": [
+            {
+              "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/01-plantas-de-tratamiento-1.jpg",
+              "title": "Planta de Tratamiento La Guardia",
+              "alt": "Vista de la Planta de Tratamiento La Guardia",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/02-plantas-de-tratamiento-2.jpg",
+              "title": "Planta de Tratamiento El Yaque",
+              "alt": "Vista de la Planta de Tratamiento El Yaque",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/03-plantas-de-tratamiento-3.jpg",
+              "title": "Planta de Tratamiento El Yaque",
+              "alt": "Vista de la Planta de Tratamiento El Yaque",
+              "order": 2
             }
           ]
         }
@@ -240,80 +290,30 @@
       ]
     },
     {
-      "id": "hidraulicas-y-maritimas",
-      "name": "Hidráulicas y Marítimas ",
+      "id": "edificaciones-y-urbanismos",
+      "name": "Edificaciones y Urbanismos",
       "works": [
         {
-          "label": "Diques de Contención - Presa de Retención de Sedimientos Río Naiguatá",
-          "id": "hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata",
-          "showImageTitles": false,
+          "label": "Edificación Escolares",
+          "id": "edificaciones-edificacion-escolares",
           "images": [
             {
-              "src": "servicios/portfolio/hidraulicas/hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata/01-diques-de-contencion-1.jpg",
-              "title": "DIQUES DE CONTENCION (1)",
-              "alt": "DIQUES DE CONTENCION (1)",
+              "src": "servicios/portfolio/edificaciones/edificaciones-edificacion-escolares/01-edificacion.png",
+              "title": "U.E.B.N Dr Luis Ortega",
+              "alt": "U.E.B.N Dr Luis Ortega",
               "order": 0
-            },
-            {
-              "src": "servicios/portfolio/hidraulicas/hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata/02-diques-de-contencion-2.jpg",
-              "title": "DIQUES DE CONTENCION (2)",
-              "alt": "DIQUES DE CONTENCION (2)",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/hidraulicas/hidraulicas-diques-de-contencion-presa-de-retencion-de-sedimientos-rio-naiguata/03-diques-de-contencion-3.jpg",
-              "title": "DIQUES DE CONTENCION (3)",
-              "alt": "DIQUES DE CONTENCION (3)",
-              "order": 2
             }
           ]
         },
         {
-          "label": "Embaulamiento Quebrada El Güiere, Urbanización Villas de San Antonio",
-          "id": "hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio",
-          "showImageTitles": false,
+          "label": "Casetas de Control",
+          "id": "edificaciones-casetas-de-control",
           "images": [
             {
-              "src": "servicios/portfolio/hidraulicas/hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio/01-embaulamiento-1.jpg",
-              "title": "EMBAULAMIENTO (1)",
-              "alt": "EMBAULAMIENTO (1)",
+              "src": "servicios/portfolio/edificaciones/edificaciones-casetas-de-control/01-edificacion.jpg",
+              "title": "Caseta de Control Planta de Tratamiento La Guardia",
+              "alt": "Caseta de Control Planta de Tratamiento La Guardia",
               "order": 0
-            },
-            {
-              "src": "servicios/portfolio/hidraulicas/hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio/02-embaulamiento-2.jpg",
-              "title": "EMBAULAMIENTO (2)",
-              "alt": "EMBAULAMIENTO (2)",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/hidraulicas/hidraulicas-embaulamiento-quebrada-el-guiere-urbanizacion-villas-de-san-antonio/03-embaulamiento-3.jpg",
-              "title": "EMBAULAMIENTO (3)",
-              "alt": "EMBAULAMIENTO (3)",
-              "order": 2
-            }
-          ]
-        },
-        {
-          "label": "Planta de Tratamiento La Guardia / Planta de Tratamiento El Yaque",
-          "id": "hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque",
-          "images": [
-            {
-              "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/01-plantas-de-tratamiento-1.jpg",
-              "title": "Planta de Tratamiento La Guardia",
-              "alt": "Vista de la Planta de Tratamiento La Guardia",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/02-plantas-de-tratamiento-2.jpg",
-              "title": "Planta de Tratamiento El Yaque",
-              "alt": "Vista de la Planta de Tratamiento El Yaque",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/hidraulicas/hidraulicas-planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque/03-plantas-de-tratamiento-3.jpg",
-              "title": "Planta de Tratamiento El Yaque",
-              "alt": "Vista de la Planta de Tratamiento El Yaque",
-              "order": 2
             }
           ]
         }
