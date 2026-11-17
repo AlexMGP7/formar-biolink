@@ -310,37 +310,6 @@
               "order": 2
             }
           ]
-        },
-        {
-          "label": "Rehabilitación de Vías Operacionales - Áreas Operacionales del Distrito Gas Anaco",
-          "id": "vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco",
-          "showImageTitles": false,
-          "images": [
-            {
-              "src": "servicios/portfolio/vialidades/vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco/01-rehabilitacion-de-vias-operacionales-1.jpg",
-              "title": "REHABILITACION DE VIAS OPERACIONALES (1)",
-              "alt": "REHABILITACION DE VIAS OPERACIONALES (1)",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/vialidades/vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco/02-rehabilitacion-de-vias-operacionales-2.jpg",
-              "title": "REHABILITACION DE VIAS OPERACIONALES (2)",
-              "alt": "REHABILITACION DE VIAS OPERACIONALES (2)",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/vialidades/vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco/03-rehabilitacion-de-vias-operacionales-3.jpg",
-              "title": "REHABILITACION DE VIAS OPERACIONALES (3)",
-              "alt": "REHABILITACION DE VIAS OPERACIONALES (3)",
-              "order": 2
-            },
-            {
-              "src": "servicios/portfolio/vialidades/vialidades-rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco/04-rehabilitacion-de-vias-operacionales-4.jpg",
-              "title": "REHABILITACION DE VIAS OPERACIONALES (4)",
-              "alt": "REHABILITACION DE VIAS OPERACIONALES (4)",
-              "order": 3
-            }
-          ]
         }
       ]
     },
