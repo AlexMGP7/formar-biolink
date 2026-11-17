@@ -35,6 +35,32 @@
       "name": "Petróleo y Gas",
       "works": [
         {
+          "id": "mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794943732319",
+          "label": "Mantenimiento de la Plataforma de Combustible El Guamache",
+          "description": "",
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794943732319/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794943744394-0.webp",
+              "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
+              "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794943732319/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794943744490-1.webp",
+              "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (2)",
+              "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (2)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794943732319/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794943744683-2.webp",
+              "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
+              "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
+              "order": 2
+            }
+          ]
+        },
+        {
           "id": "mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1794941477434",
           "label": "Mantenimiento a Red de Hidrantes Aeropuerto Internacional Santiago Mariño",
           "description": "",
@@ -56,32 +82,6 @@
               "src": "servicios/portfolio/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1794941477434/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1794941485413-1.webp",
               "title": "MANTENIMIENTO A RED DE HIDRANTES (2)",
               "alt": "MANTENIMIENTO A RED DE HIDRANTES (2)",
-              "order": 2
-            }
-          ]
-        },
-        {
-          "id": "mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941385660",
-          "label": "Mantenimiento de la Plataforma de Combustible El Guamache",
-          "description": "",
-          "showImageTitles": false,
-          "images": [
-            {
-              "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941385660/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941400789-0.webp",
-              "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
-              "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941385660/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941401082-2.webp",
-              "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
-              "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941385660/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1794941400884-1.webp",
-              "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (2)",
-              "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (2)",
               "order": 2
             }
           ]
