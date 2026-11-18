@@ -435,13 +435,45 @@
       "name": "Movimientos de Tierra",
       "works": [
         {
+          "id": "movimiento-de-tierra-crypto-city-1795027358119",
+          "label": "Movimiento de tierra Crypto City",
+          "description": "",
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/movimiento-de-tierra-crypto-city-1795027358119/movimiento-de-tierra-crypto-city-1795027376343-3.webp",
+              "title": "20260127_083751(2)",
+              "alt": "20260127_083751(2)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/movimiento-de-tierra-crypto-city-1795027358119/movimiento-de-tierra-crypto-city-1795027375567-0.webp",
+              "title": "SING0139.JPG",
+              "alt": "SING0139.JPG",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/movimiento-de-tierra-crypto-city-1795027358119/movimiento-de-tierra-crypto-city-1795027375814-1.webp",
+              "title": "20260127_083618(1)",
+              "alt": "20260127_083618(1)",
+              "order": 2
+            },
+            {
+              "src": "servicios/portfolio/movimiento-de-tierra-crypto-city-1795027358119/movimiento-de-tierra-crypto-city-1795027376076-2.webp",
+              "title": "20260127_083858(1)",
+              "alt": "20260127_083858(1)",
+              "order": 3
+            }
+          ]
+        },
+        {
           "label": "Movimiento de Tierra",
           "id": "movimientos-de-tierra-movimiento-de-tierra",
           "images": [
             {
               "src": "servicios/portfolio/movimientos-de-tierra-movimiento-de-tierra/movimiento-de-tierra-1795007257426-3.webp",
-              "title": "MOVIMIENTO DE TIERRA (1)2",
-              "alt": "MOVIMIENTO DE TIERRA (1)2",
+              "title": "Aeropuerto Internacional Santiago Mariño",
+              "alt": "",
               "order": 0
             },
             {
@@ -457,7 +489,7 @@
               "order": 2
             }
           ],
-          "showImageTitles": false
+          "showImageTitles": true
         }
       ]
     },
