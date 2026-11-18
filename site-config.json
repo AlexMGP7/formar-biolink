@@ -436,7 +436,7 @@
       "works": [
         {
           "id": "movimiento-de-tierra-crypto-city-1795027358119",
-          "label": "Movimiento de tierra CryptoCity",
+          "label": "Complejo CryptoCity",
           "description": "",
           "showImageTitles": false,
           "images": [
@@ -471,14 +471,8 @@
           "id": "movimientos-de-tierra-movimiento-de-tierra",
           "images": [
             {
-              "src": "servicios/portfolio/movimientos-de-tierra-movimiento-de-tierra/movimiento-de-tierra-1795007257426-3.webp",
-              "title": "Aeropuerto Internacional Santiago Mariño",
-              "alt": "",
-              "order": 0
-            },
-            {
               "src": "servicios/portfolio/movimientos-de-tierra/movimientos-de-tierra-movimiento-de-tierra/02-movimiento-de-tierra-3.jpg",
-              "title": "Vialidad Boca de Río - Macanao",
+              "title": "Boca de Río - Macanao",
               "alt": "Vialidad Boca de Río",
               "order": 1
             },
