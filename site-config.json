@@ -38,36 +38,137 @@
           "id": "mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004068460",
           "label": "Mantenimiento de la Plataforma de Combustible El Guamache",
           "description": "",
-          "showImageTitles": true,
-          "images": []
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004068460/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004258017-0.webp",
+              "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
+              "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004068460/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004258113-1.webp",
+              "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (2)",
+              "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (2)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004068460/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004258312-2.webp",
+              "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
+              "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE (1)",
+              "order": 2
+            }
+          ]
         },
         {
           "id": "mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1795004046060",
           "label": "Mantenimiento a Red de Hidrantes Aeropuerto Internacional Santiago Mariño",
           "description": "",
-          "showImageTitles": true,
-          "images": []
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1795004046060/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1795004245130-2.webp",
+              "title": "MANTENIMIENTO A RED DE HIDRANTES (1)",
+              "alt": "MANTENIMIENTO A RED DE HIDRANTES (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1795004046060/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1795004244517-0.webp",
+              "title": "MANTENIMIENTO A RED DE HIDRANTES (3)",
+              "alt": "MANTENIMIENTO A RED DE HIDRANTES (3)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1795004046060/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1795004244825-1.webp",
+              "title": "MANTENIMIENTO A RED DE HIDRANTES (2)",
+              "alt": "MANTENIMIENTO A RED DE HIDRANTES (2)",
+              "order": 2
+            }
+          ]
         },
         {
           "id": "gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1795004008933",
           "label": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermudez",
           "description": "",
-          "showImageTitles": true,
-          "images": []
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1795004008933/gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1795004226760-1.webp",
+              "title": "MANTENIMIENTO DE GASODUCTO SUBMARINO (1)",
+              "alt": "MANTENIMIENTO DE GASODUCTO SUBMARINO (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1795004008933/gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1795004226459-0.webp",
+              "title": "MANTENIMIENTO DE GASODUCTO SUBMARINO (2)",
+              "alt": "MANTENIMIENTO DE GASODUCTO SUBMARINO (2)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1795004008933/gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1795004227030-2.webp",
+              "title": "Mantenimiento tuberia submarina de gas (2)",
+              "alt": "Mantenimiento tuberia submarina de gas (2)",
+              "order": 2
+            }
+          ]
         },
         {
           "id": "rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795003995262",
           "label": "Rehabilitación de Vías Operacionales - Áreas Operacionales del Distrito Gas Anaco",
           "description": "",
-          "showImageTitles": true,
-          "images": []
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795003995262/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795004205030-0.webp",
+              "title": "REHABILITACION DE VIAS OPERACIONALES (4)",
+              "alt": "REHABILITACION DE VIAS OPERACIONALES (4)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795003995262/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795004205096-1.webp",
+              "title": "REHABILITACION DE VIAS OPERACIONALES (3)",
+              "alt": "REHABILITACION DE VIAS OPERACIONALES (3)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795003995262/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795004205328-3.webp",
+              "title": "REHABILITACION DE VIAS OPERACIONALES (1)",
+              "alt": "REHABILITACION DE VIAS OPERACIONALES (1)",
+              "order": 2
+            },
+            {
+              "src": "servicios/portfolio/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795003995262/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795004205181-2.webp",
+              "title": "REHABILITACION DE VIAS OPERACIONALES (2)",
+              "alt": "REHABILITACION DE VIAS OPERACIONALES (2)",
+              "order": 3
+            }
+          ]
         },
         {
           "id": "gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795003916296",
           "label": "Gasoducto 16\" José Francisco Bermúdez Tramo Coche - Margarita",
           "description": "",
-          "showImageTitles": true,
-          "images": []
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795003916296/gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795004133581-2.webp",
+              "title": "REEMPLAZO DE TRAMO DE GASODUCTO (1)",
+              "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795003916296/gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795004133517-1.webp",
+              "title": "REEMPLAZO DE TRAMO DE GASODUCTO (3)",
+              "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (3)",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795003916296/gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795004133155-0.webp",
+              "title": "REEMPLAZO DE TRAMO DE GASODUCTO (4)",
+              "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (4)",
+              "order": 2
+            }
+          ]
         },
         {
           "id": "estacion-de-medicion-y-regulacion-gas-metano-la-isleta-1795003849906",
