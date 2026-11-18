@@ -214,15 +214,15 @@
               "order": 1
             },
             {
-              "src": "servicios/portfolio/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/red-de-gas-domestico-urbanizacion-villa-rosa-1795006950062-4.webp",
-              "title": "RED DE GAS DOMESTICO (4)4",
-              "alt": "RED DE GAS DOMESTICO (4)4",
-              "order": 2
-            },
-            {
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/03-red-de-gas-domestico-3.jpg",
               "title": "RED DE GAS DOMESTICO (3)",
               "alt": "RED DE GAS DOMESTICO (3)",
+              "order": 2
+            },
+            {
+              "src": "servicios/portfolio/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/red-de-gas-domestico-urbanizacion-villa-rosa-1795006950062-4.webp",
+              "title": "RED DE GAS DOMESTICO (4)4",
+              "alt": "RED DE GAS DOMESTICO (4)4",
               "order": 3
             }
           ]
