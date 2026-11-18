@@ -461,47 +461,9 @@
       "name": "Movimientos de Tierra",
       "works": [
         {
-          "id": "movimiento-de-tierra-crypto-city-1795027358119",
-          "label": "Complejo CryptoCity",
-          "description": "",
-          "showImageTitles": false,
-          "images": [
-            {
-              "src": "servicios/portfolio/movimiento-de-tierra-crypto-city-1795027358119/movimiento-de-tierra-crypto-city-1795027376343-3.webp",
-              "title": "20260127_083751(2)",
-              "alt": "",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/movimiento-de-tierra-crypto-city-1795027358119/movimiento-de-tierra-crypto-city-1795027375567-0.webp",
-              "title": "SING0139.JPG",
-              "alt": "",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/movimiento-de-tierra-crypto-city-1795027358119/movimiento-de-tierra-crypto-city-1795027375814-1.webp",
-              "title": "20260127_083618(1)",
-              "alt": "",
-              "order": 2
-            },
-            {
-              "src": "servicios/portfolio/movimiento-de-tierra-crypto-city-1795027358119/movimiento-de-tierra-crypto-city-1795027376076-2.webp",
-              "title": "20260127_083858(1)",
-              "alt": "",
-              "order": 3
-            }
-          ]
-        },
-        {
           "label": "Planta de tratamiento La Guardia",
           "id": "movimientos-de-tierra-movimiento-de-tierra",
           "images": [
-            {
-              "src": "servicios/portfolio/movimientos-de-tierra/movimientos-de-tierra-movimiento-de-tierra/02-movimiento-de-tierra-3.jpg",
-              "title": "Boca de Río - Macanao",
-              "alt": "Vialidad Boca de Río",
-              "order": 0
-            },
             {
               "src": "servicios/portfolio/movimientos-de-tierra-movimiento-de-tierra/movimiento-de-tierra-1794945937897-2.webp",
               "title": "Planta tratamiento la Guardia",
