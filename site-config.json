@@ -318,6 +318,32 @@
       "name": "Sanitarias",
       "works": [
         {
+          "id": "estacion-de-bombeo-el-yaque-1795003317418",
+          "label": "Estación de Bombeo EL YAQUE",
+          "description": "",
+          "showImageTitles": true,
+          "images": [
+            {
+              "src": "servicios/portfolio/estacion-de-bombeo-el-yaque-1795003317418/estacion-de-bombeo-el-yaque-1795003336225-0.webp",
+              "title": "1794947354475.jpg",
+              "alt": "1794947354475.jpg",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/estacion-de-bombeo-el-yaque-1795003317418/estacion-de-bombeo-el-yaque-1795003336493-1.webp",
+              "title": "1794947386374.jpg",
+              "alt": "1794947386374.jpg",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/estacion-de-bombeo-el-yaque-1795003317418/estacion-de-bombeo-el-yaque-1795003336750-2.webp",
+              "title": "1794947331974.jpg",
+              "alt": "1794947331974.jpg",
+              "order": 2
+            }
+          ]
+        },
+        {
           "id": "planta-de-tratamiento-la-guardia-planta-de-tratamiento-el-yaque-1794945560296",
           "label": "Planta de Tratamiento La Guardia / Planta de Tratamiento El Yaque",
           "description": "",
@@ -498,5 +524,8 @@
       "name": "Otros Servicios",
       "works": []
     }
-  ]
+  ],
+  "appearance": {
+    "emailFontSize": 16
+  }
 }
