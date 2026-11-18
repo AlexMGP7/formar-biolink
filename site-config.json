@@ -456,7 +456,8 @@
               "alt": "",
               "order": 2
             }
-          ]
+          ],
+          "showImageTitles": false
         }
       ]
     },
