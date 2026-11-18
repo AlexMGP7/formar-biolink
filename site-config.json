@@ -464,7 +464,7 @@
           "id": "boca-de-rio-macanao-1795034037346",
           "label": "Boca de Río - Macanao",
           "description": "",
-          "showImageTitles": true,
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/boca-de-rio-macanao-1795034037346/boca-de-rio-macanao-1795034041381-0.webp",
