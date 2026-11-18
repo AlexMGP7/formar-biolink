@@ -119,10 +119,10 @@
           "showImageTitles": false,
           "images": [
             {
-              "src": "servicios/portfolio/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795003995262/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795005442636-4.webp",
-              "title": "REHABILITACION DE VIAS OPERACIONALES (4)4",
-              "alt": "REHABILITACION DE VIAS OPERACIONALES (4)4",
-              "order": 0
+              "src": "servicios/portfolio/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795003995262/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795006327575-4.webp",
+              "title": "REHABILITACION DE VIAS OPERACIONALES (4)44",
+              "alt": "REHABILITACION DE VIAS OPERACIONALES (4)44",
+              "order": 4
             },
             {
               "src": "servicios/portfolio/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795003995262/rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795005447443-4.webp",
@@ -154,7 +154,7 @@
               "src": "servicios/portfolio/gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795003916296/gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795005951120-3.webp",
               "title": "REEMPLAZO DE TRAMO DE GASODUCTO (1)1",
               "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (1)1",
-              "order": 3
+              "order": 0
             },
             {
               "src": "servicios/portfolio/gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795003916296/gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795004133517-1.webp",
@@ -166,7 +166,7 @@
               "src": "servicios/portfolio/gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795003916296/gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795005954451-3.webp",
               "title": "REEMPLAZO DE TRAMO DE GASODUCTO (4)4",
               "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (4)4",
-              "order": 3
+              "order": 2
             }
           ]
         },
@@ -211,7 +211,7 @@
               "src": "servicios/portfolio/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/red-de-gas-domestico-urbanizacion-villa-rosa-1795006210410-4.webp",
               "title": "RED DE GAS DOMESTICO (2)2",
               "alt": "RED DE GAS DOMESTICO (2)2",
-              "order": 4
+              "order": 1
             },
             {
               "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa/03-red-de-gas-domestico-3.jpg",
