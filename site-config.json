@@ -167,31 +167,6 @@
               "order": 2
             }
           ]
-        },
-        {
-          "label": "Gasoducto 16\" José Francisco Bermúdez Tramo Coche- Margarita",
-          "id": "red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita",
-          "showImageTitles": false,
-          "images": [
-            {
-              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita/01-reemplazo-de-tramo-de-gasoducto-1.jpg",
-              "title": "REEMPLAZO DE TRAMO DE GASODUCTO (1)",
-              "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (1)",
-              "order": 0
-            },
-            {
-              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita/02-reemplazo-de-tramo-de-gasoducto-3.jpg",
-              "title": "REEMPLAZO DE TRAMO DE GASODUCTO (3)",
-              "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (3)",
-              "order": 1
-            },
-            {
-              "src": "servicios/portfolio/red-de-gas-domestico/red-de-gas-domestico-gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita/03-reemplazo-de-tramo-de-gasoducto-4.jpg",
-              "title": "REEMPLAZO DE TRAMO DE GASODUCTO (4)",
-              "alt": "REEMPLAZO DE TRAMO DE GASODUCTO (4)",
-              "order": 2
-            }
-          ]
         }
       ]
     },
