@@ -608,6 +608,38 @@
       "name": "Eléctricas",
       "works": [
         {
+          "id": "ccm-planta-de-distribucion-de-jet-a1-del-aeropuerto-internacional-general-en-jefe-santiago-marino-1795040698756",
+          "label": "CCM planta de distribución de Jet-A1 del aeropuerto Internacional General en jefe Santiago Mariño",
+          "description": "",
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/ccm-planta-de-distribucion-de-jet-a1-del-aeropuerto-internacional-general-en-jefe-santiago-marino-1795040698756/ccm-planta-de-distribucion-de-jet-a1-del-aeropuerto-internacional-general-en-jefe-santiago-marino-1795040708622-0.webp",
+              "title": "215935",
+              "alt": "215935",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/ccm-planta-de-distribucion-de-jet-a1-del-aeropuerto-internacional-general-en-jefe-santiago-marino-1795040698756/ccm-planta-de-distribucion-de-jet-a1-del-aeropuerto-internacional-general-en-jefe-santiago-marino-1795040709083-1.webp",
+              "title": "215930",
+              "alt": "215930",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/ccm-planta-de-distribucion-de-jet-a1-del-aeropuerto-internacional-general-en-jefe-santiago-marino-1795040698756/ccm-planta-de-distribucion-de-jet-a1-del-aeropuerto-internacional-general-en-jefe-santiago-marino-1795040709682-2.webp",
+              "title": "215937",
+              "alt": "215937",
+              "order": 2
+            },
+            {
+              "src": "servicios/portfolio/ccm-planta-de-distribucion-de-jet-a1-del-aeropuerto-internacional-general-en-jefe-santiago-marino-1795040698756/ccm-planta-de-distribucion-de-jet-a1-del-aeropuerto-internacional-general-en-jefe-santiago-marino-1795040709910-3.webp",
+              "title": "215933",
+              "alt": "215933",
+              "order": 3
+            }
+          ]
+        },
+        {
           "label": "Redes de Alta y Baja Tensión - San Antonio",
           "id": "ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio",
           "showImageTitles": false,
