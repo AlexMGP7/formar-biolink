@@ -2,6 +2,12 @@ import { test, expect } from '@playwright/test';
 
 const email = 'gerencia@inversionesformar.com';
 
+// Espera las descargas redirigidas antes de cerrar el contexto de cada prueba.
+// El portafolio puede seguir cargando imágenes después de la última aserción.
+test.afterEach(async ({ page }) => {
+  await page.unrouteAll({ behavior: 'wait' });
+});
+
 test.beforeEach(async ({ page }) => {
   await page.route('https://fonts.googleapis.com/**', route => route.abort());
   await page.route('https://fonts.gstatic.com/**', route => route.abort());

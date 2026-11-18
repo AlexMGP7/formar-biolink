@@ -42,6 +42,12 @@ async function assertProfile(root) {
   await expect(root.locator('.addr-sub')).toHaveText(fields['contact.location.full'], { useInnerText: true });
 }
 
+// Espera las descargas redirigidas antes de cerrar el contexto de cada prueba.
+// El portafolio puede seguir cargando imágenes después de la última aserción.
+test.afterEach(async ({ page }) => {
+  await page.unrouteAll({ behavior: 'wait' });
+});
+
 test.beforeEach(async ({ page }) => {
   // Keep these browser tests local and independent of production APIs or assets.
   await page.route('https://formar-biolink-admin-api.agonzalezpastena7.workers.dev/**', route => route.abort());

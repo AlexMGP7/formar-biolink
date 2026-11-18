@@ -21,6 +21,12 @@ async function navigate(page, view) {
   await page.locator(`.nav-button[data-view="${view}"]`).click();
 }
 
+// Espera las descargas redirigidas antes de cerrar el contexto de cada prueba.
+// El portafolio puede seguir cargando imágenes después de la última aserción.
+test.afterEach(async ({ page }) => {
+  await page.unrouteAll({ behavior: 'wait' });
+});
+
 test.beforeEach(async ({ page }) => {
   await page.route('https://formar-biolink-admin-api.agonzalezpastena7.workers.dev/**', route => route.abort());
   await page.route('https://fonts.googleapis.com/**', route => route.abort());
