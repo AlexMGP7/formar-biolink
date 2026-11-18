@@ -44,19 +44,19 @@
               "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004068460/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004858513-3.webp",
               "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE 2",
               "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE 2",
-              "order": 3
+              "order": 0
             },
             {
               "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004068460/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004864334-3.webp",
               "title": "2",
               "alt": "2",
-              "order": 3
+              "order": 1
             },
             {
               "src": "servicios/portfolio/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004068460/mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004868111-3.webp",
               "title": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE 23",
               "alt": "MANTENIMIENTO DE PLATAFORMA DE COMBUSTIBLE 23",
-              "order": 3
+              "order": 2
             }
           ]
         },
@@ -79,10 +79,10 @@
               "order": 1
             },
             {
-              "src": "servicios/portfolio/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1795004046060/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1795004244825-1.webp",
-              "title": "MANTENIMIENTO A RED DE HIDRANTES (2)",
-              "alt": "MANTENIMIENTO A RED DE HIDRANTES (2)",
-              "order": 2
+              "src": "servicios/portfolio/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1795004046060/mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1795004974180-3.webp",
+              "title": "MANTENIMIENTO A RED DE HIDRANTES (2)2",
+              "alt": "MANTENIMIENTO A RED DE HIDRANTES (2)2",
+              "order": 3
             }
           ]
         },
