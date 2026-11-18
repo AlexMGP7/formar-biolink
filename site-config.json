@@ -355,7 +355,7 @@
           "id": "estacion-de-bombeo-el-yaque-1795003317418",
           "label": "Estación de Bombeo EL YAQUE",
           "description": "",
-          "showImageTitles": true,
+          "showImageTitles": false,
           "images": [
             {
               "src": "servicios/portfolio/estacion-de-bombeo-el-yaque-1795003317418/estacion-de-bombeo-el-yaque-1795003336225-0.webp",
