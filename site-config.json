@@ -461,6 +461,38 @@
       "name": "Movimientos de Tierra",
       "works": [
         {
+          "id": "complejo-cryptocity-1795034125792",
+          "label": "Complejo CryptoCity",
+          "description": "",
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/complejo-cryptocity-1795034125792/complejo-cryptocity-1795034135473-1.webp",
+              "title": "20260127_083618(1)",
+              "alt": "20260127_083618(1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/complejo-cryptocity-1795034125792/complejo-cryptocity-1795034135222-0.webp",
+              "title": "SING0139.JPG",
+              "alt": "SING0139.JPG",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/complejo-cryptocity-1795034125792/complejo-cryptocity-1795034135737-2.webp",
+              "title": "20260127_083858(1)",
+              "alt": "20260127_083858(1)",
+              "order": 2
+            },
+            {
+              "src": "servicios/portfolio/complejo-cryptocity-1795034125792/complejo-cryptocity-1795034136006-3.webp",
+              "title": "20260127_083751(2)",
+              "alt": "20260127_083751(2)",
+              "order": 3
+            }
+          ]
+        },
+        {
           "id": "boca-de-rio-macanao-1795034037346",
           "label": "Boca de Río - Macanao",
           "description": "",
@@ -485,7 +517,7 @@
               "order": 0
             }
           ],
-          "showImageTitles": true
+          "showImageTitles": false
         }
       ]
     },
