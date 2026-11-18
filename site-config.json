@@ -35,6 +35,67 @@
       "name": "Petróleo y Gas",
       "works": [
         {
+          "id": "mantenimiento-de-la-plataforma-de-combustible-el-guamache-1795004068460",
+          "label": "Mantenimiento de la Plataforma de Combustible El Guamache",
+          "description": "",
+          "showImageTitles": true,
+          "images": []
+        },
+        {
+          "id": "mantenimiento-a-red-de-hidrantes-aeropuerto-internacional-santiago-marino-1795004046060",
+          "label": "Mantenimiento a Red de Hidrantes Aeropuerto Internacional Santiago Mariño",
+          "description": "",
+          "showImageTitles": true,
+          "images": []
+        },
+        {
+          "id": "gasoducto-submarino-de-los-tramos-araya-coche-y-margarita-del-sistema-g-j-jose-francisco-bermudez-1795004008933",
+          "label": "Gasoducto Submarino de los Tramos Araya-Coche y Margarita del Sistema G/J José Francisco Bermudez",
+          "description": "",
+          "showImageTitles": true,
+          "images": []
+        },
+        {
+          "id": "rehabilitacion-de-vias-operacionales-areas-operacionales-del-distrito-gas-anaco-1795003995262",
+          "label": "Rehabilitación de Vías Operacionales - Áreas Operacionales del Distrito Gas Anaco",
+          "description": "",
+          "showImageTitles": true,
+          "images": []
+        },
+        {
+          "id": "gasoducto-16-jose-francisco-bermudez-tramo-coche-margarita-1795003916296",
+          "label": "Gasoducto 16\" José Francisco Bermúdez Tramo Coche - Margarita",
+          "description": "",
+          "showImageTitles": true,
+          "images": []
+        },
+        {
+          "id": "estacion-de-medicion-y-regulacion-gas-metano-la-isleta-1795003849906",
+          "label": "Estación de Medición y Regulación Gas Metano, La Isleta",
+          "description": "",
+          "showImageTitles": false,
+          "images": [
+            {
+              "src": "servicios/portfolio/estacion-de-medicion-y-regulacion-gas-metano-la-isleta-1795003849906/estacion-de-medicion-y-regulacion-gas-metano-la-isleta-1795004097329-1.webp",
+              "title": "MANTENIMIENTO DE ESTACIONES DE GAS (1)",
+              "alt": "MANTENIMIENTO DE ESTACIONES DE GAS (1)",
+              "order": 0
+            },
+            {
+              "src": "servicios/portfolio/estacion-de-medicion-y-regulacion-gas-metano-la-isleta-1795003849906/estacion-de-medicion-y-regulacion-gas-metano-la-isleta-1795004097434-2.webp",
+              "title": "Gemini_Generated_Image_t5ru3nt5ru3nt5ru",
+              "alt": "Gemini_Generated_Image_t5ru3nt5ru3nt5ru",
+              "order": 1
+            },
+            {
+              "src": "servicios/portfolio/estacion-de-medicion-y-regulacion-gas-metano-la-isleta-1795003849906/estacion-de-medicion-y-regulacion-gas-metano-la-isleta-1795004097009-0.webp",
+              "title": "MANTENIMIENTO DE ESTACIONES DE GAS (3)",
+              "alt": "MANTENIMIENTO DE ESTACIONES DE GAS (3)",
+              "order": 2
+            }
+          ]
+        },
+        {
           "label": "Red de Gas Doméstico - Urbanización Villa Rosa",
           "id": "red-de-gas-domestico-red-de-gas-domestico-urbanizacion-villa-rosa",
           "showImageTitles": false,
