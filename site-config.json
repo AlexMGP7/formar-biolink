@@ -442,7 +442,7 @@
               "src": "servicios/portfolio/movimientos-de-tierra-movimiento-de-tierra/movimiento-de-tierra-1795007257426-3.webp",
               "title": "MOVIMIENTO DE TIERRA (1)2",
               "alt": "MOVIMIENTO DE TIERRA (1)2",
-              "order": 3
+              "order": 0
             },
             {
               "src": "servicios/portfolio/movimientos-de-tierra/movimientos-de-tierra-movimiento-de-tierra/02-movimiento-de-tierra-3.jpg",
@@ -544,9 +544,9 @@
               "order": 1
             },
             {
-              "src": "servicios/portfolio/ingenieria-electrica/ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio/03-redes-de-alta-y-baja-tension-3.jpg",
-              "title": "REDES DE ALTA Y BAJA TENSION (3)",
-              "alt": "REDES DE ALTA Y BAJA TENSION (3)",
+              "src": "servicios/portfolio/ingenieria-electrica-redes-de-alta-y-baja-tension-san-antonio/redes-de-alta-y-baja-tension-san-antonio-1795007678389-3.webp",
+              "title": "REDES DE ALTA Y BAJA TENSION (3)3",
+              "alt": "REDES DE ALTA Y BAJA TENSION (3)3",
               "order": 2
             }
           ]
